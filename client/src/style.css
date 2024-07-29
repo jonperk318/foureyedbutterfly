@@ -1,0 +1,110 @@
+.balthazar-regular {
+  font-family: "Balthazar", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.libre-franklin {
+  font-family: "Libre Franklin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+}
+.app .container {
+  width: 1024px;
+}
+.app .container .link {
+  text-decoration: none;
+  color: inherit;
+}
+.app .container .auth {
+  font-family: "Libre Franklin", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FAECDB;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+.app .container .auth h1 {
+  font-family: "Balthazar", serif;
+  font-size: 70px;
+  color: #863527;
+  margin-bottom: 0;
+  align-items: center;
+  justify-content: center;
+}
+.app .container .auth h1, .app .container .auth form {
+  background-color: #F7E1EB;
+  width: 80vh;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 8vh;
+}
+.app .container .auth form input {
+  padding: 20px;
+  border: none;
+  border-bottom: 1px solid #863527;
+  font-size: 30px;
+}
+.app .container .auth form button {
+  padding: 20px;
+  border: none;
+  background-color: #863527;
+  color: white;
+  cursor: pointer;
+  font-size: 30px;
+}
+.app .container .auth form p {
+  font-family: "Balthazar", serif;
+  font-size: 30px;
+  color: #863527;
+  text-align: center;
+}
+.app .container .navbar {
+  font-family: "Libre Franklin", sans-serif;
+}
+.app .container .navbar .container {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app .container .navbar .container .logo img {
+  width: 300px;
+}
+.app .container .navbar .container .links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.app .container .navbar .container .links h6 {
+  font-size: 40px;
+  font-weight: 300;
+}
+.app .container .navbar .container .links span {
+  cursor: pointer;
+}
+.app .container .navbar .container .links .write {
+  background-color: #F7E1EB;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+}
+.app .container .navbar .container .links .write:hover {
+  color: #F7E1EB;
+  background-color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

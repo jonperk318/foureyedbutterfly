@@ -1,0 +1,147 @@
+$tan : #FAECDB;
+$pink : #F7E1EB;
+$brown : #863527;
+$font-size1 : 70px;
+$font-size2 : 50px;
+$font-size3 : 40px;
+$font-size4 : 30px;
+$font-size5 : 20px;
+
+.balthazar-regular {
+  font-family: "Balthazar", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.libre-franklin {
+   font-family: "Libre Franklin", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 100;
+   font-style: normal;
+}
+
+.app{
+
+  display: flex;
+  justify-content: center;
+
+  .container{
+
+    width: 1024px;
+
+    .link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    // LOGIN
+    .auth {
+
+      font-family: "Libre Franklin", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: $tan;
+      min-height: 100vh;
+      min-width: 100vw;
+
+      h1 {
+        font-family: "Balthazar", serif;
+        font-size: $font-size1;
+        color: $brown;
+        margin-bottom: 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1, form {
+        background-color: $pink;
+        width: 80vh;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 8vh;
+      }
+
+      form {
+
+        input {
+          padding: 20px;
+          border: none;
+          border-bottom: 1px solid $brown;
+          font-size: $font-size4;
+        }
+
+        button {
+          padding: 20px;
+          border: none;
+          background-color: $brown;
+          color: white;
+          cursor: pointer;
+          font-size: $font-size4;
+        }
+
+        p {
+          font-family: "Balthazar", serif;
+          font-size: $font-size4;
+          color: $brown;
+          text-align: center;
+        }
+      }
+    }
+
+    // NAVBAR
+
+    .navbar {
+
+      font-family: "Libre Franklin", sans-serif;
+
+      .container {
+
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+          img {
+            width: 300px;
+          }
+        }
+        .links {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+
+          h6 {
+            font-size: $font-size3;
+            font-weight: 300;
+          }
+
+          span {
+            cursor: pointer;
+          }
+
+          .write {
+            background-color: $pink;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 300;
+
+            &:hover {
+              color: $pink;
+              background-color: white;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+}
