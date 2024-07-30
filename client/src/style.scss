@@ -1,6 +1,6 @@
 $tan : #FBECDC;
 $dark-tan : #EDD8C7;
-$pink : #F7E1EB;
+$pink : #FAE7E2;
 $orange : #FA5537;
 $brown : #863527;
 $dark-brown : #362117;
@@ -9,7 +9,7 @@ $font-size1 : 70px;
 $font-size2 : 50px;
 $font-size3 : 40px;
 $font-size4 : 30px;
-$font-size5 : 20px;
+$font-size5 : 18px;
 $title-font: "Balthazar", serif;
 $paragraph-font: "Playfair Display", serif;
 $misc-font: "Libre Franklin", sans-serif;
@@ -150,26 +150,40 @@ $misc-font: "Libre Franklin", sans-serif;
     .navbar {
 
       font-family: $paragraph-font;
+      color: $brown;
+      background-color: $pink;
+      min-width: 100vw;
+      height: 15vh;
 
       .container {
 
-        padding: 10px 0;
+        padding: 0 0;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        background-color: $pink;
+        height: 5vh;
 
-        .logo {
-          img {
-            width: 300px;
-          }
-        }
         .links {
+          background-color: $pink;
           display: flex;
           gap: 20px;
           align-items: center;
+          margin-top: 100px;
+
+          .logo {
+            background-color: $pink;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 21vw;
+            font-size: 0;
+          }
 
           h6 {
-            font-size: $font-size3;
+            color: $brown;
+            background-color: $pink;
+            font-size: $font-size4;
             font-weight: 300;
           }
 
@@ -177,13 +191,31 @@ $misc-font: "Libre Franklin", sans-serif;
             cursor: pointer;
           }
 
-          .write {
-            background-color: $pink;
-            width: 50px;
+          .admin {
+            font-size: $font-size5;
+            width: 70px;
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
+          }
+
+          .link {
+            color: $brown;
+            background-color: $pink;
+            margin: 0;
+            padding: 0;
+            width: 120px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .insta {
+            background-color: $pink;
+            margin: 0;
+            padding: 0;
           }
         }
       }

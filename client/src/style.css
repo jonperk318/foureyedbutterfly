@@ -81,7 +81,7 @@
   justify-content: center;
 }
 .app .container .auth h1, .app .container .auth form {
-  background-color: #F7E1EB;
+  background-color: #FAE7E2;
   width: 40vw;
   gap: 20px;
   display: flex;
@@ -106,7 +106,7 @@
   font-size: 30px;
 }
 .app .container .auth form p {
-  background-color: #F7E1EB;
+  background-color: #FAE7E2;
   font-family: "Playfair Display", serif;
   font-size: 30px;
   color: #863527;
@@ -114,35 +114,66 @@
 }
 .app .container .navbar {
   font-family: "Playfair Display", serif;
+  color: #863527;
+  background-color: #FAE7E2;
+  min-width: 100vw;
+  height: 15vh;
 }
 .app .container .navbar .container {
-  padding: 10px 0;
+  padding: 0 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-.app .container .navbar .container .logo img {
-  width: 300px;
+  justify-content: center;
+  background-color: #FAE7E2;
+  height: 5vh;
 }
 .app .container .navbar .container .links {
+  background-color: #FAE7E2;
   display: flex;
   gap: 20px;
   align-items: center;
+  margin-top: 100px;
+}
+.app .container .navbar .container .links .logo {
+  background-color: #FAE7E2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 21vw;
+  font-size: 0;
 }
 .app .container .navbar .container .links h6 {
-  font-size: 40px;
+  color: #863527;
+  background-color: #FAE7E2;
+  font-size: 30px;
   font-weight: 300;
 }
 .app .container .navbar .container .links span {
   cursor: pointer;
 }
-.app .container .navbar .container .links .write {
-  background-color: #F7E1EB;
-  width: 50px;
+.app .container .navbar .container .links .admin {
+  font-size: 18px;
+  width: 70px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.app .container .navbar .container .links .link {
+  color: #863527;
+  background-color: #FAE7E2;
+  margin: 0;
+  padding: 0;
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app .container .navbar .container .links .insta {
+  background-color: #FAE7E2;
+  margin: 0;
+  padding: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
