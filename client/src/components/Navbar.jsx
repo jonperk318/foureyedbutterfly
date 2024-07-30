@@ -15,14 +15,16 @@ const Navbar = () => {
                     <h6>2024</h6>
                 </Link>
                 <div className="logo">
-                    <img src={Logo} alt="logo"/>
+                    <a href={"./"}>
+                        <img src={Logo} alt="logo"/>
+                    </a>
                 </div>
                 <div className="insta">
                     <FaInstagram/>
                 </div>
                 <span>Logout</span>
                 <span className="write">
-                <Link className="link" to="/write">Write</Link>
+                <Link className="link hvr-underline-from-left" to="/write">Write</Link>
             </span>
             </div>
         </div>
