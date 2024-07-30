@@ -1,23 +1,71 @@
-$tan : #FAECDB;
+$tan : #FBECDC;
+$dark-tan : #EDD8C7;
 $pink : #F7E1EB;
+$orange : #FA5537;
 $brown : #863527;
+$dark-brown : #362117;
+
 $font-size1 : 70px;
 $font-size2 : 50px;
 $font-size3 : 40px;
 $font-size4 : 30px;
 $font-size5 : 20px;
+$title-font: "Balthazar", serif;
+$paragraph-font: "Playfair Display", serif;
+$misc-font: "Libre Franklin", sans-serif;
 
 .balthazar-regular {
   font-family: "Balthazar", serif;
-  font-weight: 100;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
   font-style: normal;
 }
 
 .libre-franklin {
    font-family: "Libre Franklin", sans-serif;
    font-optical-sizing: auto;
-   font-weight: 100;
+   font-weight: 400;
    font-style: normal;
+}
+
+* {
+  background-color: $tan;
+}
+
+/* Underline From Left */
+.hvr-underline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #2098D1;
+  height: 4px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+  right: 0;
 }
 
 .app{
@@ -27,7 +75,7 @@ $font-size5 : 20px;
 
   .container{
 
-    width: 1024px;
+    //width: 1024px;
 
     .link {
       text-decoration: none;
@@ -37,27 +85,29 @@ $font-size5 : 20px;
     // LOGIN
     .auth {
 
-      font-family: "Libre Franklin", sans-serif;
+      font-family: $paragraph-font;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: $tan;
-      min-height: 100vh;
-      min-width: 100vw;
+      margin-top: 30px;
+
+      //-webkit-box-shadow: inset 0 0 40px 20px $dark-tan;
+      box-shadow: 0 0 20px 20px $dark-tan;
 
       h1 {
-        font-family: "Balthazar", serif;
+        font-family: $title-font;
         font-size: $font-size1;
         color: $brown;
         margin-bottom: 0;
+        margin-top: 0;
         align-items: center;
         justify-content: center;
       }
 
       h1, form {
         background-color: $pink;
-        width: 80vh;
+        width: 40vw;
         gap: 20px;
         display: flex;
         flex-direction: column;
@@ -67,6 +117,8 @@ $font-size5 : 20px;
       form {
 
         input {
+          font-family: $misc-font;
+          background-color: white;
           padding: 20px;
           border: none;
           border-bottom: 1px solid $brown;
@@ -74,6 +126,7 @@ $font-size5 : 20px;
         }
 
         button {
+          font-family: $misc-font;
           padding: 20px;
           border: none;
           background-color: $brown;
@@ -83,7 +136,8 @@ $font-size5 : 20px;
         }
 
         p {
-          font-family: "Balthazar", serif;
+          background-color: $pink;
+          font-family: $paragraph-font;
           font-size: $font-size4;
           color: $brown;
           text-align: center;
@@ -95,7 +149,7 @@ $font-size5 : 20px;
 
     .navbar {
 
-      font-family: "Libre Franklin", sans-serif;
+      font-family: $paragraph-font;
 
       .container {
 
@@ -127,21 +181,12 @@ $font-size5 : 20px;
             background-color: $pink;
             width: 50px;
             height: 50px;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 300;
-
-            &:hover {
-              color: $pink;
-              background-color: white;
-            }
           }
         }
       }
     }
-
   }
-
 }
