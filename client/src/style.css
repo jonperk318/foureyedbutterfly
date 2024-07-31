@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Adorn Copperplate";
+  src: url("./fonts/adorn-copperplate.otf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Meno Banner";
+  src: url("./fonts/meno-banner/MenoBanner-Light.otf");
+}
 .balthazar-regular {
   font-family: "Balthazar", serif;
   font-weight: 400;
@@ -19,7 +28,10 @@
 }
 
 body {
-  background-color: #FBECDC;
+  background-color: #FAEBDC;
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
 }
 
 /* Underline From Left */
@@ -40,8 +52,8 @@ body {
   left: 0;
   right: 100%;
   bottom: 0;
-  background: #2098D1;
-  height: 4px;
+  background: #863527;
+  height: 1px;
   -webkit-transition-property: right;
   transition-property: right;
   -webkit-transition-duration: 0.3s;
@@ -63,18 +75,20 @@ body {
   color: inherit;
 }
 .app .container .auth {
-  font-family: "Playfair Display", serif;
+  font-family: "Meno Banner", "Playfair Display", serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
-  box-shadow: 0 0 20px 20px #EDD8C7;
+  margin: 30% 0;
+  box-shadow: 0 0 40px 40px #EDD8C7;
+  width: 100%;
+  height: auto;
 }
 .app .container .auth h1 {
-  font-family: "Balthazar", serif;
-  font-size: 70px;
-  color: #863527;
+  font-family: "Adorn Copperplate", "Balthazer", serif;
+  font-size: 2.4vw;
+  color: #9B2434;
   margin-bottom: 0;
   margin-top: 0;
   align-items: center;
@@ -82,42 +96,43 @@ body {
 }
 .app .container .auth h1, .app .container .auth form {
   background-color: #FAE7E2;
-  width: 40vw;
-  gap: 20px;
+  width: 100%;
+  gap: 4%;
   display: flex;
   flex-direction: column;
-  padding: 8vh;
+  padding: 7%;
 }
 .app .container .auth form input {
   font-family: "Libre Franklin", sans-serif;
+  font-size: 1.8vw;
   background-color: white;
-  padding: 20px;
+  padding: 4%;
   border: none;
-  border-bottom: 1px solid #863527;
-  font-size: 30px;
+  border-bottom: 1px solid #FAE7E2;
 }
 .app .container .auth form button {
   font-family: "Libre Franklin", sans-serif;
-  padding: 20px;
+  padding: 4%;
   border: none;
   background-color: #863527;
   color: white;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 1.8vw;
 }
 .app .container .auth form p {
   background-color: #FAE7E2;
-  font-family: "Playfair Display", serif;
-  font-size: 30px;
+  font-family: "Meno Banner", "Playfair Display", serif;
+  font-size: 1.8vw;
   color: #863527;
   text-align: center;
+  margin-top: 20%;
 }
 .app .container .navbar {
-  font-family: "Playfair Display", serif;
+  font-family: "Meno Banner", "Playfair Display", serif;
   color: #863527;
   background-color: #FAE7E2;
   min-width: 100vw;
-  height: 15vh;
+  height: 10%;
 }
 .app .container .navbar .container {
   padding: 0 0;
@@ -125,7 +140,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #FAE7E2;
-  height: 7vh;
+  height: 7%;
   position: absolute;
   top: 0;
   width: 100%;
@@ -133,31 +148,31 @@ body {
 .app .container .navbar .container .links {
   background-color: #FAE7E2;
   display: flex;
-  gap: 20px;
   align-items: center;
-  margin-top: 100px;
+  padding-top: 7%;
 }
-.app .container .navbar .container .links .logo {
+.app .container .navbar .container .links img {
+  width: 35%;
+  height: auto;
   background-color: #FAE7E2;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 21vw;
+  padding: 0 32%;
   font-size: 0;
 }
 .app .container .navbar .container .links h6 {
+  font-size: 1.8vw;
   color: #863527;
   background-color: #FAE7E2;
-  font-size: 30px;
-  font-weight: 300;
 }
 .app .container .navbar .container .links span {
   cursor: pointer;
 }
 .app .container .navbar .container .links .admin {
-  font-size: 18px;
-  width: 70px;
-  height: 50px;
+  font-size: 1.2vw;
+  width: 7%;
+  height: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,34 +194,59 @@ body {
   padding: 0;
 }
 .app .container .home {
-  height: 100%;
-  background-image: linear-gradient(#EDD8C7 10%, 20%, #FBECDC);
+  background-image: linear-gradient(#EDD8C7 0.5%, 2.5%, #FAEBDC 5%);
 }
 .app .container .home .title-container {
-  font-family: "Balthazar", serif;
-  color: #863527;
-  display: grid;
-  align-items: center;
-  justify-content: left;
-  padding: 400px 100px;
+  color: #9B2434;
+  display: table;
+  padding: 23% 8%;
   float: left;
+  text-align: center;
 }
 .app .container .home .title-container h1 {
-  font-size: 140px;
+  font-family: "Adorn Copperplate", "Balthazer", serif;
+  font-size: 5.2vw;
   margin-bottom: 0;
 }
+.app .container .home .title-container h1 .first-letter {
+  font-size: 1.3em;
+}
 .app .container .home .title-container h2 {
-  font-size: 70px;
+  font-family: "Meno Banner", "Playfair Display", serif;
+  font-size: 2.4vw;
   margin-top: 0;
+  vertical-align: middle;
 }
 .app .container .home .flowers {
   display: flex;
   align-items: center;
   justify-content: right;
-  padding: 125px 95px;
+  padding: 4% 6%;
 }
 .app .container .home .flowers img {
-  width: 820px;
+  width: 120%;
+  height: auto;
+}
+@media (max-width: 800px) {
+  .app .container .navbar {
+    height: 5%;
+  }
+  .app .container .navbar .container .links img {
+    width: 55%;
+  }
+  .app .container .home {
+    background-image: linear-gradient(#EDD8C7 0.5%, 1.5%, #FAEBDC 10%);
+  }
+  .app .container .home .title-container {
+    width: 100%;
+    padding: 0 0;
+  }
+  .app .container .home .title-container h1 {
+    font-size: 10vw;
+  }
+  .app .container .home .flowers img {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
