@@ -1,18 +1,29 @@
-$tan : #FBECDC;
+$tan : #FAEBDC;
 $dark-tan : #EDD8C7;
 $pink : #FAE7E2;
 $orange : #FA5537;
-$brown : #863527;
-$dark-brown : #362117;
+$brown : #9B2434;
+$dark-brown : #863527;
 
-$font-size1 : 140px;
-$font-size2 : 70px;
-$font-size3 : 40px;
-$font-size4 : 30px;
-$font-size5 : 18px;
-$title-font: "Balthazar", serif;
-$paragraph-font: "Playfair Display", serif;
+$font-size1 : 5.2vw;
+$font-size2 : 4vw;
+$font-size3 : 2.4vw;
+$font-size4 : 1.8vw;
+$font-size5 : 1.2vw;
+$title-font: "Adorn Copperplate", "Balthazer", serif;
+$paragraph-font: "Meno Banner", "Playfair Display", serif;
 $misc-font: "Libre Franklin", sans-serif;
+
+@font-face {
+  font-family: "Adorn Copperplate";
+  src: url("./fonts/adorn-copperplate.otf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Meno Banner";
+  src: url("./fonts/meno-banner/MenoBanner-Light.otf");
+}
 
 .balthazar-regular {
   font-family: "Balthazar", serif;
@@ -36,6 +47,9 @@ $misc-font: "Libre Franklin", sans-serif;
 
 body {
   background-color: $tan;
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
 }
 
 /* Underline From Left */
@@ -55,8 +69,8 @@ body {
   left: 0;
   right: 100%;
   bottom: 0;
-  background: #2098D1;
-  height: 4px;
+  background: $dark-brown;
+  height: 1px;
   -webkit-transition-property: right;
   transition-property: right;
   -webkit-transition-duration: 0.3s;
@@ -68,7 +82,7 @@ body {
   right: 0;
 }
 
-.app{
+.app {
 
   display: flex;
   justify-content: center;
@@ -89,13 +103,14 @@ body {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 30px;
-      box-shadow: 0 0 20px 20px $dark-tan;
-
+      margin: 30% 0;
+      box-shadow: 0 0 40px 40px $dark-tan;
+      width: 100%;
+      height: auto;
 
       h1 {
         font-family: $title-font;
-        font-size: $font-size2;
+        font-size: $font-size3;
         color: $brown;
         margin-bottom: 0;
         margin-top: 0;
@@ -105,29 +120,29 @@ body {
 
       h1, form {
         background-color: $pink;
-        width: 40vw;
-        gap: 20px;
+        width: 100%;
+        gap: 4%;
         display: flex;
         flex-direction: column;
-        padding: 8vh;
+        padding: 7%;
       }
 
       form {
 
         input {
           font-family: $misc-font;
-          background-color: white;
-          padding: 20px;
-          border: none;
-          border-bottom: 1px solid $brown;
           font-size: $font-size4;
+          background-color: white;
+          padding: 4%;
+          border: none;
+          border-bottom: 1px solid $pink;
         }
 
         button {
           font-family: $misc-font;
-          padding: 20px;
+          padding: 4%;
           border: none;
-          background-color: $brown;
+          background-color: $dark-brown;
           color: white;
           cursor: pointer;
           font-size: $font-size4;
@@ -137,8 +152,9 @@ body {
           background-color: $pink;
           font-family: $paragraph-font;
           font-size: $font-size4;
-          color: $brown;
+          color: $dark-brown;
           text-align: center;
+          margin-top: 20%;
         }
       }
     }
@@ -148,10 +164,10 @@ body {
     .navbar {
 
       font-family: $paragraph-font;
-      color: $brown;
+      color: $dark-brown;
       background-color: $pink;
       min-width: 100vw;
-      height: 15vh;
+      height: 10%;
 
       .container {
 
@@ -160,7 +176,7 @@ body {
         align-items: center;
         justify-content: center;
         background-color: $pink;
-        height: 7vh;
+        height: 7%;
         position: absolute;
         top: 0;
         width: 100%;
@@ -168,24 +184,25 @@ body {
         .links {
           background-color: $pink;
           display: flex;
-          gap: 20px;
+          //gap: 0;
           align-items: center;
-          margin-top: 100px;
+          padding-top: 7%;
 
-          .logo {
+          img {
+            width: 35%;
+            height: auto;
             background-color: $pink;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 21vw;
+            padding: 0 32%;
             font-size: 0;
           }
 
           h6 {
-            color: $brown;
-            background-color: $pink;
             font-size: $font-size4;
-            font-weight: 300;
+            color: $dark-brown;
+            background-color: $pink;
           }
 
           span {
@@ -194,15 +211,15 @@ body {
 
           .admin {
             font-size: $font-size5;
-            width: 70px;
-            height: 50px;
+            width: 7%;
+            height: 5%;
             display: flex;
             align-items: center;
             justify-content: center;
           }
 
           .link {
-            color: $brown;
+            color: $dark-brown;
             background-color: $pink;
             margin: 0;
             padding: 0;
@@ -226,27 +243,31 @@ body {
 
     .home {
 
-        height: 100%;
-        background-image: linear-gradient($dark-tan 10%, 20%, $tan);
+      background-image: linear-gradient($dark-tan 0.5%, 2.5%, $tan 5%);
 
       .title-container {
 
-        font-family: $title-font;
         color: $brown;
-        display: grid;
-        align-items: center;
-        justify-content: left;
-        padding: 400px 100px;
+        display: table;
+        padding: 23% 8%;
         float: left;
+        text-align: center;
 
         h1 {
+          font-family: $title-font;
           font-size: $font-size1;
           margin-bottom: 0;
+
+          .first-letter {
+            font-size: 1.3em;
+          }
         }
 
         h2 {
-          font-size: $font-size2;
+          font-family: $paragraph-font;
+          font-size: $font-size3;
           margin-top: 0;
+          vertical-align: middle;
         }
 
       }
@@ -256,17 +277,55 @@ body {
         display: flex;
         align-items: center;
         justify-content: right;
-        padding: 125px 95px;
+        padding: 4% 6%;
 
         img {
+          width: 120%;
+          height: auto;
+        }
+      }
+    }
+  }
 
-          width: 820px;
+  @media (max-width: 800px) {
 
+    .container {
+
+      .navbar {
+        height: 5%;
+
+        .container {
+
+          .links {
+
+            img {
+              width: 55%;
+            }
+          }
         }
 
       }
 
-    }
+      .home {
 
+        background-image: linear-gradient($dark-tan 0.5%, 1.5%, $tan 10%);
+
+        .title-container {
+          width: 100%;
+          padding: 0 0;
+
+          h1 {
+            font-size: 10vw;
+          }
+        }
+
+        .flowers {
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 }

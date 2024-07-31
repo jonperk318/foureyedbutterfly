@@ -25,7 +25,7 @@ const Navbar = () => {
                 <span className="admin">
                 <Link className="link hvr-underline-from-left" to="/write">Write</Link>
                 </span>
-                <div className="insta">
+                <div className="insta link">
                     <a href={"https://www.instagram.com/foureyedbutterfly/?next=%2F"}>
                         <FaInstagram size={40} style={{fill: "#863527"}}/>
                     </a>

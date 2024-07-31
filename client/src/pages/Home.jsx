@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="home">
         <div className="title-container">
-            <h1>BASHFUL</h1>
+            <h1><span className="first-letter">B</span>ASHFUL</h1>
             <h2>-ruby m.</h2>
         </div>
         <div className="flowers">
