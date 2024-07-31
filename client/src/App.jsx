@@ -7,7 +7,6 @@ import Login from "./pages/Login.jsx";
 import Write from "./pages/Write.jsx";
 import Single from "./pages/Single.jsx";
 import Navbar from "./components/Navbar.jsx";
-import Footer from "./components/Footer.jsx";
 import "./style.scss"
 
 const Layout = ()=> {
@@ -15,7 +14,6 @@ const Layout = ()=> {
       <>
         <Navbar/>
         <Outlet/>
-        <Footer/>
       </>
   )
 }
