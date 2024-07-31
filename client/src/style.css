@@ -18,7 +18,7 @@
   font-style: normal;
 }
 
-* {
+body {
   background-color: #FBECDC;
 }
 
@@ -125,7 +125,10 @@
   align-items: center;
   justify-content: center;
   background-color: #FAE7E2;
-  height: 5vh;
+  height: 7vh;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .app .container .navbar .container .links {
   background-color: #FAE7E2;
@@ -174,6 +177,36 @@
   background-color: #FAE7E2;
   margin: 0;
   padding: 0;
+}
+.app .container .home {
+  height: 100%;
+  background-image: linear-gradient(#EDD8C7 10%, 20%, #FBECDC);
+}
+.app .container .home .title-container {
+  font-family: "Balthazar", serif;
+  color: #863527;
+  display: grid;
+  align-items: center;
+  justify-content: left;
+  padding: 400px 100px;
+  float: left;
+}
+.app .container .home .title-container h1 {
+  font-size: 140px;
+  margin-bottom: 0;
+}
+.app .container .home .title-container h2 {
+  font-size: 70px;
+  margin-top: 0;
+}
+.app .container .home .flowers {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 125px 95px;
+}
+.app .container .home .flowers img {
+  width: 820px;
 }
 
 /*# sourceMappingURL=style.css.map */

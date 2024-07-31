@@ -5,8 +5,8 @@ $orange : #FA5537;
 $brown : #863527;
 $dark-brown : #362117;
 
-$font-size1 : 70px;
-$font-size2 : 50px;
+$font-size1 : 140px;
+$font-size2 : 70px;
 $font-size3 : 40px;
 $font-size4 : 30px;
 $font-size5 : 18px;
@@ -34,7 +34,7 @@ $misc-font: "Libre Franklin", sans-serif;
    font-style: normal;
 }
 
-* {
+body {
   background-color: $tan;
 }
 
@@ -73,9 +73,7 @@ $misc-font: "Libre Franklin", sans-serif;
   display: flex;
   justify-content: center;
 
-  .container{
-
-    //width: 1024px;
+  .container {
 
     .link {
       text-decoration: none;
@@ -83,6 +81,7 @@ $misc-font: "Libre Franklin", sans-serif;
     }
 
     // LOGIN
+
     .auth {
 
       font-family: $paragraph-font;
@@ -91,13 +90,12 @@ $misc-font: "Libre Franklin", sans-serif;
       align-items: center;
       justify-content: center;
       margin-top: 30px;
-
-      //-webkit-box-shadow: inset 0 0 40px 20px $dark-tan;
       box-shadow: 0 0 20px 20px $dark-tan;
+
 
       h1 {
         font-family: $title-font;
-        font-size: $font-size1;
+        font-size: $font-size2;
         color: $brown;
         margin-bottom: 0;
         margin-top: 0;
@@ -162,7 +160,10 @@ $misc-font: "Libre Franklin", sans-serif;
         align-items: center;
         justify-content: center;
         background-color: $pink;
-        height: 5vh;
+        height: 7vh;
+        position: absolute;
+        top: 0;
+        width: 100%;
 
         .links {
           background-color: $pink;
@@ -220,5 +221,52 @@ $misc-font: "Libre Franklin", sans-serif;
         }
       }
     }
+
+    // HOMEPAGE
+
+    .home {
+
+        height: 100%;
+        background-image: linear-gradient($dark-tan 10%, 20%, $tan);
+
+      .title-container {
+
+        font-family: $title-font;
+        color: $brown;
+        display: grid;
+        align-items: center;
+        justify-content: left;
+        padding: 400px 100px;
+        float: left;
+
+        h1 {
+          font-size: $font-size1;
+          margin-bottom: 0;
+        }
+
+        h2 {
+          font-size: $font-size2;
+          margin-top: 0;
+        }
+
+      }
+
+      .flowers {
+
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        padding: 125px 95px;
+
+        img {
+
+          width: 820px;
+
+        }
+
+      }
+
+    }
+
   }
 }
