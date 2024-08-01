@@ -14,6 +14,9 @@ $title-font: "Adorn Copperplate", "Balthazer", serif;
 $paragraph-font: "Meno Banner", "Playfair Display", serif;
 $misc-font: "Libre Franklin", sans-serif;
 
+$transition-time: 200ms;
+$transition-type: ease-in;
+
 @font-face {
   font-family: "Adorn Copperplate";
   src: url("./fonts/adorn-copperplate.otf");
@@ -80,6 +83,36 @@ body {
 }
 .hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
   right: 0;
+}
+
+@keyframes text-load {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(15%);
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes wipe {
+  0% {
+    opacity: 1;
+    -webkit-mask-position: 100%;
+  }
+
+  70% {
+    -webkit-mask-position: 30%;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-mask-position: 0;
+  }
 }
 
 .app {
@@ -195,7 +228,7 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 32%;
+            padding: 0 38%;
             font-size: 0;
           }
 
@@ -224,7 +257,7 @@ body {
             margin: 0;
             padding: 0;
             width: 120px;
-            height: 80px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -234,6 +267,30 @@ body {
             background-color: $pink;
             margin: 0;
             padding: 0;
+          }
+
+          .link1 {
+            animation: text-load $transition-time $transition-type;
+          }
+          .link2 {
+            animation: text-load $transition-time $transition-type 50ms;
+            animation-fill-mode: forwards;
+            transform: scale(0);
+          }
+          .link3 {
+            animation: text-load $transition-time $transition-type 250ms;
+            animation-fill-mode: forwards;
+            transform: scale(0);
+          }
+          .link4 {
+            animation: text-load $transition-time $transition-type 400ms;
+            animation-fill-mode: forwards;
+            transform: scale(0);
+          }
+          .link5 {
+            animation: text-load $transition-time $transition-type 450ms;
+            animation-fill-mode: forwards;
+            transform: scale(0);
           }
         }
       }
@@ -257,6 +314,7 @@ body {
           font-family: $title-font;
           font-size: $font-size1;
           margin-bottom: 0;
+          animation: text-load $transition-time $transition-type;
 
           .first-letter {
             font-size: 1.3em;
@@ -268,6 +326,7 @@ body {
           font-size: $font-size3;
           margin-top: 0;
           vertical-align: middle;
+          animation: text-load $transition-time $transition-type;
         }
 
       }
@@ -277,7 +336,13 @@ body {
         display: flex;
         align-items: center;
         justify-content: right;
-        padding: 4% 6%;
+        padding: 4% 8%;
+        animation: wipe 1s $transition-type;
+
+        opacity: 0;
+        -webkit-mask-image: linear-gradient(to left, #0000 50%, #000 51%);
+        -webkit-mask-size: 500%;
+        animation-fill-mode: forwards;
 
         img {
           width: 120%;
