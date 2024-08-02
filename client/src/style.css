@@ -34,38 +34,6 @@ body {
   height: 100vh;
 }
 
-/* Underline From Left */
-.hvr-underline-from-left {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  overflow: hidden;
-}
-
-.hvr-underline-from-left:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  right: 100%;
-  bottom: 0;
-  background: #863527;
-  height: 1px;
-  -webkit-transition-property: right;
-  transition-property: right;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
-  right: 0;
-}
-
 @keyframes text-load {
   0% {
     transform: translateY(50%);
@@ -92,6 +60,10 @@ body {
     -webkit-mask-position: 0;
   }
 }
+body {
+  overflow-x: hidden;
+}
+
 .app {
   display: flex;
   justify-content: center;
@@ -110,12 +82,12 @@ body {
   box-shadow: 0 0 40px 40px #EDD8C7;
   width: 100%;
   height: auto;
-  animation: text-load 200ms ease-in;
+  animation: text-load 300ms ease-in;
 }
 .app .container .auth h1 {
   font-family: "Adorn Copperplate", "Balthazer", serif;
   font-size: 2.4vw;
-  color: #9B2434;
+  color: #FA5537;
   margin-bottom: 0;
   margin-top: 0;
   align-items: center;
@@ -150,7 +122,7 @@ body {
   background-color: #FAE7E2;
   font-family: "Meno Banner", "Playfair Display", serif;
   font-size: 1.8vw;
-  color: #863527;
+  color: #FA5537;
   text-align: center;
   margin-top: 20%;
 }
@@ -181,6 +153,27 @@ body {
   align-items: center;
   padding-top: 7%;
 }
+.app .container .navbar .navbar-container .links .hvr-underline-from-left {
+  display: inline-block;
+  position: relative;
+  color: #863527;
+}
+.app .container .navbar .navbar-container .links .hvr-underline-from-left:after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  transform: scaleX(0);
+  height: 1.4px;
+  bottom: -7px;
+  left: 15%;
+  background-color: #863527;
+  transform-origin: bottom right;
+  transition: transform 200ms ease-out;
+}
+.app .container .navbar .navbar-container .links .hvr-underline-from-left:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 .app .container .navbar .navbar-container .links img {
   width: 35%;
   height: auto;
@@ -191,16 +184,18 @@ body {
   padding: 0 38%;
   font-size: 0;
 }
-.app .container .navbar .navbar-container .links h6 {
+.app .container .navbar .navbar-container .links h5 {
   font-size: 1.8vw;
   color: #863527;
-  background-color: #FAE7E2;
+}
+.app .container .navbar .navbar-container .links h6 {
+  font-size: 1.2vw;
+  color: #FA5537;
 }
 .app .container .navbar .navbar-container .links span {
   cursor: pointer;
 }
 .app .container .navbar .navbar-container .links .admin {
-  font-size: 1.2vw;
   width: 7%;
   height: 5%;
   display: flex;
@@ -224,30 +219,31 @@ body {
   padding: 0;
 }
 .app .container .navbar .navbar-container .links .link1 {
-  animation: text-load 200ms ease-in;
+  animation: text-load 300ms ease-in;
 }
 .app .container .navbar .navbar-container .links .link2 {
-  animation: text-load 200ms ease-in 50ms;
-  animation-fill-mode: forwards;
+  animation: text-load 300ms ease-in 50ms;
+  animation-fill-mode: both;
   transform: scale(0);
 }
 .app .container .navbar .navbar-container .links .link3 {
-  animation: text-load 200ms ease-in 250ms;
-  animation-fill-mode: forwards;
+  animation: text-load 300ms ease-in 250ms;
+  animation-fill-mode: both;
   transform: scale(0);
 }
 .app .container .navbar .navbar-container .links .link4 {
-  animation: text-load 200ms ease-in 400ms;
-  animation-fill-mode: forwards;
+  animation: text-load 300ms ease-in 400ms;
+  animation-fill-mode: both;
   transform: scale(0);
 }
 .app .container .navbar .navbar-container .links .link5 {
-  animation: text-load 200ms ease-in 450ms;
-  animation-fill-mode: forwards;
+  animation: text-load 300ms ease-in 450ms;
+  animation-fill-mode: both;
   transform: scale(0);
 }
 .app .container .home {
   background-image: linear-gradient(#EDD8C7 0.5%, 2.5%, #FAEBDC 5%);
+  position: relative;
 }
 .app .container .home .title-container {
   color: #9B2434;
@@ -260,7 +256,7 @@ body {
   font-family: "Adorn Copperplate", "Balthazer", serif;
   font-size: 5.2vw;
   margin-bottom: 0;
-  animation: text-load 200ms ease-in;
+  animation: text-load 300ms ease-in;
 }
 .app .container .home .title-container h1 .first-letter {
   font-size: 1.3em;
@@ -270,7 +266,7 @@ body {
   font-size: 2.4vw;
   margin-top: 0;
   vertical-align: middle;
-  animation: text-load 200ms ease-in;
+  animation: text-load 300ms ease-in;
 }
 .app .container .home .flowers {
   display: flex;
@@ -296,21 +292,46 @@ body {
     color: #863527;
     background-color: #FAE7E2;
     min-width: 100vw;
-    height: 13%;
+    height: 5%;
     display: flex;
+    padding: 8% 8%;
   }
-  .app .container .navbar-mobile .navbar-container {
+  .app .container .navbar-mobile .navbar-container .logo {
     padding: 0 0;
     align-items: center;
     justify-content: center;
-    background-color: #FAE7E2;
     height: 7%;
     position: absolute;
     top: 0;
     width: 100%;
   }
   .app .container .navbar-mobile .navbar-container .logo img {
+    padding: 10% 25%;
+    font-size: 0;
     width: 38%;
+  }
+  .app .container .navbar-mobile .navbar-container-open {
+    padding: 0 0;
+    margin-left: -8%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: #FAE7E2;
+    color: #FA5537;
+    height: 160%;
+    top: 20%;
+    width: 100%;
+    z-index: 1;
+  }
+  .app .container .navbar-mobile .navbar-container-open .links .link {
+    font-size: 5.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0;
+    margin-top: 5%;
+    animation: text-load 300ms ease-in;
   }
   .app .container .home {
     background-image: linear-gradient(#EDD8C7 0.5%, 1.5%, #FAEBDC 10%);
