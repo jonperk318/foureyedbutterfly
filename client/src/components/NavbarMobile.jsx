@@ -4,10 +4,8 @@ import Logo from "../img/logo.png"
 import { FaInstagram } from "react-icons/fa";
 
 //import { useClickAway } from "react-use";
-//import { useRef } from "react";
 import { useState } from "react";
 import { Squash as Hamburger } from "hamburger-react";
-//import { AnimatePresence, motion } from "framer-motion";
 
 const NavbarMobile = () => {
 
@@ -15,35 +13,40 @@ const NavbarMobile = () => {
 
     return (
         <div className="navbar-mobile ">
-            <div className="navbar-container">
-                <Hamburger toggled={isOpen} size={30} toggle={setOpen}/>
-                {isOpen && (
-                    <div className="links">
-                        <Link className="link hvr-underline-from-left link1" to="/?cat=about">
-                            <h6>About</h6>
-                        </Link>
-                        <Link className="link hvr-underline-from-left link2" to="/?cat=2024">
-                            <h6>2024</h6>
-                        </Link>
-                        <span className="admin">
-                            <Link className="link hvr-underline-from-left link4" to="/">Logout</Link>
-                        </span>
-                        <span className="admin">
-                            <Link className="link hvr-underline-from-left link5" to="/write">Write</Link>
-                        </span>
-                        <div className="insta link">
-                            <a href={"https://www.instagram.com/foureyedbutterfly/?next=%2F"}>
-                                <FaInstagram size={40} style={{fill: "#863527"}}/>
-                            </a>
+            <Hamburger onToggle={toggled => {
+                if (toggled) {
+                    return (
+                    <div className="navbar-container-open">
+                        <div className="links">
+                            <div className="logo">
+                                <a href={"./"}>
+                                    <img src={Logo} alt="logo"/>
+                                </a>
+                            </div>
+                            <Link className="link" to="/?cat=about">About</Link>
+                            <Link className="link " to="/?cat=2024">2024</Link>
+                            <Link className="link" to="/">Logout</Link>
+                            <Link className="link" to="/write">Write</Link>
+                            <div className="insta link">
+                                <a href={"https://www.instagram.com/foureyedbutterfly/?next=%2F"}>
+                                    <FaInstagram size={40} style={{fill: "#FA5537"}}/>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                )}
-                <div className="logo link3">
-                    <a href={"./"}>
-                        <img src={Logo} alt="logo"/>
-                    </a>
-                </div>
-            </div>
+                    )
+                } else {
+                    return (
+                        <div className="navbar-container">
+                            <div className="logo">
+                                <a href={"./"}>
+                                    <img src={Logo} alt="logo"/>
+                                </a>
+                            </div>
+                        </div>
+                    )
+                }
+            }} size={30} rounded/>
         </div>
     );
 };

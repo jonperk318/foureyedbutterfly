@@ -7,14 +7,14 @@ import Login from "./pages/Login.jsx";
 import Write from "./pages/Write.jsx";
 import Single from "./pages/Single.jsx";
 import Navbar from "./components/Navbar.jsx";
-import NavbarMobile from "./components/NavbarMobile.jsx";
+import NavbarMobile2 from "./components/NavbarMobile2.jsx";
 import "./style.scss"
 
 const Layout = ()=> {
   return (
       <>
         <Navbar/>
-        <NavbarMobile/>
+        <NavbarMobile2/>
         <Outlet/>
       </>
   )
