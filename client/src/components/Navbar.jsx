@@ -8,7 +8,7 @@ const Navbar = () => {
     <div className="navbar">
         <div className="navbar-container">
             <div className="links">
-                <Link className="link hvr-underline-from-left link1" to="/?cat=about">
+                <Link className="link hvr-underline-from-left link1" to="/about">
                     <h5>About</h5>
                 </Link>
                 <Link className="link hvr-underline-from-left link2" to="/?cat=2024">
@@ -20,12 +20,12 @@ const Navbar = () => {
                     </a>
                 </div>
                 <span className="admin">
-                <Link className="link hvr-underline-from-left link5" to="/write">
+                <Link className="link hvr-underline-from-left-orange link5" to="/write">
                     <h6>Write</h6>
                 </Link>
                 </span>
                 <span className="admin">
-                <Link className="link hvr-underline-from-left link4" to="/">
+                <Link className="link hvr-underline-from-left-orange link4" to="/">
                     <h6>Logout</h6>
                 </Link>
                 </span>

@@ -3,18 +3,19 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
 import Login from "./pages/Login.jsx";
 import Write from "./pages/Write.jsx";
 import Single from "./pages/Single.jsx";
 import Navbar from "./components/Navbar.jsx";
-import NavbarMobile2 from "./components/NavbarMobile2.jsx";
+import NavbarMobile from "./components/NavbarMobile.jsx";
 import "./style.scss"
 
 const Layout = ()=> {
   return (
       <>
         <Navbar/>
-        <NavbarMobile2/>
+        <NavbarMobile/>
         <Outlet/>
       </>
   )
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
+        path: "/about",
+        element: <About/>
+      },
+      {
         path: "/post/:id",
         element: <Single/>
       },
@@ -42,14 +47,6 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login/>,
-  },
-  {
-    path: "/write",
-    element: <Write/>,
-  },
-  {
-    path: "/single",
-    element: <Single/>,
   }
 ]);
 

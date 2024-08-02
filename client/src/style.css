@@ -137,13 +137,11 @@ body {
   height: 10%;
 }
 .app .container .navbar .navbar-container {
-  padding: 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #FAE7E2;
-  height: 7%;
-  position: absolute;
+  height: 12%;
   top: 0;
   width: 100%;
 }
@@ -151,7 +149,7 @@ body {
   background-color: #FAE7E2;
   display: flex;
   align-items: center;
-  padding-top: 7%;
+  padding-top: 10%;
 }
 .app .container .navbar .navbar-container .links .hvr-underline-from-left {
   display: inline-block;
@@ -171,6 +169,27 @@ body {
   transition: transform 200ms ease-out;
 }
 .app .container .navbar .navbar-container .links .hvr-underline-from-left:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.app .container .navbar .navbar-container .links .hvr-underline-from-left-orange {
+  display: inline-block;
+  position: relative;
+  color: #FA5537;
+}
+.app .container .navbar .navbar-container .links .hvr-underline-from-left-orange:after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  transform: scaleX(0);
+  height: 1.4px;
+  bottom: -7px;
+  left: 15%;
+  background-color: #FA5537;
+  transform-origin: bottom right;
+  transition: transform 200ms ease-out;
+}
+.app .container .navbar .navbar-container .links .hvr-underline-from-left-orange:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
@@ -242,8 +261,7 @@ body {
   transform: scale(0);
 }
 .app .container .home {
-  background-image: linear-gradient(#EDD8C7 0.5%, 2.5%, #FAEBDC 5%);
-  position: relative;
+  background-image: linear-gradient(#EDD8C7 30px, 50px, #FAEBDC 100px);
 }
 .app .container .home .title-container {
   color: #9B2434;
@@ -283,6 +301,33 @@ body {
   width: 120%;
   height: auto;
 }
+.app .container .about {
+  background-image: linear-gradient(#EDD8C7 30px, 50px, #FAEBDC 100px);
+}
+.app .container .about .half-moon-bay {
+  color: #9B2434;
+  display: table;
+  padding: 4% 4%;
+  text-align: center;
+  animation: wipe 1s ease-in;
+  opacity: 0;
+  -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 50%, #000 51%);
+  -webkit-mask-size: 500%;
+  animation-fill-mode: forwards;
+}
+.app .container .about .half-moon-bay img {
+  width: 100%;
+  animation: text-load 300ms ease-in;
+}
+.app .container .about .about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+}
+.app .container .about .about-container img {
+  width: 30%;
+}
 @media (max-width: 786px) {
   .app .container .navbar {
     display: none;
@@ -304,6 +349,7 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
+    animation: text-load 300ms ease-in;
   }
   .app .container .navbar-mobile .navbar-container .logo img {
     padding: 10% 25%;
@@ -333,9 +379,6 @@ body {
     margin-top: 5%;
     animation: text-load 300ms ease-in;
   }
-  .app .container .home {
-    background-image: linear-gradient(#EDD8C7 0.5%, 1.5%, #FAEBDC 10%);
-  }
   .app .container .home .title-container {
     width: 100%;
     padding: 0 0;
@@ -348,6 +391,13 @@ body {
   }
   .app .container .home .flowers img {
     width: 100%;
+  }
+  .app .container .about .about-container {
+    flex-direction: column;
+  }
+  .app .container .about .about-container img {
+    width: 92%;
+    padding: 2% 0;
   }
 }
 
