@@ -5,6 +5,8 @@ $orange : #FA5537;
 $brown : #9B2434;
 $dark-brown : #863527;
 
+$background-gradient : linear-gradient($dark-tan 30px, 50px, $tan 100px);
+
 $font-size1 : 5.2vw;
 $font-size2 : 4vw;
 $font-size3 : 2.4vw;
@@ -181,16 +183,16 @@ body {
       background-color: $pink;
       min-width: 100vw;
       height: 10%;
+      //padding-bottom: 2%;
 
       .navbar-container {
 
-        padding: 0 0;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: $pink;
-        height: 7%;
-        position: absolute;
+        height: 12%;
+
         top: 0;
         width: 100%;
 
@@ -199,7 +201,7 @@ body {
           display: flex;
           //gap: 0;
           align-items: center;
-          padding-top: 7%;
+          padding-top: 10%;
 
           // Underline from left
 
@@ -223,6 +225,30 @@ body {
           }
 
           .hvr-underline-from-left:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+          }
+
+          .hvr-underline-from-left-orange {
+            display: inline-block;
+            position: relative;
+            color: $orange;
+          }
+
+          .hvr-underline-from-left-orange:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            transform: scaleX(0);
+            height: 1.4px;
+            bottom: -7px;
+            left: 15%;
+            background-color: $orange;
+            transform-origin: bottom right;
+            transition: transform 200ms ease-out;
+          }
+
+          .hvr-underline-from-left-orange:hover:after {
             transform: scaleX(1);
             transform-origin: bottom left;
           }
@@ -286,7 +312,7 @@ body {
             animation-fill-mode: both;
             transform: scale(0);
           }
-          .link3 {
+          .link3 { // logo
             animation: text-load $transition-time $transition-type 250ms;
             animation-fill-mode: both;
             transform: scale(0);
@@ -309,8 +335,7 @@ body {
 
     .home {
 
-      background-image: linear-gradient($dark-tan 0.5%, 2.5%, $tan 5%);
-      position: relative;
+      background-image: $background-gradient;
 
       .title-container {
 
@@ -360,6 +385,46 @@ body {
         }
       }
     }
+
+    // ABOUT PAGE
+
+    .about {
+
+      background-image: $background-gradient;
+
+      .half-moon-bay {
+
+        color: $brown;
+        display: table;
+        padding: 4% 4%;
+        text-align: center;
+
+        animation: wipe 1s $transition-type;
+
+        opacity: 0;
+        -webkit-mask-image: linear-gradient(to left, #0000 50%, #000 51%);
+        -webkit-mask-size: 500%;
+        animation-fill-mode: forwards;
+
+        img {
+          width: 100%;
+          animation: text-load $transition-time $transition-type;
+        }
+      }
+
+      .about-container {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2%;
+
+        img {
+          width: 30%;
+        }
+      }
+
+    }
   }
 
   @media (max-width: 786px) { // for mobile devices and tablets
@@ -391,6 +456,7 @@ body {
             position: absolute;
             top: 0;
             width: 100%;
+            animation: text-load $transition-time $transition-type;
 
             img {
               padding: 10% 25%;
@@ -437,8 +503,6 @@ body {
 
       .home {
 
-        background-image: linear-gradient($dark-tan 0.5%, 1.5%, $tan 10%);
-
         .title-container {
           width: 100%;
           padding: 0 0;
@@ -456,6 +520,17 @@ body {
 
           img {
             width: 100%;
+          }
+        }
+      }
+
+      .about {
+        .about-container {
+          flex-direction: column;
+
+          img {
+            width: 92%;
+            padding: 2% 0;
           }
         }
       }

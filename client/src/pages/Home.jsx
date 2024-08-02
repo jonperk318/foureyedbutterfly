@@ -9,7 +9,7 @@ const Home = () => {
             <h2>-ruby m.</h2>
         </div>
         <div className="flowers">
-            <img src={Flowers} alt="flowers logo" />
+            <img src={Flowers} alt="Flowers" />
         </div>
     </div>
   )
