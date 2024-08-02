@@ -141,6 +141,8 @@ body {
       width: 100%;
       height: auto;
 
+      animation: text-load $transition-time $transition-type;
+
       h1 {
         font-family: $title-font;
         font-size: $font-size3;
@@ -194,6 +196,10 @@ body {
 
     // NAVBAR
 
+    .navbar-mobile {
+      display: none;
+    }
+
     .navbar {
 
       font-family: $paragraph-font;
@@ -202,7 +208,7 @@ body {
       min-width: 100vw;
       height: 10%;
 
-      .container {
+      .navbar-container {
 
         padding: 0 0;
         display: flex;
@@ -352,20 +358,44 @@ body {
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 786px) { // for mobile devices and tablets
 
     .container {
 
       .navbar {
-        height: 5%;
+        display: none;
+      }
 
-        .container {
+      .navbar-mobile {
+
+        font-family: $paragraph-font;
+        color: $dark-brown;
+        background-color: $pink;
+        min-width: 100vw;
+        height: 13%;
+        display: flex;
+
+        .navbar-container {
+
+          padding: 0 0;
+          align-items: center;
+          justify-content: center;
+          background-color: $pink;
+          height: 7%;
+          position: absolute;
+          top: 0;
+          width: 100%;
 
           .links {
+            
+          }
+
+          .logo {
 
             img {
-              width: 55%;
+              width: 38%;
             }
+
           }
         }
 
@@ -380,7 +410,11 @@ body {
           padding: 0 0;
 
           h1 {
-            font-size: 10vw;
+            font-size: 4em;
+          }
+
+          h2 {
+            font-size: $font-size2;
           }
         }
 

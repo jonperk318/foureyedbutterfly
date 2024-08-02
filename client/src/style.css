@@ -110,6 +110,7 @@ body {
   box-shadow: 0 0 40px 40px #EDD8C7;
   width: 100%;
   height: auto;
+  animation: text-load 200ms ease-in;
 }
 .app .container .auth h1 {
   font-family: "Adorn Copperplate", "Balthazer", serif;
@@ -153,6 +154,9 @@ body {
   text-align: center;
   margin-top: 20%;
 }
+.app .container .navbar-mobile {
+  display: none;
+}
 .app .container .navbar {
   font-family: "Meno Banner", "Playfair Display", serif;
   color: #863527;
@@ -160,7 +164,7 @@ body {
   min-width: 100vw;
   height: 10%;
 }
-.app .container .navbar .container {
+.app .container .navbar .navbar-container {
   padding: 0 0;
   display: flex;
   align-items: center;
@@ -171,13 +175,13 @@ body {
   top: 0;
   width: 100%;
 }
-.app .container .navbar .container .links {
+.app .container .navbar .navbar-container .links {
   background-color: #FAE7E2;
   display: flex;
   align-items: center;
   padding-top: 7%;
 }
-.app .container .navbar .container .links img {
+.app .container .navbar .navbar-container .links img {
   width: 35%;
   height: auto;
   background-color: #FAE7E2;
@@ -187,15 +191,15 @@ body {
   padding: 0 38%;
   font-size: 0;
 }
-.app .container .navbar .container .links h6 {
+.app .container .navbar .navbar-container .links h6 {
   font-size: 1.8vw;
   color: #863527;
   background-color: #FAE7E2;
 }
-.app .container .navbar .container .links span {
+.app .container .navbar .navbar-container .links span {
   cursor: pointer;
 }
-.app .container .navbar .container .links .admin {
+.app .container .navbar .navbar-container .links .admin {
   font-size: 1.2vw;
   width: 7%;
   height: 5%;
@@ -203,7 +207,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-.app .container .navbar .container .links .link {
+.app .container .navbar .navbar-container .links .link {
   color: #863527;
   background-color: #FAE7E2;
   margin: 0;
@@ -214,30 +218,30 @@ body {
   align-items: center;
   justify-content: center;
 }
-.app .container .navbar .container .links .insta {
+.app .container .navbar .navbar-container .links .insta {
   background-color: #FAE7E2;
   margin: 0;
   padding: 0;
 }
-.app .container .navbar .container .links .link1 {
+.app .container .navbar .navbar-container .links .link1 {
   animation: text-load 200ms ease-in;
 }
-.app .container .navbar .container .links .link2 {
+.app .container .navbar .navbar-container .links .link2 {
   animation: text-load 200ms ease-in 50ms;
   animation-fill-mode: forwards;
   transform: scale(0);
 }
-.app .container .navbar .container .links .link3 {
+.app .container .navbar .navbar-container .links .link3 {
   animation: text-load 200ms ease-in 250ms;
   animation-fill-mode: forwards;
   transform: scale(0);
 }
-.app .container .navbar .container .links .link4 {
+.app .container .navbar .navbar-container .links .link4 {
   animation: text-load 200ms ease-in 400ms;
   animation-fill-mode: forwards;
   transform: scale(0);
 }
-.app .container .navbar .container .links .link5 {
+.app .container .navbar .navbar-container .links .link5 {
   animation: text-load 200ms ease-in 450ms;
   animation-fill-mode: forwards;
   transform: scale(0);
@@ -283,12 +287,30 @@ body {
   width: 120%;
   height: auto;
 }
-@media (max-width: 800px) {
+@media (max-width: 786px) {
   .app .container .navbar {
-    height: 5%;
+    display: none;
   }
-  .app .container .navbar .container .links img {
-    width: 55%;
+  .app .container .navbar-mobile {
+    font-family: "Meno Banner", "Playfair Display", serif;
+    color: #863527;
+    background-color: #FAE7E2;
+    min-width: 100vw;
+    height: 13%;
+    display: flex;
+  }
+  .app .container .navbar-mobile .navbar-container {
+    padding: 0 0;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAE7E2;
+    height: 7%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .app .container .navbar-mobile .navbar-container .logo img {
+    width: 38%;
   }
   .app .container .home {
     background-image: linear-gradient(#EDD8C7 0.5%, 1.5%, #FAEBDC 10%);
@@ -298,7 +320,10 @@ body {
     padding: 0 0;
   }
   .app .container .home .title-container h1 {
-    font-size: 10vw;
+    font-size: 4em;
+  }
+  .app .container .home .title-container h2 {
+    font-size: 4vw;
   }
   .app .container .home .flowers img {
     width: 100%;
