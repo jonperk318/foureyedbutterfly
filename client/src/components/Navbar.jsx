@@ -6,7 +6,7 @@ import { FaInstagram } from "react-icons/fa";
 const Navbar = () => {
   return (
     <div className="navbar">
-        <div className="container">
+        <div className="navbar-container">
             <div className="links">
                 <Link className="link hvr-underline-from-left link1" to="/?cat=about">
                     <h6>About</h6>
