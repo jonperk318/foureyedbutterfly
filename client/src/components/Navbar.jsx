@@ -11,7 +11,7 @@ const Navbar = () => {
                 <Link className="link hvr-underline-from-left link1" to="/about">
                     <h5>About</h5>
                 </Link>
-                <Link className="link hvr-underline-from-left link2" to="/?cat=2024">
+                <Link className="link hvr-underline-from-left link2" to="/2024">
                     <h5>2024</h5>
                 </Link>
                 <div className="logo link3">
