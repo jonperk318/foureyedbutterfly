@@ -376,6 +376,53 @@ body {
   color: #FA5537;
   animation: text-load 300ms ease-in;
 }
+.app .container .single {
+  display: flex;
+}
+.app .container .single .post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 40px;
+  margin: 0 10%;
+}
+.app .container .single .post .title h1 {
+  font-family: "Adorn Copperplate", "Balthazer", serif;
+  font-size: 5.2vw;
+  color: #863527;
+  animation: text-load 300ms ease-in;
+}
+.app .container .single .post .image img {
+  width: 100%;
+  animation: wipe 1s ease-in;
+  opacity: 0;
+  -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 50%, #000 51%);
+  -webkit-mask-size: 500%;
+  animation-fill-mode: forwards;
+}
+.app .container .single .post .content p {
+  font-family: "Meno Banner", "Playfair Display", serif;
+  font-size: 1.8vw;
+  color: #863527;
+  white-space: pre-line;
+  animation: text-load 300ms ease-in;
+}
+.app .container .single .post .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150%;
+  color: #FA5537;
+  animation: text-load 300ms ease-in;
+}
+.app .container .single .post .bottom .edit {
+  margin-bottom: 100px;
+}
+.app .container .single .post .bottom .link {
+  text-decoration: none;
+}
 @media (max-width: 786px) {
   .app .container .navbar {
     display: none;
