@@ -6,6 +6,7 @@ import IMG2a from "../img/carlowe.jpg";
 import {Link} from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
 
+/*
 const Posts = [
   {
     id: 2,
@@ -19,8 +20,10 @@ const Posts = [
   }
 ]
 
-/*
-* ,
+ */
+
+
+const Posts = [
   {
     id: 1,
     title: "Enjoying the Mundane",
@@ -33,7 +36,9 @@ const Posts = [
         "Of course there has to be some consistency in life, or else you’ll fall off the edge. And then of course, some people like that falling feeling. I am not one of those people either. ",
     img2: IMG2a
   }
-* */
+  ]
+
+
 
 const Single = () => {
   return (
@@ -53,16 +58,16 @@ const Single = () => {
               <img src={post.img2} alt="Second Image"/>
             </div>
             <div className="bottom">
-              <Link className="link" to={`/post/${post.id - 1}`}>
-                <h2>PREVIOUS</h2>
+              <Link className="hvr-underline-from-left" to={`/post/${post.id - 1}`}>
+                <h2>Previous</h2>
               </Link>
               <div className="edit">
                 <Link to={`/write?edit=${post.id}`}>
-                  <FaRegEdit style={{color: "#FA5537", fontSize: "40px"}}/>
+                  <FaRegEdit style={{color: "white", fontSize: "40px"}}/>
                 </Link>
               </div>
-              <Link className="link" to={`/post/${post.id + 1}`}>
-                <h2>NEXT</h2>
+              <Link className="hvr-underline-from-left" to={`/post/${post.id + 1}`}>
+                <h2>Next</h2>
               </Link>
             </div>
           </div>

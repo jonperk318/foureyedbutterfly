@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bae37ba7-c8da-44ad-95b9-956c8df0932b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/img/soo.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Posts2024.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Posts2024.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Login.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/Single.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Single.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Write.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Write.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/style.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +33,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -55,7 +63,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "watcher.settings",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -82,7 +90,7 @@
       <updated>1722005937233</updated>
       <workItem from="1722005938321" duration="4171000" />
       <workItem from="1722031643976" duration="3198000" />
-      <workItem from="1722274040330" duration="122298000" />
+      <workItem from="1722274040330" duration="139698000" />
     </task>
     <servers />
   </component>
