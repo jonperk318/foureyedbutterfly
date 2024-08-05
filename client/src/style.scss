@@ -270,7 +270,7 @@ body {
       }
     }
 
-    // LOGIN
+    // LOGIN (and register)
 
     .auth {
 
@@ -280,7 +280,7 @@ body {
       align-items: center;
       justify-content: center;
 
-      .login-container {
+      .auth-container {
 
         display: flex;
         flex-direction: column;
@@ -289,8 +289,8 @@ body {
         border: 20px solid white;
         border-radius: 20px;
         width: 500px;
-        height: 400px;
-        margin-top: 100px;
+        height: 500px;
+        margin-top: 50px;
 
         animation: text-load $transition-time $transition-type;
 
@@ -298,7 +298,7 @@ body {
           font-family: $paragraph-font;
           font-size: $font-size3;
           color: $dark-brown;
-          margin-bottom: 40px;
+          margin-bottom: 20px;
           margin-top: 0;
           align-items: center;
           justify-content: center;
@@ -315,7 +315,7 @@ body {
           input {
             font-family: $paragraph-font;
             font-size: $font-size5;
-            padding: 20px;
+            padding: 15px;
             margin: 0 20px;
             border: 5px dotted $pink;
             border-radius: 20px;
@@ -345,8 +345,38 @@ body {
             color: $orange;
             text-align: center;
             margin-top: -5px;
+
+            .hvr-underline-from-left {
+              display: inline-block;
+              position: relative;
+              color: $dark-brown;
+              text-decoration: none;
+              margin-left: 15px;
+            }
+  
+            .hvr-underline-from-left:after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              transform: scaleX(0);
+              height: 1.4px;
+              bottom: -7px;
+              left: 0;
+              background-color: $dark-brown;
+              transform-origin: bottom right;
+              transition: transform 200ms ease-out;
+            }
+  
+            .hvr-underline-from-left:hover:after {
+              transform: scaleX(1);
+              transform-origin: bottom left;
+            }
           }
         }
+      }
+
+      .login-container { // login has different size
+        height: 350px;
       }
     }
 
@@ -667,7 +697,7 @@ body {
           }
 
           .editor-container {
-            height: 225px;
+            height: 250px;
             overflow-y: scroll;
             border: 5px solid $pink;
             border-radius: 20px;
