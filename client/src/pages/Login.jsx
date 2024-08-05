@@ -3,11 +3,11 @@ import React from 'react'
 const Login = () => {
   return (
     <div className="auth">
-        <div className="login-container">
+        <div className="auth-container login-container">
           <h1>Welcome, Ruby.</h1>
           <form>
-            <input type="text" placeholder="username" />
-            <input type="password" placeholder="password" />
+            <input required type="text" placeholder="username" />
+            <input required type="password" placeholder="password" />
             <button>Login</button>
               <p>Sorry, wrong username and/or password</p>
           </form>
