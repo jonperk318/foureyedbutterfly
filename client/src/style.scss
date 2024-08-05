@@ -13,6 +13,7 @@ $font-size2 : 50px;
 $font-size3 : 35px;
 $font-size4 : 26px;
 $font-size5 : 18px;
+$font-size6 : 12px;
 $title-font: "Adorn Copperplate", "Balthazer", serif;
 $paragraph-font: "Meno Banner", "Playfair Display", serif;
 $misc-font: "Libre Franklin", sans-serif;
@@ -602,11 +603,43 @@ body {
 
       background-image: $background-gradient;
       gap: 20px;
+      font-family: $paragraph-font;
+      color: $dark-brown;
 
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
+      flex-direction: row;
+
+      .upload-container {
+        background-color: white;
+        border: 20px solid white;
+        border-radius: 20px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 50px;
+        flex: 1;
+
+        animation: text-load $transition-time $transition-type;
+
+        h1 {
+          flex: 1;
+        }
+
+        .uploads {
+          flex: 5;
+          width: 100%;
+          font-size: $font-size5;
+          border: 5px dotted $pink;
+          border-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
 
       .write-container {
         background-color: white;
@@ -615,6 +648,9 @@ body {
         width: 800px;
         height: 450px;
         margin-top: 50px;
+        margin-bottom: 50px;
+        margin-right: 50px;
+        flex: 5;
 
         animation: text-load $transition-time $transition-type;
 
@@ -622,7 +658,7 @@ body {
           flex: 5;
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 10px;
 
           input {
             padding: 10px;
@@ -645,15 +681,83 @@ body {
 
         .menu {
 
-          flex: 2;
+          font-size: $font-size5;
+          border: 5px dotted $pink;
+          border-radius: 20px;
+          gap: 10px;
+          margin-top: 10px;
+          padding: 10px;
           display: flex;
-          flex-direction: column;
-          gap: 20px;
-          margin-top: 20px;
+          flex-direction: row;
+          justify-content: space-between;
 
-          .item {
-            border: 5px dotted $pink;
-            border-radius: 20px;
+          h1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .spans {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+          }
+
+          label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .upload-buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            gap: 10px;
+
+            label {
+              padding: 5px;
+              margin: 0 20px;
+              border: 5px solid $pink;
+              background-color: $pink;
+              border-radius: 20px;
+              color: $dark-brown;
+              cursor: pointer;
+              font-size: $font-size5;
+            }
+
+            label:hover {
+              background-color: $orange;
+              color: white;
+              border-color: $orange;
+            }
+          }
+
+          .save-buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+
+            button {
+              padding: 5px;
+              margin: 0 20px;
+              border: 5px solid $pink;
+              background-color: $pink;
+              border-radius: 20px;
+              color: $dark-brown;
+              cursor: pointer;
+              font-size: $font-size5;
+              font-family: $paragraph-font;
+            }
+
+            button:hover {
+              background-color: $dark-brown;
+              color: white;
+              border-color: $dark-brown;
+            }
           }
         }
       }
@@ -662,6 +766,7 @@ body {
 
   }
 
+  //////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////
 
   @media (max-width: 786px) { // for mobile devices and tablets
@@ -749,7 +854,7 @@ body {
           }
 
           h2 {
-            font-size: $font-size2;
+            font-size: $font-size5;
           }
         }
 
@@ -792,6 +897,50 @@ body {
             }
           }
         }
+      }
+      
+      .write-post {
+
+        flex-direction: column;
+
+        .upload-container {
+          width: 400px;
+          padding: 0;
+          margin: 0;
+          margin-top: 40px;
+        }
+
+        .write-container {
+
+          width: 400px;
+          padding: 0;
+          margin: 0;
+
+          .menu {
+            font-size: $font-size6;
+
+            h1 {
+              font-size: $font-size5;
+              margin: 0 30px;
+            }
+
+            .upload-buttons {
+
+              label {
+                font-size: $font-size6;
+              }
+            }
+
+            .save-buttons {
+              gap: 5px;
+
+              button {
+                font-size: $font-size6;
+              }
+            }
+          }
+        }
+
       }
     }
   }
