@@ -6,9 +6,9 @@ import postRoutes from './routes/posts.js';
 const app = express();
 
 app.use(express.json());
-app.use("/api/auth.js", authRoutes);
-app.use("/api/users.js", userRoutes);
-app.use("/api/posts", postRoutes);
+app.use("/routes/auth", authRoutes);
+app.use("/routes/users", userRoutes);
+app.use("/routes/posts", postRoutes);
 
 app.use(express.json());
 

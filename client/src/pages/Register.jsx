@@ -17,10 +17,12 @@ const Register = () => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  console.log(inputs)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/auth/register", inputs);
+      await axios.post("/register", inputs);
       navigate("/login");
     } catch (err) {
       setError(err.response.data);
@@ -35,7 +37,7 @@ const Register = () => {
                 <input required type="text" placeholder="username" name="username" onChange={handleChange} />
                 <input required type="email" placeholder="email" name="email" onChange={handleChange} />
                 <input required type="password" placeholder="password" name="password" onChange={handleChange} />
-                <input required type="password" placeholder="admin password" name="admin-password" onChange={handleChange} />
+                <input type="password" placeholder="admin password" name="admin-password" onChange={handleChange} />
                 <button onClick={handleSubmit}>Register</button>
                 {err && <p>{err}</p>}
                 <p>Do you have an account? <Link className="hvr-underline-from-left" to="/login">Login</Link></p>
