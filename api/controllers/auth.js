@@ -1,14 +1,14 @@
 import {db} from "../db.js";
 import bcrypt from "bcryptjs";
 
-export const register = (req, res) => { // NOT USED
+export const register = (req, res) => {
 
     // CHECK EXISTING USER
     const q = "SELECT * FROM users WHERE email = ? OR username = ?";
 
-    db.query(q, [req.body.email, req.body.name], (err, data) => {
-        if (err) return res.json(err);
-        if (data.length) return res.status(400).json("User already exists");
+    db.query(q, [req.body.email, req.body.username], (err, data) => {
+        if (err) return res.status(500).json(err);
+        if (data.length) return res.status(409).json("User already exists");
 
         // Hash the password and create a user
 
@@ -23,8 +23,8 @@ export const register = (req, res) => { // NOT USED
         ]
 
         db.query(q, [values], (err, data) => {
-            if (err) return res.json(err);
-            return res.status(200).json("User has been created successfully");
+            if (err) return res.status(500).json(err);
+            return res.status(200).json("User created successfully");
         })
     })
 
