@@ -289,7 +289,7 @@ body {
         border: 20px solid white;
         border-radius: 20px;
         width: 500px;
-        height: 500px;
+        height: 550px;
         margin-top: 50px;
 
         animation: text-load $transition-time $transition-type;
@@ -344,7 +344,7 @@ body {
             font-size: $font-size4;
             color: $orange;
             text-align: center;
-            margin-top: -5px;
+            margin: 0 -5px;
 
             .hvr-underline-from-left {
               display: inline-block;
@@ -377,6 +377,12 @@ body {
 
       .login-container { // login has different size
         height: 350px;
+
+        form {
+          p {
+            margin-top: -30px;
+          }
+        }
       }
     }
 
@@ -842,7 +848,6 @@ body {
         .navbar-container-open {
 
           padding: 0 0;
-          margin-left: -8%;
           display: block;
           align-items: center;
           justify-content: center;
@@ -851,8 +856,9 @@ body {
           color: $orange;
           height: 120%;
           top: 100px;
-          width: 100%;
+          width: 1000px;
           z-index: 1;
+          margin-left: -250px;
 
           .links {
 
