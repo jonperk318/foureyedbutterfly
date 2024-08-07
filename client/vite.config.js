@@ -6,5 +6,14 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     exclude: ['js-big-decimal']
-  }
+  },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:8800/",
+        changeOrigin: true,
+        secure: false
+      },
+    },
+  },
 })
