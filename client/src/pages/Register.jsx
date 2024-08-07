@@ -1,9 +1,8 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const errorUtils = {
+export const errorUtils = {
   getError: (error) => {
     let e = error;
     if (error.response) {
@@ -35,8 +34,6 @@ const Register = () => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  console.log(inputs)
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -58,7 +55,7 @@ const Register = () => {
                 <input required type="password" placeholder="password" name="password" onChange={handleChange} />
                 <input required type="password" placeholder="admin password" name="admin_password" onChange={handleChange} />
                 <button onClick={handleSubmit}>Register</button>
-                {JSON.stringify(err) && <p>{JSON.stringify(err)}</p>}
+                {err && <p>{JSON.stringify(err)}</p>}
                 <p>Do you have an account? <Link className="hvr-underline-from-left" to="/login">Login</Link></p>
             </form>
         </div>

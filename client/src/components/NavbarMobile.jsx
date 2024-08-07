@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
+import { AuthContext } from '../context/authContext.jsx';
 import Logo from "../img/logo.png"
 import { FaInstagram } from "react-icons/fa";
 
@@ -10,6 +11,7 @@ import { Squash as Hamburger } from "hamburger-react";
 const NavbarMobile = () => {
 
     const [isOpen, setOpen] = useState(false);
+    const {currentUser, logout} = useContext(AuthContext);
 
     return (
         <div className="navbar-mobile ">
@@ -27,7 +29,8 @@ const NavbarMobile = () => {
                         <Link className="link" to="/?cat=about">About</Link>
                         <Link className="link " to="/?cat=2024">2024</Link>
                         <Link className="link" to="/write">Write</Link>
-                        <Link className="link" to="/">Logout</Link>
+                        {currentUser ? (<Link className="link" to="/" onClick={logout}>Logout</Link> 
+                        ) : ( <Link className="link" to="/login">Login</Link> )}
                         <div className="insta link">
                             <a href={"https://www.instagram.com/foureyedbutterfly/?next=%2F"}>
                                 <FaInstagram size={40} style={{fill: "#FA5537"}}/>
