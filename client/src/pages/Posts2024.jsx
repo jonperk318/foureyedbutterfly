@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from 'react-router-dom'
 import IMG1 from "../img/all-the-worlds-a-stage.jpg"
 import IMG2 from "../img/enjoying-the-mundane.jpg"
 import IMG1a from "../img/soo.jpg"
 import IMG2a from "../img/carlowe.jpg"
+import { useEffect } from "react";
+import axios from "axios";
 
+/*
 const Posts = [
     {
         id: 2,
@@ -29,12 +32,27 @@ const Posts = [
         endImg: IMG2a
     }
 ]
+*/
 
 const Posts2024 = () => {
 
+    const [Posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async() => {
+            try {
+                const res = await axios.get("/api/posts");
+                setPosts(res.data);
+            } catch(err) {
+                console.log(err);
+            }
+        };
+        fetchData();
+    });
+
     return (
         <div className="posts">
-            {Posts.map(post=>(
+            {Posts.map(post => (
                 <div className="post" key={post.id}>
                     <div className="image">
                         <Link className="link" to={`/post/${post.id}`}>
@@ -44,7 +62,7 @@ const Posts2024 = () => {
                     <div className="content">
                         <Link className="link" to={`/post/${post.id}`}>
                             <h1>{post.title}</h1>
-                            <p>{post.date}</p>
+                            <p>{(new Intl.DateTimeFormat('en-US').format(new Date(post.date)))}</p>
                         </Link>
                     </div>
                 </div>
