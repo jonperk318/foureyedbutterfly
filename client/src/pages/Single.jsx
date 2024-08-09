@@ -5,40 +5,9 @@ import { IconContext } from "react-icons";
 import { AuthContext } from "../context/authContext.jsx";
 import axios from 'axios';
 
-/*
-const Posts = [
-  {
-    id: 2,
-    title: "All the World's a Stage",
-    date: "2/11/24",
-    img: IMG1,
-    content: "Offline by Alex Kozobolis\n" +
-        "\n" +
-        "I think ambition can be something of an impacted tooth. It grows with small movements underneath the disguise of having more time and then suddenly, without your expectation, you are under amnesia soon to be washing blood and throw-up out of your gum holes.",
-    img2: IMG1a
-  }
-]
-
-const Posts = [
-  {
-    id: 1,
-    title: "Enjoying the Mundane",
-    date: "2/9/24",
-    img: IMG2,
-    content: "The Secret Life Of Daydreams by Dario Marianelli \n" +
-        "\n" +
-        "I’m not a creature of habit and if you say you are, I envy you. \n" +
-        "\n" +
-        "Of course there has to be some consistency in life, or else you’ll fall off the edge. And then of course, some people like that falling feeling. I am not one of those people either. ",
-    img2: IMG2a
-  }
-  ]
-
-  */
-
-
 const Single = () => {
 
+  const [prevPost, setPrevPost] = useState({});
   const [post, setPost] = useState({});
   const [nextPost, setNextPost] = useState({});
   const location = useLocation();
@@ -48,18 +17,32 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async() => {
         try {
-            const [res, nextRes] = await Promise.all([
-              axios.get(`/api/posts/${postID}`), 
-              axios.get(`/api/posts/${postID + 1}`)
-            ]);
+          /*
+          const [prevRes, res, nextRes] = await Promise.allSettled([
+            axios.get(`/api/posts/${postID - 1}`),
+            axios.get(`/api/posts/${postID}`), 
+            axios.get(`/api/posts/${postID + 1}`)
+          ]);
+          setPrevPost(prevRes.data);
+          setPost(res.data);
+          setNextPost(nextRes.data);
+          */
+          axios.all([
+            axios.get(`/api/posts/${(parseInt(postID) - 1).toString()}`), 
+            axios.get(`/api/posts/${postID}`), 
+            axios.get(`/api/posts/${(parseInt(postID) + 1).toString()}`)
+          ])
+          .then(axios.spread((prevRes, res, nextRes) => {
+            setPrevPost(prevRes.data);
             setPost(res.data);
             setNextPost(nextRes.data);
+          }));
         } catch(err) {
-            console.log(err);
+          console.log(err);
         }
     };
     fetchData();
-}, [postID]);
+  }, [postID]);
 
   return (
     <div className="single">
@@ -99,9 +82,9 @@ const Single = () => {
         </div>
         )}
         <div className="bottom">
-          {post.id - 1 !== 0 && ( // check if previous post exists
+          {post.id > 1 && ( // check if previous post exists
           <Link className="hvr-underline-from-left" to={`/post/${post.id - 1}`}>
-            <h2>Previous</h2>
+            <h2>{prevPost.title}</h2>
           </Link>
           )}
           {currentUser.id === post.uid && (
@@ -113,9 +96,9 @@ const Single = () => {
             </Link>
           </div>
           )}
-          {nextPost && ( // check if next post exists
+          {nextPost !== null && ( // check if next post exists
           <Link className="hvr-underline-from-left" to={`/post/${nextPost.id}`}>
-            <h2>Next</h2>
+            <h2>{nextPost.title}</h2>
           </Link>
           )}
         </div>

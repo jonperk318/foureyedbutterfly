@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import { AuthContext } from '../context/authContext.jsx';
 import Logo from "../img/logo.png"
 import { FaInstagram } from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 const Navbar = () => {
 
@@ -35,9 +36,11 @@ const Navbar = () => {
                     </Link>
                     </span>
                     <div className="insta link">
-                        <a href={"https://www.instagram.com/foureyedbutterfly/?next=%2F"}>
-                            <FaInstagram size={40} style={{fill: "#863527"}}/>
-                        </a>
+                        <IconContext.Provider value={{className: "icon"}}>
+                            <a href={"https://www.instagram.com/foureyedbutterfly/?next=%2F"}>
+                                <FaInstagram size={40} style={{fill: "#863527"}}/>
+                            </a>
+                        </IconContext.Provider>
                     </div>
                 </div>
             </div>

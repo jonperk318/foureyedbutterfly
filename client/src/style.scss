@@ -76,16 +76,16 @@ body {
 @keyframes wipe {
   0% {
     opacity: 1;
-    -webkit-mask-position: 100%;
+    -mask-position: 100%;
   }
 
   70% {
-    -webkit-mask-position: 30%;
+    -mask-position: 30%;
   }
 
   100% {
     opacity: 1;
-    -webkit-mask-position: 0;
+    -mask-position: 0;
   }
 }
 
@@ -241,6 +241,10 @@ body {
             background-color: $pink;
             margin: 0;
             padding: 0;
+
+            .icon:hover {
+              transform: scale(1.2);
+            }
           }
 
           .link1 {
@@ -430,8 +434,8 @@ body {
         animation: wipe 1s $transition-type;
 
         opacity: 0;
-        -webkit-mask-image: linear-gradient(to left, #0000 50%, #000 51%);
-        -webkit-mask-size: 500%;
+        -mask-image: linear-gradient(to left, #0000 50%, #000 51%);
+        -mask-size: 500%;
         animation-fill-mode: forwards;
 
         img {
@@ -458,8 +462,8 @@ body {
         animation: wipe 1s $transition-type;
 
         opacity: 0;
-        -webkit-mask-image: linear-gradient(to left, #0000 50%, #000 51%);
-        -webkit-mask-size: 500%;
+        -mask-image: linear-gradient(to left, #0000 50%, #000 51%);
+        -mask-size: 500%;
         animation-fill-mode: forwards;
 
         img {
@@ -514,8 +518,8 @@ body {
 
           animation: wipe 1s $transition-type;
           opacity: 0;
-          -webkit-mask-image: linear-gradient(to left, #0000 50%, #000 51%);
-          -webkit-mask-size: 500%;
+          -mask-image: linear-gradient(to left, #0000 50%, #000 51%);
+          -mask-size: 500%;
           animation-fill-mode: forwards;
 
         }
@@ -574,8 +578,8 @@ body {
 
           animation: wipe 1s $transition-type;
           opacity: 0;
-          -webkit-mask-image: linear-gradient(to left, #0000 50%, #000 51%);
-          -webkit-mask-size: 500%;
+          -mask-image: linear-gradient(to left, #0000 50%, #000 51%);
+          -mask-size: 500%;
           animation-fill-mode: forwards;
         }
 
@@ -593,13 +597,14 @@ body {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 120%;
+          gap: 100px;
           color: white;
           font-size: $font-size4;
           animation: text-load $transition-time $transition-type;
+          margin-bottom: 150px;
 
           .edit {
-            margin-bottom: 150px;
+            //margin-bottom: 150px;
 
             .icon:hover {
               transform: scale(1.2);
