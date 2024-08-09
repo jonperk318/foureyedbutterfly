@@ -11,6 +11,7 @@ import Write from "./pages/Write.jsx";
 import Single from "./pages/Single.jsx";
 import Navbar from "./components/Navbar.jsx";
 import NavbarMobile from "./components/NavbarMobile.jsx";
+import PageNotfound404 from "./pages/PageNotfound404.jsx";
 import "./style.scss"
 
 const Layout = ()=> {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "/write",
         element: <Write/>
+      },
+      {
+        path: "*",
+        element: <PageNotfound404/>
       }
     ]
   }

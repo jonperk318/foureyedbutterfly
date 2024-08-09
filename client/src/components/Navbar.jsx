@@ -20,9 +20,9 @@ const Navbar = () => {
                         <h5>2024</h5>
                     </Link>
                     <div className="logo link3">
-                        <a href={"./"}>
+                        <Link to="/">
                             <img src={Logo} alt="logo"/>
-                        </a>
+                        </Link>
                     </div>
                     <span className="admin">
                     <Link className="link hvr-underline-from-left-orange link5" to="/write">
