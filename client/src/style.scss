@@ -406,7 +406,7 @@ body {
 
         h1 {
           font-family: $title-font;
-          font-size: $font-size1;
+          font-size: 5.5vw;
           margin-bottom: 0;
           animation: text-load $transition-time $transition-type;
 
@@ -417,7 +417,7 @@ body {
 
         h2 {
           font-family: $paragraph-font;
-          font-size: $font-size3;
+          font-size: 2.5vw;
           margin-top: 0;
           vertical-align: middle;
           animation: text-load $transition-time $transition-type;
@@ -430,7 +430,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: right;
-        padding: 4% 8%;
+        padding: 6% 8%;
         animation: wipe 1s $transition-type;
 
         opacity: 0;
@@ -439,7 +439,7 @@ body {
         animation-fill-mode: forwards;
 
         img {
-          width: 120%;
+          width: calc(150px + 90%);
           height: auto;
         }
       }
@@ -809,6 +809,30 @@ body {
 
     }
 
+    .page-not-found {
+
+      background-image: $background-gradient;
+      gap: 10px;
+      font-family: $paragraph-font;
+      color: $dark-brown;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      img {
+        width: 750px;
+        margin-top: 50px;
+      }
+
+      h1 {
+        font-family: $paragraph-font;
+        font-size: $font-size3;
+      }
+
+    }
+
   }
 
   //////////////////////////////////////////////////////////////
@@ -899,7 +923,7 @@ body {
           }
 
           h2 {
-            font-size: $font-size5;
+            font-size: $font-size4;
           }
         }
 
@@ -986,6 +1010,13 @@ body {
           }
         }
 
+      }
+
+      .page-not-found {
+
+        img {
+          width: 500px;
+        }
       }
     }
   }
