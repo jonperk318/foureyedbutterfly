@@ -1,9 +1,5 @@
 import React, {useState} from "react";
 import {Link} from 'react-router-dom'
-import IMG1 from "../img/all-the-worlds-a-stage.jpg"
-import IMG2 from "../img/enjoying-the-mundane.jpg"
-import IMG1a from "../img/soo.jpg"
-import IMG2a from "../img/carlowe.jpg"
 import { useEffect } from "react";
 import axios from "axios";
 
@@ -56,7 +52,7 @@ const Posts2024 = () => {
                 <div className="post" key={post.id}>
                     <div className="image">
                         <Link className="link" to={`/post/${post.id}`}>
-                            <img src={post.img} alt="Image"/>
+                            <img src={`../src/img/${post.img}`} alt="Image"/>
                         </Link>
                     </div>
                     <div className="content">

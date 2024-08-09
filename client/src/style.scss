@@ -599,7 +599,11 @@ body {
           animation: text-load $transition-time $transition-type;
 
           .edit {
-            margin-bottom: 100px;
+            margin-bottom: 150px;
+
+            .icon:hover {
+              transform: scale(1.2);
+            }
           }
 
           .hvr-underline-from-left {
@@ -681,7 +685,7 @@ body {
         background-color: white;
         border: 20px solid white;
         border-radius: 20px;
-        width: 800px;
+        width: 850px;
         height: 450px;
         margin-top: 50px;
         margin-bottom: 50px;
@@ -702,13 +706,13 @@ body {
             border-radius: 20px;
           }
 
-          .editor-container {
+          .editor-container { // react-quilljs
             height: 250px;
             overflow-y: scroll;
             border: 5px solid $pink;
             border-radius: 20px;
 
-            .editor { //ReactQuill
+            .editor {
               height: 100%;
               border: none;
             }

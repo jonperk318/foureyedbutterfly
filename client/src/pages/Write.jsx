@@ -1,12 +1,31 @@
-import React, { useState } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import React, {useState} from 'react';
+import {useQuill} from 'react-quilljs';
+import 'quill/dist/quill.snow.css';
+import axios from 'axios';
 
 const Write = () => {
 
-    const [value, setValue] = useState('');
-    console.log(value);
+  const {quill, quillRef} = useQuill();
+  const [value, setValue] = useState("");
+  const [title, setTitle] = useState("");
+  const [components, setComponents] = useState(null);
 
+  const upload = async () => {
+
+  try {
+    const formData = new FormData();
+    formData.append("components", components);
+    const res = await axios.post("/api/upload", formData);
+    console.log(res.data);
+  } catch(err) {
+    console.log(err);
+  }};
+
+  const handleClick = async e => {
+    e.preventDefault();
+    upload();
+  }
+  
   return (
     <div className="write-post">
         <div className="upload-container">
@@ -15,9 +34,9 @@ const Write = () => {
         </div>
         <div className="write-container">
           <div className="content">
-              <input type="text" placeholder="Title" />
+              <input type="text" placeholder="Title" onChange={e=>setTitle(e.target.value)} />
               <div className="editor-container">
-                  <ReactQuill className="editor" theme="snow" value={value} onChange={setValue} />
+                  <div ref={quillRef} />
               </div>
           </div>
           <div className="menu">
@@ -32,12 +51,12 @@ const Write = () => {
               </div>
               <div className="upload-buttons">
                   <label>Submit Text</label>
-                  <input style={{display: "none"}} type="file" id="file" name=""/>
-                  <label htmlFor="file">Upload Image or Video</label>
+                  <input style={{display: "none"}} type="file" id="components" name="components" onChange={e=>setComponents(e.target.files)} multiple />
+                  <label htmlFor="components">Upload Image or Video</label>
               </div>
               <div className="save-buttons">
                   <button>Save as a Draft</button>
-                  <button>Update</button>
+                  <button onClick={handleClick}>Publish</button>
               </div>
           </div>
         </div>
@@ -45,4 +64,4 @@ const Write = () => {
   )
 }
 
-export default Write
+export default Write;
