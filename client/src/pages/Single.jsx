@@ -44,6 +44,28 @@ const Single = () => {
     fetchData();
   }, [postID]);
 
+  const images = ("" + post.img).split(", ");
+  const content = ("" + post.content).split("|||");
+
+  const segments = [];
+  let count = 0;
+  for (let i = 0; i < images.length - 1; i++) {
+    segments.push(
+      <React.Fragment key={i}>
+      {content[i] && (
+        <div className="content">
+          <p>{content[i]}</p>
+        </div>
+      )};
+      {images[i] && (
+        <div className="image">
+          <img src={`../src/img/${images[i + 1]}`} alt="Image" />
+        </div>
+      )}
+      </React.Fragment>
+    )
+  }
+
   return (
     <div className="single">
       <div className="post" key={post.id}>
@@ -51,39 +73,12 @@ const Single = () => {
           <h1>{post.title}</h1>
         </div>
         <div className="image">
-          <img src={`../src/img/${post.img}`} alt="Image"/>
+          <img src={`../src/img/${images[0]}`} alt="Image"/>
         </div>
-        <div className="content">
-          <p>{post.content}</p>
-        </div>
-        {post.img2 && (
-        <div className="image">
-          <img src={`../src/img/${post.img2}`} alt="Second Image"/>
-        </div>
-        )}
-        {post.content2 && (
-        <div className="content">
-          <p>{post.content2}</p>
-        </div>
-        )}
-        {post.img3 && (
-        <div className="image">
-          <img src={`../src/img/${post.img3}`} alt="Third Image"/>
-        </div>
-        )}
-        {post.img4 && (
-        <div className="image">
-          <img src={`../src/img/${post.img4}`} alt="Fourth Image"/>
-        </div>
-        )}
-        {post.content3 && (
-        <div className="content">
-          <p>{post.content3}</p>
-        </div>
-        )}
+        <div>{segments}</div>
         <div className="bottom">
-          {post.id > 1 && ( // check if previous post exists
-          <Link className="hvr-underline-from-left" to={`/post/${post.id - 1}`}>
+          {prevPost !== null && ( // check if previous post exists
+          <Link className="hvr-underline-from-left" to={`/post/${prevPost.id}`}>
             <h2>{prevPost.title}</h2>
           </Link>
           )}

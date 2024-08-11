@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({storage});
-app.post('/api/upload', upload.array("components", 7), function (req, res) {
+app.post('/api/upload', upload.any("components"), function (req, res) {
     const file = req.file;
     res.status(200).json(file.filename);
 });

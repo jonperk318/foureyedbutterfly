@@ -3,6 +3,6 @@ import mysql from 'mysql2';
 export const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'yeah you',
+    password: 'hidden',
     database: 'four-eyed-butterfly'
 })

@@ -25,7 +25,7 @@ const Posts2024 = () => {
                 <div className="post" key={post.id}>
                     <div className="image">
                         <Link className="link" to={`/post/${post.id}`}>
-                            <img src={`../src/img/${post.img}`} alt="Image"/>
+                            <img src={`../src/img/${("" + post.img).split(", ")[0]}`} alt="Image"/>
                         </Link>
                     </div>
                     <div className="content">
