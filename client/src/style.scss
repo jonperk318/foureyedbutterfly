@@ -647,7 +647,6 @@ body {
     .write-post {
 
       background-image: $background-gradient;
-      gap: 20px;
       font-family: $paragraph-font;
       color: $dark-brown;
 
@@ -665,8 +664,9 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
         margin: 50px;
-        flex: 1;
+        flex: 2;
 
         animation: text-load $transition-time $transition-type;
 
@@ -675,14 +675,20 @@ body {
         }
 
         .uploads {
-          flex: 5;
+          flex: 8;
           width: 100%;
-          font-size: $font-size5;
+          font-size: $font-size4;
           border: 5px dotted $pink;
           border-radius: 20px;
           display: flex;
           flex-direction: column;
           justify-content: center;
+
+          img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+          }
         }
       }
 
@@ -737,26 +743,23 @@ body {
           justify-content: space-between;
 
           h1 {
+            font-size: $font-size5;
             display: flex;
+            flex: 1;
             flex-direction: column;
             justify-content: center;
-          }
-
-          .spans {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 10px;
           }
 
           label {
             display: flex;
+            flex: 1;
             flex-direction: column;
             justify-content: center;
           }
 
           .upload-buttons {
             display: flex;
+            flex: 1;
             flex-direction: column;
             justify-content: center;
             text-align: center;
@@ -764,7 +767,6 @@ body {
 
             label {
               padding: 5px;
-              margin: 0 20px;
               border: 5px solid $pink;
               background-color: $pink;
               border-radius: 20px;
@@ -774,9 +776,9 @@ body {
             }
 
             label:hover {
-              background-color: $orange;
+              background-color: $dark-brown;
               color: white;
-              border-color: $orange;
+              border-color: $dark-brown;
             }
           }
 
@@ -785,6 +787,10 @@ body {
             flex-direction: column;
             justify-content: center;
             gap: 10px;
+
+            .publish {
+              font-size: $font-size4;
+            }
 
             button {
               padding: 5px;
@@ -799,9 +805,9 @@ body {
             }
 
             button:hover {
-              background-color: $dark-brown;
+              background-color: $orange;
               color: white;
-              border-color: $dark-brown;
+              border-color: $orange;
             }
           }
         }
