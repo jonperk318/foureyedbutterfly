@@ -677,18 +677,12 @@ body {
         .uploads {
           flex: 8;
           width: 100%;
-          font-size: $font-size4;
+          font-size: $font-size5;
           border: 5px dotted $pink;
           border-radius: 20px;
           display: flex;
           flex-direction: column;
           justify-content: center;
-
-          img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-          }
         }
       }
 
@@ -742,17 +736,21 @@ body {
           flex-direction: row;
           justify-content: space-between;
 
-          h1 {
-            font-size: $font-size5;
+          .instructions {
+
             display: flex;
-            flex: 1;
             flex-direction: column;
             justify-content: center;
+            width: 250px;
+
+            h1 {
+              font-size: $font-size6;
+            }
+            
           }
 
           label {
             display: flex;
-            flex: 1;
             flex-direction: column;
             justify-content: center;
           }
@@ -773,6 +771,7 @@ body {
               color: $dark-brown;
               cursor: pointer;
               font-size: $font-size5;
+              width: 250px;
             }
 
             label:hover {
@@ -802,6 +801,7 @@ body {
               cursor: pointer;
               font-size: $font-size5;
               font-family: $paragraph-font;
+              width: 250px;
             }
 
             button:hover {
@@ -979,7 +979,7 @@ body {
         flex-direction: column;
 
         .upload-container {
-          width: 400px;
+          width: 500px;
           padding: 0;
           margin: 0;
           margin-top: 40px;
@@ -987,30 +987,34 @@ body {
 
         .write-container {
 
-          width: 400px;
+          width: 500px;
           padding: 0;
           margin: 0;
+          margin-top: 40px;
+          text-align: center;
 
           .menu {
             font-size: $font-size6;
+            flex-direction: column;
+            align-items: center;
 
             h1 {
               font-size: $font-size5;
-              margin: 0 30px;
             }
 
             .upload-buttons {
 
               label {
                 font-size: $font-size6;
+                width: 228px;
               }
             }
 
             .save-buttons {
-              gap: 5px;
 
               button {
                 font-size: $font-size6;
+                width: 250px;
               }
             }
           }
