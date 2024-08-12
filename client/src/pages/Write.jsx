@@ -3,7 +3,6 @@ import {useNavigate, useLocation} from 'react-router-dom';
 import {useQuill} from 'react-quilljs';
 import 'quill/dist/quill.snow.css';
 import axios from 'axios';
-import {useDropzone} from 'react-dropzone'
 
 const Write = () => {
 
@@ -12,24 +11,17 @@ const Write = () => {
   const {quill, quillRef} = useQuill();
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
-  const [components, setComponents] = useState(null);
+  const [files, setFiles] = useState(null);
 
-  const [dataURL, setDataURL] = useState(null)
-  const [uploadedURL, setUploadedURL] = useState(null)
-
-  const onDrop = useCallback(acceptedFiles => { // display uploaded files
-    acceptedFiles.forEach(file => {
-      const reader = new FileReader()
-      reader.onabort = () => console.log("file reading aborted")
-      reader.onerror = () => console.log("file reading failed")
-      reader.onload = () => {
-        const binaryStr = reader.result
-        setDataURL(binaryStr)
-      }
-      reader.readAsDataURL(file)
-    })
-  }, [])
-  const {getRootProps, acceptedFiles, getInputProps, isDragActive} = useDropzone({onDrop})
+  let updateList = function() {
+    let input = document.getElementById('file');
+    let output = document.getElementById('fileList');
+    let children = "";
+    for (let i = 0; i < input.files.length; ++i) {
+        children += '<li>' + input.files.item(i).name + '</li>';
+    }
+    output.innerHTML = '<ol>'+children+'</ol>';
+}
   
   /*
   React.useEffect(() => {
@@ -49,26 +41,12 @@ const Write = () => {
 
     try {
       const formData = new FormData();
-      formData.append("components", components);
+      formData.append("files", files);
       const res = await axios.post("/api/upload", formData);
       console.log(res.data);
     } catch(err) {
       console.log(err);
   }};
-  
-  /*
-  const count = 1;
-  const quils = [];
-  const handleTextClick = async e => {
-    e.preventDefault();
-    quils.push(
-      <React.Fragment key={count}>
-        <div ref={quillRef} />
-      </React.Fragment>
-    )
-    count ++;
-  }
-  */
 
   const handlePublish = async e => {
     e.preventDefault();
@@ -97,32 +75,25 @@ const Write = () => {
     <div className="write-post">
         <div className="upload-container">
             <h1>Pictures & Videos</h1>
-            <div {...getRootProps()} className="uploads">
-              <img src={dataURL} />
-              <div className="actions">
-                  <input {...getInputProps({multiple: true})} />
-              </div>
-              {isDragActive && !uploadedURL ?
-                <p>drop files here ...</p> :
-                <p>drop files here, or click to select files</p>
-              }
-              {uploadedURL && <p>uploaded!</p>}
+            <div className='uploads' id='fileList'>
             </div>
         </div>
         <div className="write-container">
           <div className="content">
               <input type="text" placeholder="Title" onChange={e=>setTitle(e.target.value)} />
               <div className="editor-container">
-                  <div ref={quillRef} />
+                  <div ref={quillRef} value={value} onChange={setValue}/>
               </div>
           </div>
           <div className="menu">
-              <h1>separate text field submissions by entering 3 times</h1>
-              <div className="upload-buttons" //onClick={uploadImage}
-              >
-                  <label onClick={() => setDataURL(null)}>Cancel Pictures & Videos</label>
-                  <input style={{display: "none"}} type="file" id="components" name="components" onChange={e=>setComponents(e.target.files)} multiple />
-                  <label htmlFor="components">Upload Pictures & Videos</label>
+              <div className="instructions">
+                <h1>Separate text field submissions by entering 3 times.</h1>
+                <h1>A single image will inset between each text field, and remaining images will be at the end.</h1>
+              </div>
+              <div className="upload-buttons">
+                  <input style={{display: "none"}} type="file" multiple id="file" name="file" onChange={(e) => {setFiles(e.target.files); updateList()}} />
+                  <label htmlFor="file">Select Pictures & Videos</label>
+                  <label>Upload Pictures & Videos</label>
               </div>
               <div className="save-buttons">
                   <button>Save as a Draft</button>
