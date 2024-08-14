@@ -20,9 +20,9 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({storage});
-app.post('/api/upload', upload.any("components"), function (req, res) {
-    const file = req.file;
-    res.status(200).json(file.filename);
+app.post('/api/upload', upload.any("files"), function (req, res) {
+    //const file = req.files;
+    //res.status(200).json(file.filename);
 });
 
 app.use(cors({origin: process.env.CLIENT_URL, credentials: true }));
