@@ -45,11 +45,15 @@ const Single = () => {
   }, [postID]);
 
   const images = ("" + post.img).split(", ");
-  const content = ("" + post.content).split("|||");
+  const content = ("" + post.content).split("<p><br></p><p><br></p>");
+  console.log(content);
+  console.log(content[0]);
 
   const segments = [];
   let count = 0;
-  for (let i = 0; i < images.length - 1; i++) {
+  const maxLength = Math.max(images.length, content.length);
+
+  for (let i = 0; i < maxLength; i++) {
     segments.push(
       <React.Fragment key={i}>
       {content[i] && (
@@ -57,7 +61,7 @@ const Single = () => {
           <p>{content[i]}</p>
         </div>
       )};
-      {images[i] && (
+      {images[i + 1] && (
         <div className="image">
           <img src={`../src/img/${images[i + 1]}`} alt="Image" />
         </div>
@@ -68,7 +72,7 @@ const Single = () => {
 
   return (
     <div className="single">
-      <div className="post" key={post.id}>
+      <div className="post" key={post.pid}>
         <div className="title">
           <h1>{post.title}</h1>
         </div>
@@ -78,13 +82,13 @@ const Single = () => {
         <div>{segments}</div>
         <div className="bottom">
           {prevPost !== null && ( // check if previous post exists
-          <Link className="hvr-underline-from-left" to={`/post/${prevPost.id}`}>
+          <Link className="hvr-underline-from-left" to={`/post/${prevPost.pid}`}>
             <h2>{prevPost.title}</h2>
           </Link>
           )}
           {currentUser.id === post.uid && (
           <div className="edit">
-            <Link to={`/write?edit=${post.id}`}>
+            <Link to={`/write?edit=${post.pid}`} state={post}>
               <IconContext.Provider value={{className: "icon"}}>
                 <FaRegEdit style={{color: "white", fontSize: "40px"}}/>
               </IconContext.Provider>
@@ -92,7 +96,7 @@ const Single = () => {
           </div>
           )}
           {nextPost !== null && ( // check if next post exists
-          <Link className="hvr-underline-from-left" to={`/post/${nextPost.id}`}>
+          <Link className="hvr-underline-from-left" to={`/post/${nextPost.pid}`}>
             <h2>{nextPost.title}</h2>
           </Link>
           )}

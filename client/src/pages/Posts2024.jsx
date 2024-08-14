@@ -22,14 +22,14 @@ const Posts2024 = () => {
     return (
         <div className="posts">
             {Posts.map(post => (
-                <div className="post" key={post.id}>
+                <div className="post" key={post.pid}>
                     <div className="image">
-                        <Link className="link" to={`/post/${post.id}`}>
+                        <Link className="link" to={`/post/${post.pid}`}>
                             <img src={`../src/img/${("" + post.img).split(", ")[0]}`} alt="Image"/>
                         </Link>
                     </div>
                     <div className="content">
-                        <Link className="link" to={`/post/${post.id}`}>
+                        <Link className="link" to={`/post/${post.pid}`}>
                             <h1>{post.title}</h1>
                             <p>{(new Intl.DateTimeFormat('en-US').format(new Date(post.date)))}</p>
                         </Link>
