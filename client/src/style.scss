@@ -508,7 +508,7 @@ body {
           overflow: hidden;
         }
 
-        .image img {
+        .image img, video{
 
           width: 100%;
           height: 400px;
@@ -524,7 +524,7 @@ body {
 
         }
 
-        .image:hover img {
+        .image:hover img, video {
           transform: scale(1.07);
         }
 
@@ -573,7 +573,7 @@ body {
           animation: text-load $transition-time $transition-type;
         }
 
-        .image img {
+        .image img, video {
           width: 100%;
 
           animation: wipe 1s $transition-type;

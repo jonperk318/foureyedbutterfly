@@ -19,9 +19,9 @@ const Single = () => {
     const fetchData = async() => {
         try {
           axios.all([
-            axios.get(`/api/posts/${(parseInt(postID) - 1).toString()}`), 
+            axios.get(`/api/posts/prev/${postID}`), 
             axios.get(`/api/posts/${postID}`), 
-            axios.get(`/api/posts/${(parseInt(postID) + 1).toString()}`)
+            axios.get(`/api/posts/next/${postID}`)
           ])
           .then(axios.spread((prevRes, res, nextRes) => {
             setPrevPost(prevRes.data);
@@ -34,6 +34,14 @@ const Single = () => {
     };
     fetchData();
   }, [postID]);
+
+  function findFile(file) {
+    const extension = file.split(".").pop();
+    if (extension === "mov" || extension === "mp4") {
+        return "video"
+    }
+    else return "image"
+  }
 
   const images = ("" + post.img).split(", ");
   const content = ("" + post.content).split("<p><br></p><p><br></p>");
@@ -54,7 +62,13 @@ const Single = () => {
       )}
       {images[i + 1] && (
         <div className="image">
-          <img src={`../src/img/${images[i + 1]}`} alt="Image" />
+          {findFile(images[i + 1]) === "video" ? (
+            <video controls="controls autoplay loop" alt="video">
+              <source src={`../src/img/${images[i + 1]}`} type="video" />
+            </video>
+          ) : (
+            <img src={`../src/img/${images[i + 1]}`} alt="image" />
+          )}
         </div>
       )}
       </React.Fragment>
@@ -68,7 +82,13 @@ const Single = () => {
           <h1>{post.title}</h1>
         </div>
         <div className="image">
-          <img src={`../src/img/${images[0]}`} alt="Image"/>
+          {findFile(images[0]) === "video" ? (
+              <video controls="autoplay" alt="video">
+                <source src={`../src/img/${images[0]}`} type="video" />
+              </video>
+            ) : (
+              <img src={`../src/img/${images[0]}`} alt="image" />
+            )}
         </div>
         <div>{segments}</div>
         <div className="bottom">
