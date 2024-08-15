@@ -4,6 +4,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { AuthContext } from "../context/authContext.jsx";
 import axios from 'axios';
+import DOMPurify from "dompurify";
 
 const Single = () => {
 
@@ -17,16 +18,6 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async() => {
         try {
-          /*
-          const [prevRes, res, nextRes] = await Promise.allSettled([
-            axios.get(`/api/posts/${postID - 1}`),
-            axios.get(`/api/posts/${postID}`), 
-            axios.get(`/api/posts/${postID + 1}`)
-          ]);
-          setPrevPost(prevRes.data);
-          setPost(res.data);
-          setNextPost(nextRes.data);
-          */
           axios.all([
             axios.get(`/api/posts/${(parseInt(postID) - 1).toString()}`), 
             axios.get(`/api/posts/${postID}`), 
@@ -46,8 +37,6 @@ const Single = () => {
 
   const images = ("" + post.img).split(", ");
   const content = ("" + post.content).split("<p><br></p><p><br></p>");
-  console.log(content);
-  console.log(content[0]);
 
   const segments = [];
   let count = 0;
@@ -58,9 +47,11 @@ const Single = () => {
       <React.Fragment key={i}>
       {content[i] && (
         <div className="content">
-          <p>{content[i]}</p>
+          <p dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(content[i]),
+          }}></p>
         </div>
-      )};
+      )}
       {images[i + 1] && (
         <div className="image">
           <img src={`../src/img/${images[i + 1]}`} alt="Image" />
@@ -81,7 +72,7 @@ const Single = () => {
         </div>
         <div>{segments}</div>
         <div className="bottom">
-          {prevPost !== null && ( // check if previous post exists
+          {prevPost && ( // check if previous post exists
           <Link className="hvr-underline-from-left" to={`/post/${prevPost.pid}`}>
             <h2>{prevPost.title}</h2>
           </Link>
@@ -95,7 +86,7 @@ const Single = () => {
             </Link>
           </div>
           )}
-          {nextPost !== null && ( // check if next post exists
+          {nextPost && ( // check if next post exists
           <Link className="hvr-underline-from-left" to={`/post/${nextPost.pid}`}>
             <h2>{nextPost.title}</h2>
           </Link>

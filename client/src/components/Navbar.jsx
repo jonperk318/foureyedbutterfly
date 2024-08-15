@@ -26,7 +26,9 @@ const Navbar = () => {
                     </div>
                     <span className="admin">
                     <Link className="link hvr-underline-from-left-orange link5" to="/write">
+                    {currentUser && (
                         <h6>Write</h6>
+                    )}    
                     </Link>
                     </span>
                     <span className="admin">

@@ -6,7 +6,7 @@ $brown : #9B2434;
 $dark-brown : #863527;
 $darker-brown : #622423;
 
-$background-gradient : linear-gradient($dark-tan 5px, 60px, $tan 120px);
+$background-gradient : linear-gradient($dark-tan 5px, 35px, $tan 120px);
 
 $font-size1 : 80px;
 $font-size2 : 50px;
@@ -493,8 +493,8 @@ body {
       background-image: $background-gradient;
 
       padding: 3% 3%;
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 40px;
 
       .post {
@@ -683,6 +683,12 @@ body {
           display: flex;
           flex-direction: column;
           justify-content: center;
+
+          ol {
+            li {
+              margin: 10px;
+            }
+          }
         }
       }
 
@@ -775,10 +781,22 @@ body {
               width: 250px;
             }
 
-            label:hover {
+            .brown:hover {
               background-color: $dark-brown;
               color: white;
               border-color: $dark-brown;
+            }
+
+            .orange:hover {
+              background-color: $orange;
+              color: white;
+              border-color: $orange;
+            }
+
+            .red:hover {
+              background-color: red;
+              color: white;
+              border-color: red;
             }
           }
 
@@ -787,10 +805,6 @@ body {
             flex-direction: column;
             justify-content: center;
             gap: 10px;
-
-            .publish {
-              font-size: $font-size4;
-            }
 
             button {
               padding: 5px;
