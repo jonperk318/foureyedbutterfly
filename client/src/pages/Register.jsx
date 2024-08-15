@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export const errorUtils = {
+
+const errorUtils = {
   getError: (error) => {
     let e = error;
     if (error.response) {
@@ -18,6 +19,7 @@ export const errorUtils = {
     return e;
   },
 };
+
 
 const Register = () => {
   const [inputs, setInputs] = useState({

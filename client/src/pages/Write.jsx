@@ -6,6 +6,23 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 import Quill from 'quill';
 
+const errorUtils = {
+  getError: (error) => {
+    let e = error;
+    if (error.response) {
+      e = error.response.data;
+      if (error.response.data && error.response.data.error) {
+        e = error.response.data.error;
+      }
+    } else if (error.message) {
+      e = error.message;
+    } else {
+      e = "Unknown error occured";
+    }
+    return e;
+  },
+};
+
 
 const Write = () => {
 
@@ -15,19 +32,9 @@ const Write = () => {
   const {quill, quillRef} = useQuill();
   const [title, setTitle] = useState(state?.title || "");
   const [content, setContent] = useState(state?.content || "");
-  const [files, setFiles] = useState(state?.img || []);
+  const [oldFiles, setOldFiles] = useState(state?.img || null)
+  const [files, setFiles] = useState(null);
   const [fileLimit, setFileLimit] = useState(false);
-
-
-  let updateList = function() { // display names of uploaded files on page
-    let input = document.getElementById('file');
-    let output = document.getElementById('fileList');
-    let children = "";
-    for (let i = 0; i < input.files.length; ++i) {
-        children += '<li>' + input.files.item(i).name + '</li>';
-    }
-    output.innerHTML = '<ol>'+children+'</ol>';
-  }
 
 
   React.useEffect(() => {
@@ -48,12 +55,10 @@ const Write = () => {
       files.forEach(file => {
         formData.append("files", file);
       });
-      console.log(formData);
       const res = await axios.post("/api/upload", formData);
-      //console.log(res.data.join(", "));
-      //return res.data.join(", ");
+      return res.data;
     } catch(err) {
-      console.log(err);
+      console.log(errorUtils.getError(err));
   }};
 
 
@@ -104,17 +109,53 @@ const Write = () => {
 
     const chosenFiles = Array.prototype.slice.call(e.target.files)
     handleUploadFiles(chosenFiles);
-
     setFiles(chosenFiles);
-    updateList();
   }
-  
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/api/posts/${state.pid}`);
+      navigate("/")
+    } catch (err) {
+      console.log(errorUtils.getError(err));
+    }
+  }
+
+  let count = 0;
+  let deleteButton = document.getElementById("deleteButton");
+
+  if (deleteButton) {
+  deleteButton.addEventListener("click", function() {
+    count++;
+    if (count === 1) {
+      deleteButton.innerHTML = "Are you sure?";
+      deleteButton.className = "orange";
+    } else if (count === 2) {
+      deleteButton.innerHTML = "LAST CHANCE!";
+      deleteButton.className = "red";
+    } else {
+      handleDelete();
+    }
+  })};
+
   
   return (
     <div className="write-post">
         <div className="upload-container">
             <h1>Pictures & Videos</h1>
-            <div className='uploads' id='fileList'>
+            <div className='uploads'>
+              <ol>
+              {files && files.map(file => ( // display names of uploaded files on page
+                <li>
+                    {file.name}
+                </li>
+              )) ||
+              oldFiles && oldFiles.split(", ").map(oldFile => (
+                <li>
+                  {oldFile.replace(/\d{13}/, "")}
+                </li>
+              ))}
+              </ol>
             </div>
         </div>
         <div className="write-container">
@@ -128,16 +169,25 @@ const Write = () => {
               <div className="instructions">
                 <h1>Separate text field submissions by entering 3 times.</h1>
                 <h1>A single image will inset between each text field, and remaining images will be at the end.</h1>
+                <h1>Publishing new files will completely replace old ones</h1>
               </div>
               <div className="upload-buttons">
                   <input style={{display: "none"}} type="file" multiple id="file" name="file" onChange={handleFileEvent} />
-                  <label htmlFor="file">Select Pictures & Videos</label>
-                  <label>Upload Pictures & Videos</label>
+                  <label className='brown' htmlFor="file">Select Pictures & Videos</label>
+                  {oldFiles && (
+                    <label className='brown' id="deleteButton">Delete Post</label>
+                  )}
               </div>
-              <div className="save-buttons">
-                  <button>Save as a Draft</button>
-                  <button onClick={handlePublish} className="publish">Publish</button>
-              </div>
+              {oldFiles ? (
+                <div className="save-buttons">
+                  <button>Update Text Only</button>
+                  <button onClick={handlePublish}>Update Text & Images</button>
+                </div>
+              ) : (
+                <div className="save-buttons">
+                  <button onClick={handlePublish}>Publish Text & Images</button>
+                </div>
+              )}
           </div>
         </div>
     </div>
