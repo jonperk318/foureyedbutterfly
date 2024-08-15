@@ -18,6 +18,14 @@ const Posts2024 = () => {
         };
         fetchData();
     });
+    
+    function findFile(post) {
+        const extension = (post.img).split(", ")[0].split(".").pop;
+        if (extension === "mov" || extension === "mp4") {
+            return "video"
+        }
+        else return "image"
+    }
 
     return (
         <div className="posts">
@@ -25,7 +33,13 @@ const Posts2024 = () => {
                 <div className="post" key={post.pid}>
                     <div className="image">
                         <Link className="link" to={`/post/${post.pid}`}>
-                            <img src={`../src/img/${("" + post.img).split(", ")[0]}`} alt="Image"/>
+                            {findFile(post) === "video" ? (
+                                <video contols="controls loop" alt="video">
+                                    <source src={`../src/img/${("" + post.img).split(", ")[0]}`} type="video" />
+                                </video>
+                            ) : (
+                                <img src={`../src/img/${("" + post.img).split(", ")[0]}`} alt="image"/>
+                            )}
                         </Link>
                     </div>
                     <div className="content">

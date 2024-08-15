@@ -66,22 +66,41 @@ const Write = () => {
     e.preventDefault();
     const imgUrl = await upload();
 
-    try {
-      state
-        ? await axios.put(`/api/posts/${state.pid}`, {
-            title,
-            content: content,
-            img: files ? imgUrl : "",
-          })
-        : await axios.post(`/api/posts/`, {
-            title,
-            content: content,
-            img: files ? imgUrl : "",
-            date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-          });
-          navigate("/")
-    } catch (err) {
-      console.log(err);
+    if (files) {
+      try {
+        state
+          ? await axios.put(`/api/posts/${state.pid}`, {
+              title,
+              content: content,
+              img: imgUrl,
+              oldFiles: oldFiles
+            })
+          : await axios.post(`/api/posts/`, {
+              title,
+              content: content,
+              img: imgUrl,
+              date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+            });
+            navigate("/")
+      } catch (err) {
+        console.log(err)
+      }
+    } else {
+      try {
+        state
+          ? await axios.put(`/api/posts/${state.pid}`, {
+              title,
+              content: content,
+            })
+          : await axios.post(`/api/posts/`, {
+              title,
+              content: content,
+              date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+            });
+            navigate("/")
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 
@@ -136,7 +155,7 @@ const Write = () => {
     } else {
       handleDelete();
     }
-  })};
+  })}
 
   
   return (
@@ -180,12 +199,11 @@ const Write = () => {
               </div>
               {oldFiles ? (
                 <div className="save-buttons">
-                  <button>Update Text Only</button>
-                  <button onClick={handlePublish}>Update Text & Images</button>
+                  <button onClick={handlePublish}>Update</button>
                 </div>
               ) : (
                 <div className="save-buttons">
-                  <button onClick={handlePublish}>Publish Text & Images</button>
+                  <button onClick={handlePublish}>Publish</button>
                 </div>
               )}
           </div>
