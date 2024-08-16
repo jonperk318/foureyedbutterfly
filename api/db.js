@@ -2,8 +2,8 @@ import mysql from 'mysql2';
 import "dotenv/config";
 
 export const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
+    host: process.env.HOST,
+    user: process.env.USERNAME,
     password: process.env.DB_KEY,
-    database: 'four-eyed-butterfly'
+    database: process.env.DB
 })
