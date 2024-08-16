@@ -17,7 +17,7 @@ export const register = (req, res) => {
 
         const q = "SELECT * FROM users WHERE id = ?;";
 
-        db.query(q, [4], (err, data) => {
+        db.query(q, [1], (err, data) => {
             if (err) return res.status(500).json(err);
 
             const isAdminPasswordCorrect = bcrypt.compareSync(
