@@ -153,11 +153,11 @@ body {
           .hvr-underline-from-left:after {
             content: '';
             position: absolute;
-            width: 70%;
+            width: 90%;
             transform: scaleX(0);
             height: 1.4px;
             bottom: -7px;
-            left: 15%;
+
             background-color: $dark-brown;
             transform-origin: bottom right;
             transition: transform 200ms ease-out;

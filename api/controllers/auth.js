@@ -1,6 +1,7 @@
 import {db} from "../db.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import "dotenv/config";
 
 export const register = (req, res) => {
 
@@ -15,7 +16,17 @@ export const register = (req, res) => {
 
         // Check admin password
 
-        
+        const q = "SELECT * FROM users WHERE id = ?;";
+
+        db.query(q, [process.env.ADMIN_UID], (err, data) => {
+            if (err) return res.status(500).json(err);
+
+            const isAdminPasswordCorrect = bcrypt.compareSync(
+                req.body.admin_password,
+                data[0].password
+            );
+
+            if (!isAdminPasswordCorrect) return res.status(400).json("Wrong admin password");
 
             // Hash the password and create a user
 
@@ -32,7 +43,7 @@ export const register = (req, res) => {
 
         })
 
-
+    })
 
 }
 
