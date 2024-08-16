@@ -15,17 +15,7 @@ export const register = (req, res) => {
 
         // Check admin password
 
-        const q = "SELECT * FROM users WHERE id = ?;";
-
-        db.query(q, [1], (err, data) => {
-            if (err) return res.status(500).json(err);
-
-            const isAdminPasswordCorrect = bcrypt.compareSync(
-                req.body.admin_password,
-                data[0].password
-            );
-
-            if (!isAdminPasswordCorrect) return res.status(400).json("Wrong admin password");
+        
 
             // Hash the password and create a user
 
@@ -42,7 +32,7 @@ export const register = (req, res) => {
 
         })
 
-    })
+
 
 }
 
