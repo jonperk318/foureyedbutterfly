@@ -25,11 +25,11 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <span className="admin">
-                    <Link className="link hvr-underline-from-left-orange link5" to="/write">
                     {currentUser && (
-                        <h6>Write</h6>
-                    )}    
-                    </Link>
+                        <Link className="link hvr-underline-from-left-orange link5" to="/write">
+                            <h6>Write</h6>
+                        </Link>
+                    )} 
                     </span>
                     <span className="admin">
                     <Link className="link hvr-underline-from-left-orange link4" to="/">

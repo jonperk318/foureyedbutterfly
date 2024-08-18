@@ -881,19 +881,14 @@ body {
 
           .logo {
 
-            padding: 0 0;
-            align-items: center;
-            justify-content: center;
-            height: 7%;
             position: absolute;
-            top: 0;
-            width: 100%;
+            top: 20px;
             animation: text-load $transition-time $transition-type;
 
             img {
               padding: 10% 25%;
               font-size: 0;
-              width: 38%;
+              width: 300px;
             }
 
           }
@@ -908,11 +903,11 @@ body {
           position: absolute;
           background-color: $pink;
           color: $orange;
-          height: 120%;
+          height: 100vh;
           top: 100px;
           width: 1000px;
           z-index: 1;
-          margin-left: -250px;
+          margin-left: -300px;
 
           .links {
 
@@ -931,6 +926,12 @@ body {
 
         }
 
+      }
+
+      .auth {
+        .auth-container {
+          width: 400px;
+        }
       }
 
       .home {
@@ -972,6 +973,7 @@ body {
       }
 
       .posts {
+        display: flex;
         flex-direction: column;
 
         .post {
@@ -979,10 +981,20 @@ body {
           .content {
 
             h1 {
-              font-size: $font-size1;
+              font-size: $font-size3;
             }
 
             p {
+              font-size: $font-size5;
+            }
+          }
+        }
+      }
+
+      .single {
+        .post {
+          .title {
+            h1 {
               font-size: $font-size2;
             }
           }

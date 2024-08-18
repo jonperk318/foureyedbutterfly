@@ -17,20 +17,23 @@ const NavbarMobile = () => {
         <div className="navbar-mobile ">
             <div className="navbar-container">
                 <div className="logo link3">
-                    <a href={"./"}>
+                    <Link to="/">
                         <img src={Logo} alt="logo"/>
-                    </a>
+                    </Link>
                 </div>
             </div>
             <Hamburger toggled={isOpen} size={30} toggle={setOpen} className="burger"/>
             {isOpen && (
                 <div className="navbar-container-open">
                     <div className="links">
-                        <Link className="link" to="/?cat=about">About</Link>
-                        <Link className="link " to="/?cat=2024">2024</Link>
-                        <Link className="link" to="/write">Write</Link>
-                        {currentUser ? (<Link className="link" to="/" onClick={logout}>Logout</Link> 
-                        ) : ( <Link className="link" to="/login">Login</Link> )}
+                        <Link className="link" to="/about">About</Link>
+                        <Link className="link " to="/2024">2024</Link>
+                        {currentUser && (<Link className="link" to="/write">Write</Link>)}
+                        {currentUser ? (
+                            <Link className="link" to="/" onClick={logout}>Logout</Link> 
+                        ) : ( 
+                            <Link className="link" to="/login">Login</Link> 
+                        )}
                         <div className="insta link">
                             <a href={"https://www.instagram.com/foureyedbutterfly/?next=%2F"}>
                                 <FaInstagram size={40} style={{fill: "#FA5537"}}/>
