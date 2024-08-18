@@ -97,7 +97,7 @@ const Single = () => {
             <h2>{prevPost.title}</h2>
           </Link>
           )}
-          {currentUser.id === post.uid && (
+          {currentUser && currentUser.id === post.uid && (
           <div className="edit">
             <Link to={`/write?edit=${post.pid}`} state={post}>
               <IconContext.Provider value={{className: "icon"}}>

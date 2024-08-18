@@ -165,7 +165,7 @@ const Write = () => {
             <div className='uploads'>
               <ol>
               {files && files.map(file => ( // display names of uploaded files on page
-                <li>
+                <li key={file.name}>
                     {file.name}
                 </li>
               )) ||
