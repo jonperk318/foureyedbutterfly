@@ -1,3 +1,3 @@
 # Four Eyed Butterfly
 
-https://www.foureyedbutterfly.com/
+https://foureyedbutterfly.com/
