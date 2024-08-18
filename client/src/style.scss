@@ -427,16 +427,17 @@ body {
 
       .flowers {
 
+        opacity: 0;
+        animation-delay: 200ms;
+        animation: wipe 1s $transition-type;
+        -webkit-mask-image: linear-gradient(to left, #0000 50%, #000 51%);
+        -webkit-mask-size: 500%;
+        animation-fill-mode: forwards;
+
         display: flex;
         align-items: center;
         justify-content: right;
         padding: 6% 8%;
-        animation: wipe 1s $transition-type;
-
-        opacity: 0;
-        -mask-image: linear-gradient(to left, #0000 50%, #000 51%);
-        -mask-size: 500%;
-        animation-fill-mode: forwards;
 
         img {
           width: calc(150px + 90%);
@@ -875,23 +876,31 @@ body {
         min-width: 100vw;
         height: 45px;
         display: flex;
-        padding: 8% 8%;
+        padding: 45px 10px;
 
         .navbar-container {
 
+          position: absolute;
+
           .logo {
 
-            position: absolute;
-            top: 20px;
+    
             animation: text-load $transition-time $transition-type;
+            position: relative;
+            display: flex;
+            padding-left: 95px;
+
 
             img {
-              padding: 10% 25%;
               font-size: 0;
               width: 300px;
             }
 
           }
+        }
+
+        .burger {
+          padding-left: 15px;
         }
 
         .navbar-container-open {

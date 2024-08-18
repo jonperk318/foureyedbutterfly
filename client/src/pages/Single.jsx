@@ -99,11 +99,11 @@ const Single = () => {
           )}
           {currentUser && currentUser.id === post.uid && (
           <div className="edit">
-            <Link to={`/write?edit=${post.pid}`} state={post}>
-              <IconContext.Provider value={{className: "icon"}}>
-                <FaRegEdit style={{color: "white", fontSize: "40px"}}/>
+              <IconContext.Provider value={{className: "icon"}} state={post}>
+                <a href={`/write?edit=${post.pid}`}>
+                  <FaRegEdit style={{color: "white", fontSize: "40px"}}/>
+                </a>
               </IconContext.Provider>
-            </Link>
           </div>
           )}
           {nextPost && ( // check if next post exists
