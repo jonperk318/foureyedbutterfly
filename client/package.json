@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-quilljs": "^2.0.4",
+    "react-quilljs-vite-fix": "^1.0.5",
     "react-router-dom": "^6.25.1"
   },
   "devDependencies": {
