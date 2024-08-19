@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigate, useLocation} from 'react-router-dom';
-import {useQuill} from 'react-quilljs';
+import {useQuill} from 'react-quilljs-vite-fix';
 import 'quill/dist/quill.snow.css';
 import axios from 'axios';
 import dayjs from 'dayjs';
