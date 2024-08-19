@@ -61,11 +61,16 @@ body {
 
 @keyframes text-load {
   0% {
-    transform: translateY(50%);
+    transform: translateY(60%);
     opacity: 0;
   }
-  70% {
-    transform: translateY(15%);
+  50% {
+    transform: translateY(10%);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateY(2%);
+    opacity: 0.8;
   }
   100% {
     transform: translateY(0%);
@@ -75,17 +80,10 @@ body {
 
 @keyframes wipe {
   0% {
-    opacity: 1;
-    -mask-position: 100%;
+    clip-path:polygon(0 0,0% 0,-200px 100%,0 100%);
   }
-
-  70% {
-    -mask-position: 30%;
-  }
-
   100% {
-    opacity: 1;
-    -mask-position: 0;
+    clip-path:polygon(0 0,calc(100% + 200px) 0,100% 100%,0 100%);
   }
 }
 
@@ -427,12 +425,8 @@ body {
 
       .flowers {
 
-        opacity: 0;
-        animation-delay: 200ms;
-        animation: wipe 1s $transition-type;
-        -webkit-mask-image: linear-gradient(to left, #0000 50%, #000 51%);
-        -webkit-mask-size: 500%;
-        animation-fill-mode: both;
+        animation: wipe $transition-time $transition-type;
+        animation-fill-mode: forwards;
 
         display: flex;
         align-items: center;
@@ -460,11 +454,7 @@ body {
         padding-bottom: 110px;
         text-align: center;
 
-        animation: wipe 1s $transition-type;
-
-        opacity: 0;
-        -mask-image: linear-gradient(to left, #0000 50%, #000 51%);
-        -mask-size: 500%;
+        animation: wipe $transition-time $transition-type;
         animation-fill-mode: forwards;
 
         img {
@@ -479,10 +469,59 @@ body {
         align-items: center;
         justify-content: center;
         gap: 2%;
+        margin-bottom: 30px;
 
         img {
           width: 30%;
         }
+      }
+
+      .post {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 40px;
+        margin: 0 10% 10% 10%;
+
+        .title h1 {
+          font-family: $title-font;
+          font-size: $font-size1;
+          color: $dark-brown;
+          animation: text-load $transition-time $transition-type;
+        }
+
+        .image img {
+          width: 100%;
+
+          animation: wipe 1s $transition-type;
+          animation-fill-mode: forwards;
+        }
+
+        .content p {
+          text-align: justify;
+          font-family: $paragraph-font;
+          font-size: $font-size4;
+          color: $dark-brown;
+          white-space: pre-line; // convert "/n" to <br>
+          animation: text-load $transition-time $transition-type;
+        }
+
+        .bottom {
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 100px;
+          color: white;
+          font-size: $font-size4;
+          animation: text-load $transition-time $transition-type;
+          margin-bottom: 150px;
+
+        }
+
       }
 
     }
@@ -517,10 +556,7 @@ body {
           display: block;
           transition: $transition-time ease-in-out;
 
-          animation: wipe 1s $transition-type;
-          opacity: 0;
-          -mask-image: linear-gradient(to left, #0000 50%, #000 51%);
-          -mask-size: 500%;
+          animation: wipe $transition-time $transition-type;
           animation-fill-mode: forwards;
 
         }
@@ -577,10 +613,7 @@ body {
         .image img, video {
           width: 100%;
 
-          animation: wipe 1s $transition-type;
-          opacity: 0;
-          -mask-image: linear-gradient(to left, #0000 50%, #000 51%);
-          -mask-size: 500%;
+          animation: wipe $transition-time $transition-type;
           animation-fill-mode: forwards;
         }
 
