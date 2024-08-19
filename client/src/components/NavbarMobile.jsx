@@ -17,6 +17,14 @@ const NavbarMobile = () => {
         setOpen(!isOpen)
     }
 
+    function toggleBurgerLogo() {
+        if (isOpen) {
+            setOpen(false)
+        } else {
+            return
+        }
+    }
+
     function logoutOnClick() {
         logout();
         toggleBurger();
@@ -26,7 +34,7 @@ const NavbarMobile = () => {
         <div className="navbar-mobile ">
             <div className="navbar-container">
                 <div className="logo link3">
-                    <Link to="/">
+                    <Link to="/" onClick={toggleBurgerLogo}>
                         <img src={Logo} alt="logo"/>
                     </Link>
                 </div>

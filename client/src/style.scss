@@ -432,7 +432,7 @@ body {
         animation: wipe 1s $transition-type;
         -webkit-mask-image: linear-gradient(to left, #0000 50%, #000 51%);
         -webkit-mask-size: 500%;
-        animation-fill-mode: forwards;
+        animation-fill-mode: both;
 
         display: flex;
         align-items: center;
