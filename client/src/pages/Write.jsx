@@ -164,13 +164,13 @@ const Write = () => {
             <h1>Pictures & Videos</h1>
             <div className='uploads'>
               <ol>
-              {files && files.map(file => ( // display names of uploaded files on page
+              {files ? files.map(file => ( // display names of uploaded files on page
                 <li key={file.name}>
                     {file.name}
                 </li>
-              )) ||
+              )) :
               oldFiles && oldFiles.split(", ").map(oldFile => (
-                <li>
+                <li key={oldFile.name}>
                   {oldFile.replace(/\d{13}/, "")}
                 </li>
               ))}

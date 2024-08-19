@@ -38,7 +38,7 @@ export const addPost = (req, res) => { // CREATE
 
 export const getPrevPost = (req, res) => {
 
-  const q = "SELECT * FROM users u JOIN posts p on u.id = p.uid WHERE p.pid = (select max(p.pid) from posts where p.pid < ?)";
+  const q = "SELECT * FROM posts WHERE pid = (select max(pid) from posts where pid < ?)";
 
   db.query(q, [req.params.pid], (err, data) => {
     if (err) return res.status(500).json(err);
@@ -48,7 +48,7 @@ export const getPrevPost = (req, res) => {
 
 export const getPost = (req, res) => {
 
-    const q = "SELECT * FROM users u JOIN posts p on u.id = p.uid WHERE p.pid = ?";
+    const q = "SELECT * FROM posts WHERE pid = ?";
   
     db.query(q, [req.params.pid], (err, data) => {
       if (err) return res.status(500).json(err);
@@ -58,7 +58,7 @@ export const getPost = (req, res) => {
 
 export const getNextPost = (req, res) => {
 
-  const q = "SELECT * FROM users u JOIN posts p on u.id = p.uid WHERE p.pid = (select min(p.pid) from posts where p.pid > ?)";
+  const q = "SELECT * FROM posts WHERE pid = (select min(pid) from posts where pid > ?)";
 
   db.query(q, [req.params.pid], (err, data) => {
     if (err) return res.status(500).json(err);
