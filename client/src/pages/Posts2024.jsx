@@ -35,10 +35,10 @@ const Posts2024 = () => {
                         <Link className="link" to={`/post/${post.pid}`}>
                             {findFile(post) === "video" ? (
                                 <video contols="controls loop" alt="video">
-                                    <source src={`../src/img/${("" + post.img).split(", ")[0]}`} type="video" />
+                                    <source src={new URL(`../img/${("" + post.img).split(", ")[0]}`, import.meta.url).href} type="video" />
                                 </video>
                             ) : (
-                                <img src={`../src/img/${("" + post.img).split(", ")[0]}`} alt="image"/>
+                                <img src={new URL(`../img/${("" + post.img).split(", ")[0]}`, import.meta.url).href} alt="image"/>
                             )}
                         </Link>
                     </div>

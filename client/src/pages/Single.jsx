@@ -64,10 +64,10 @@ const Single = () => {
         <div className="image">
           {findFile(images[i + 1]) === "video" ? (
             <video controls="controls autoplay loop" alt="video">
-              <source src={`../src/img/${images[i + 1]}`} type="video" />
+              <source src={new URL(`../img/${images[i + 1]}`, import.meta.url).href} type="video" />
             </video>
           ) : (
-            <img src={`../src/img/${images[i + 1]}`} alt="image" />
+            <img src={new URL(`../img/${images[i + 1]}`, import.meta.url).href} alt="image" />
           )}
         </div>
       )}
@@ -84,10 +84,10 @@ const Single = () => {
         <div className="image">
           {findFile(images[0]) === "video" ? (
               <video controls="autoplay" alt="video">
-                <source src={`../src/img/${images[0]}`} type="video" />
+                <source src={new URL(`../img/${images[0]}`, import.meta.url).href} type="video" />
               </video>
             ) : (
-              <img src={`../src/img/${images[0]}`} alt="image" />
+              <img src={new URL(`../img/${images[0]}`, import.meta.url).href} alt="image" />
             )}
         </div>
         <div>{segments}</div>
