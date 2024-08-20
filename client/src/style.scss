@@ -80,10 +80,16 @@ body {
 
 @keyframes wipe {
   0% {
-    clip-path:polygon(0 0,0% 0,-200px 100%,0 100%);
+    clip-path: polygon(0 0, 0% 0, -200px 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 0, calc(100% + 200px) 0, 75% 100%, 0 100%)
+  }
+  75% {
+    clip-path: polygon(0 0, calc(100% + 200px) 0, 90% 100%, 0 100%)
   }
   100% {
-    clip-path:polygon(0 0,calc(100% + 200px) 0,100% 100%,0 100%);
+    clip-path: polygon(0 0, calc(100% + 200px) 0, 100% 100%, 0 100%);
   }
 }
 
@@ -448,19 +454,18 @@ body {
 
       .half-moon-bay {
 
-        color: $brown;
-        display: table;
-        padding-top: 0;
-        padding-bottom: 110px;
-        text-align: center;
-
         animation: wipe $transition-time $transition-type;
         animation-fill-mode: forwards;
 
         img {
           width: 100%;
-          animation: text-load $transition-time $transition-type;
         }
+
+        color: $brown;
+        display: table;
+        padding-top: 0;
+        padding-bottom: 110px;
+        text-align: center;
       }
 
       .about-container {
@@ -500,13 +505,15 @@ body {
           animation-fill-mode: forwards;
         }
 
-        .content p {
-          text-align: justify;
-          font-family: $paragraph-font;
-          font-size: $font-size4;
-          color: $dark-brown;
-          white-space: pre-line; // convert "/n" to <br>
-          animation: text-load $transition-time $transition-type;
+        .content {
+          
+          p {
+            text-align: justify;
+            font-family: $paragraph-font;
+            font-size: $font-size4;
+            color: $dark-brown;
+            animation: text-load $transition-time $transition-type;
+          }
         }
 
         .bottom {
@@ -617,13 +624,15 @@ body {
           animation-fill-mode: forwards;
         }
 
-        .content p {
-          text-align: justify;
-          font-family: $paragraph-font;
-          font-size: $font-size4;
-          color: $dark-brown;
-          white-space: pre-line; // convert "/n" to <br>
-          animation: text-load $transition-time $transition-type;
+        .content {
+
+          p {
+            text-align: justify;
+            font-family: $paragraph-font;
+            font-size: $font-size4;
+            color: $dark-brown;
+            animation: text-load $transition-time $transition-type;
+          }
         }
 
         .bottom {
@@ -757,6 +766,7 @@ body {
             overflow-y: scroll;
             border: 5px solid $pink;
             border-radius: 20px;
+            color: $dark-brown;
 
             .editor {
               height: 100%;
