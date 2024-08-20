@@ -170,7 +170,7 @@ const Write = () => {
                 </li>
               )) :
               oldFiles && oldFiles.split(", ").map(oldFile => (
-                <li key={oldFile.name}>
+                <li key={oldFile}>
                   {oldFile.replace(/\d{13}/, "")}
                 </li>
               ))}

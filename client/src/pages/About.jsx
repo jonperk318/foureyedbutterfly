@@ -55,9 +55,9 @@ const About = () => {
                 <img src={HalfMoonBay} alt="Half Moon Bay" />
             </div>
             <div className="about-container">
-                <img src={BioPic} alt="Bio Pic" />
-                <img src={Quote} alt="Quote" />
                 <img src={Fish} alt="Fish" />
+                <img src={Quote} alt="Quote" />
+                <img src={BioPic} alt="Bio Pic" />
             </div>
             <div className="post" key={post.pid}>
                 <div className="title">
