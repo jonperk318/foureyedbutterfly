@@ -456,16 +456,15 @@ body {
 
         animation: wipe $transition-time $transition-type;
         animation-fill-mode: forwards;
-
-        img {
-          width: 100%;
-        }
-
         color: $brown;
         display: table;
         padding-top: 0;
         padding-bottom: 110px;
         text-align: center;
+
+        img {
+          width: 100%;
+        }
       }
 
       .about-container {
@@ -626,13 +625,13 @@ body {
 
         .content {
 
-          p {
-            text-align: justify;
-            font-family: $paragraph-font;
-            font-size: $font-size4;
-            color: $dark-brown;
-            animation: text-load $transition-time $transition-type;
-          }
+          text-align: left;
+          font-family: $paragraph-font;
+          font-size: $font-size4;
+          color: $dark-brown;
+          animation: text-load $transition-time $transition-type;
+          padding-bottom: 40px;
+        
         }
 
         .bottom {
@@ -771,6 +770,7 @@ body {
             .editor {
               height: 100%;
               border: none;
+              color: $dark-brown;
             }
           }
         }

@@ -5,6 +5,7 @@ import userRoutes from './routes/users.js';
 import postRoutes from './routes/posts.js';
 import cookieParser from 'cookie-parser';
 import multer from 'multer';
+import "dotenv/config";
 
 const app = express();
 
@@ -36,6 +37,16 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 
-app.listen(8080, ()=> {
+/*
+app.use(
+  "/api/service",
+  createProxyMiddleware({
+    target: `http://127.0.0.1:${process.env.LOAD_BALANCER_PORT}/hello`,
+    ignorePath: true,
+  })
+);
+*/
+
+app.listen(process.env.PROXY_PORT, ()=> {
     console.log("Connected");
 })

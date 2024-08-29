@@ -181,13 +181,13 @@ const Write = () => {
           <div className="content">
               <input type="text" placeholder="Title" onChange={e=>setTitle(e.target.value)} value={title} />
               <div className="editor-container">
-                  <div ref={quillRef} />
+                  <div ref={quillRef} className="editor" />
               </div>
           </div>
           <div className="menu">
               <div className="instructions">
-                <h1>Separate text field submissions by entering 3 times.</h1>
-                <h1>A single image will inset between each text field, and remaining images will be at the end.</h1>
+                <h1>Separate text field submissions by 3 pipes |||</h1>
+                <h1>A single image will inset between each text field, and remaining images will be at the end</h1>
                 <h1>Publishing new files will completely replace old ones</h1>
               </div>
               <div className="upload-buttons">

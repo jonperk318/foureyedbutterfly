@@ -44,7 +44,7 @@ const Single = () => {
   }
 
   const images = ("" + post.img).split(", ");
-  const content = ("" + post.content).split("<p><br></p><p><br></p>");
+  const content = ("" + post.content).split("|||");
 
   const segments = [];
   let count = 0;
