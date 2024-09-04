@@ -60,13 +60,15 @@ const About = () => {
                 <img src={BioPic} alt="Bio Pic" />
             </div>
             <div className="post" key={post.pid}>
-                <div className="title">
-                    <h1>{post.title}</h1>
+                <div className='post-container'>
+                    <div className="title">
+                        <h1>{post.title}</h1>
+                    </div>
+                    <div className="image">
+                        <img src={new URL(`../img/${images[0]}`, import.meta.url).href} alt="image" />
+                    </div>
+                    <div>{segments}</div>
                 </div>
-                <div className="image">
-                    <img src={new URL(`../img/${images[0]}`, import.meta.url).href} alt="image" />
-                </div>
-                <div>{segments}</div>
             </div>
         </div>
     )

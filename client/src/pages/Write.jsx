@@ -51,7 +51,6 @@ const Write = () => {
 
     try {
       const formData = new FormData();
-      console.log(files.length)
       files.forEach(file => {
         formData.append("files", file);
       });
@@ -64,9 +63,9 @@ const Write = () => {
 
   const handlePublish = async e => {
     e.preventDefault();
-    const imgUrl = await upload();
 
     if (files) {
+      const imgUrl = await upload();
       try {
         state
           ? await axios.put(`/api/posts/${state.pid}`, {
@@ -81,7 +80,7 @@ const Write = () => {
               img: imgUrl,
               date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
             });
-            navigate("/")
+          navigate("/")
       } catch (err) {
         console.log(err)
       }
@@ -97,7 +96,7 @@ const Write = () => {
               content: content,
               date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
             });
-            navigate("/")
+          navigate("/")
       } catch (err) {
         console.log(err);
       }
@@ -187,7 +186,7 @@ const Write = () => {
           <div className="menu">
               <div className="instructions">
                 <h1>Separate text field submissions by 3 pipes |||</h1>
-                <h1>A single image will inset between each text field, and remaining images will be at the end</h1>
+                <h1>The layout alternates between images and text entries</h1>
                 <h1>Publishing new files will completely replace old ones</h1>
               </div>
               <div className="upload-buttons">
@@ -197,15 +196,13 @@ const Write = () => {
                     <label className='brown' id="deleteButton">Delete Post</label>
                   )}
               </div>
-              {oldFiles ? (
-                <div className="save-buttons">
+              <div className="save-buttons">
+                {oldFiles ? (
                   <button onClick={handlePublish}>Update</button>
-                </div>
-              ) : (
-                <div className="save-buttons">
+                ) : (
                   <button onClick={handlePublish}>Publish</button>
-                </div>
-              )}
+                  )}
+              </div>
           </div>
         </div>
     </div>
