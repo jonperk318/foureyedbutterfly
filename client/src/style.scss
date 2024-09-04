@@ -481,50 +481,58 @@ body {
       }
 
       .post {
-
+        
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
         gap: 40px;
-        margin: 0 10% 10% 10%;
+        margin:auto;
+        max-width: 1000px;
 
-        .title h1 {
-          font-family: $title-font;
-          font-size: $font-size1;
-          color: $dark-brown;
-          animation: text-load $transition-time $transition-type;
-        }
+        .post-container {
 
-        .image img {
-          width: 100%;
+          margin: 0 10% 10% 10%;
+        
 
-          animation: wipe 1s $transition-type;
-          animation-fill-mode: forwards;
-        }
-
-        .content {
-          
-          p {
-            text-align: justify;
-            font-family: $paragraph-font;
-            font-size: $font-size4;
+          .title h1 {
+            font-family: $title-font;
+            font-size: $font-size1;
             color: $dark-brown;
             animation: text-load $transition-time $transition-type;
           }
-        }
 
-        .bottom {
+          .image img {
+            width: 100%;
 
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 100px;
-          color: white;
-          font-size: $font-size4;
-          animation: text-load $transition-time $transition-type;
-          margin-bottom: 150px;
+            animation: wipe 1s $transition-type;
+            animation-fill-mode: forwards;
+          }
+
+          .content {
+            
+            p {
+              text-align: justify;
+              font-family: $paragraph-font;
+              font-size: $font-size4;
+              color: $dark-brown;
+              animation: text-load $transition-time $transition-type;
+            }
+          }
+
+          .bottom {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 100px;
+            color: white;
+            font-size: $font-size4;
+            animation: text-load $transition-time $transition-type;
+            margin-bottom: 150px;
+
+          }
 
         }
 
@@ -607,43 +615,50 @@ body {
         justify-content: center;
         text-align: center;
         gap: 40px;
-        margin: 0 10%;
+        margin:auto;
+        max-width: 1000px;
 
-        .title h1 {
-          font-family: $title-font;
-          font-size: $font-size1;
-          color: $dark-brown;
-          animation: text-load $transition-time $transition-type;
-        }
+        .post-container {
 
-        .image img, video {
-          width: 100%;
+          margin: 0 10% 10% 10%;
 
-          animation: wipe $transition-time $transition-type;
-          animation-fill-mode: forwards;
-        }
+          .title h1 {
+            font-family: $title-font;
+            font-size: $font-size1;
+            color: $dark-brown;
+            animation: text-load $transition-time $transition-type;
+          }
 
-        .content {
+          .image img, video {
+            width: 100%;
 
-          text-align: left;
-          font-family: $paragraph-font;
-          font-size: $font-size4;
-          color: $dark-brown;
-          animation: text-load $transition-time $transition-type;
-          padding-bottom: 40px;
-        
-        }
+            animation: wipe $transition-time $transition-type;
+            animation-fill-mode: forwards;
+          }
 
-        .bottom {
+          .content {
 
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 100px;
-          color: white;
-          font-size: $font-size4;
-          animation: text-load $transition-time $transition-type;
-          margin-bottom: 150px;
+            text-align: left;
+            font-family: $paragraph-font;
+            font-size: $font-size4;
+            color: $dark-brown;
+            animation: text-load $transition-time $transition-type;
+            padding-bottom: 40px;
+          
+          }
+
+          .bottom {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 100px;
+            color: white;
+            font-size: $font-size4;
+            animation: text-load $transition-time $transition-type;
+            margin-bottom: 150px;
+
+          }
 
           .edit {
             //margin-bottom: 150px;
@@ -1022,6 +1037,15 @@ body {
             padding: 2% 0;
           }
         }
+        .post {
+          .post-container{
+            .title {
+              h1 {
+                font-size: $font-size2;
+              }
+            }
+          }
+        }
       }
 
       .posts {
@@ -1045,9 +1069,16 @@ body {
 
       .single {
         .post {
-          .title {
-            h1 {
-              font-size: $font-size2;
+          .post-container{
+            .title {
+              h1 {
+                font-size: $font-size2;
+              }
+            }
+
+            .bottom {
+              gap: 50px;
+              font-size: $font-size5;
             }
           }
         }

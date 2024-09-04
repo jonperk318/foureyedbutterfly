@@ -78,20 +78,21 @@ const Single = () => {
   return (
     <div className="single">
       <div className="post" key={post.pid}>
-        <div className="title">
-          <h1>{post.title}</h1>
-        </div>
-        <div className="image">
-          {findFile(images[0]) === "video" ? (
-              <video controls="autoplay" alt="video">
-                <source src={new URL(`../img/${images[0]}`, import.meta.url).href} type="video" />
-              </video>
-            ) : (
-              <img src={new URL(`../img/${images[0]}`, import.meta.url).href} alt="image" />
-            )}
-        </div>
-        <div>{segments}</div>
-        <div className="bottom">
+        <div className='post-container'>
+          <div className="title">
+            <h1>{post.title}</h1>
+          </div>
+          <div className="image">
+            {findFile(images[0]) === "video" ? (
+                <video controls="autoplay" alt="video">
+                  <source src={new URL(`../img/${images[0]}`, import.meta.url).href} type="video" />
+                </video>
+              ) : (
+                <img src={new URL(`../img/${images[0]}`, import.meta.url).href} alt="image" />
+              )}
+          </div>
+          <div>{segments}</div>
+          <div className="bottom">
           {prevPost && ( // check if previous post exists
           <Link className="hvr-underline-from-left" to={`/post/${prevPost.pid}`}>
             <h2>{prevPost.title}</h2>
@@ -105,12 +106,13 @@ const Single = () => {
               </Link>
             </IconContext.Provider>
           </div>
-          )}
-          {nextPost && ( // check if next post exists
-          <Link className="hvr-underline-from-left" to={`/post/${nextPost.pid}`}>
-            <h2>{nextPost.title}</h2>
-          </Link>
-          )}
+            )}
+            {nextPost && ( // check if next post exists
+            <Link className="hvr-underline-from-left" to={`/post/${nextPost.pid}`}>
+              <h2>{nextPost.title}</h2>
+            </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>
