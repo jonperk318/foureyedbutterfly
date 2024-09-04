@@ -513,7 +513,7 @@ body {
           .content {
             
             p {
-              text-align: justify;
+              text-align: left;
               font-family: $paragraph-font;
               font-size: $font-size4;
               color: $dark-brown;
@@ -1038,10 +1038,16 @@ body {
           }
         }
         .post {
-          .post-container{
+          .post-container  {
             .title {
               h1 {
                 font-size: $font-size2;
+              }
+            }
+
+            .content {
+              p {
+                font-size: $font-size5;
               }
             }
           }
@@ -1073,6 +1079,12 @@ body {
             .title {
               h1 {
                 font-size: $font-size2;
+              }
+            }
+
+            .content {
+              p {
+                font-size: $font-size5;
               }
             }
 
