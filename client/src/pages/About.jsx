@@ -56,7 +56,10 @@ const About = () => {
             </div>
             <div className="about-container">
                 <img src={Fish} alt="Fish" />
-                <img src={Quote} alt="Quote" />
+                <div className='quote'>
+                    <h1>"I remembered that the real world was wide, and that a varied field of hopes and fears, of sensations and excitements, awaited those who had the courage to go fourth into its expanse, to seek real knowledge of life amidst its perils."</h1>
+                    <p>&#8212; Jane Eyre</p>
+                </div> 
                 <img src={BioPic} alt="Bio Pic" />
             </div>
             <div className="post" key={post.pid}>
