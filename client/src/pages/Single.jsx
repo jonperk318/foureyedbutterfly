@@ -93,24 +93,24 @@ const Single = () => {
           </div>
           <div>{segments}</div>
           <div className="bottom">
-          {prevPost && ( // check if previous post exists
-          <Link className="hvr-underline-from-left" to={`/post/${prevPost.pid}`}>
-            <h2>{prevPost.title}</h2>
-          </Link>
-          )}
-          {currentUser && currentUser.id === post.uid && (
-          <div className="edit">
-            <IconContext.Provider value={{className: "icon"}}>
-              <Link to={`/write?edit=${post.pid}`} state={post}>
-                  <FaRegEdit style={{color: "white", fontSize: "40px"}}/>
-              </Link>
-            </IconContext.Provider>
-          </div>
-            )}
             {nextPost && ( // check if next post exists
-            <Link className="hvr-underline-from-left" to={`/post/${nextPost.pid}`}>
-              <h2>{nextPost.title}</h2>
-            </Link>
+              <Link className="hvr-underline-from-left" to={`/post/${nextPost.pid}`}>
+                <h2>{nextPost.title}</h2>
+              </Link>
+            )}
+            {currentUser && currentUser.id === post.uid && (
+              <div className="edit">
+                <IconContext.Provider value={{ className: "icon" }}>
+                  <Link to={`/write?edit=${post.pid}`} state={post}>
+                    <FaRegEdit style={{ color: "white", fontSize: "40px" }} />
+                  </Link>
+                </IconContext.Provider>
+              </div>
+            )}
+            {prevPost && ( // check if previous post exists
+              <Link className="hvr-underline-from-left" to={`/post/${prevPost.pid}`}>
+                <h2>{prevPost.title}</h2>
+              </Link>
             )}
           </div>
         </div>
