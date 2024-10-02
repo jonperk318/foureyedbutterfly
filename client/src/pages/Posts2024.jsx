@@ -29,7 +29,7 @@ const Posts2024 = () => {
 
     return (
         <div className="posts">
-            {Posts && Posts.map(post => (
+            {Posts && Posts.toReversed().map(post => (
                 <div className="post" key={post.pid}>
                     <div className="image">
                         <Link className="link" to={`/post/${post.pid}`}>
