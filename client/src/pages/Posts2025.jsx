@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {useEffect} from "react";
 import axios from "axios";
 
-const Posts2024 = () => {
+const Posts2025 = () => {
 
     const [Posts, setPosts] = useState([]);
 
@@ -18,7 +18,7 @@ const Posts2024 = () => {
         };
         fetchData();
     });
-    
+
     function findFile(post) {
         const extension = (post.img).split(", ")[0].split(".").pop;
         if (extension === "mov" || extension === "mp4") {
@@ -54,4 +54,4 @@ const Posts2024 = () => {
     )
 }
 
-export default Posts2024;
+export default Posts2025;

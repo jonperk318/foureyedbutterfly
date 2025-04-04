@@ -156,7 +156,7 @@ const Write = () => {
     }
   })}
 
-  
+
   return (
     <div className="write-post">
         <div className="upload-container">
