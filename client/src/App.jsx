@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
-import Posts2024 from "./pages/Posts2024.jsx";
+import Posts2025 from "./pages/Posts2025.jsx";
 import Register from "./pages/Register.jsx";
 import Login from "./pages/Login.jsx";
 import Write from "./pages/Write.jsx";
@@ -46,8 +46,8 @@ const router = createBrowserRouter([
         element: <About/>
       },
       {
-        path: "/2024",
-        element: <Posts2024/>
+        path: "/2025",
+        element: <Posts2025/>
       },
       {
         path: "/post/:id",

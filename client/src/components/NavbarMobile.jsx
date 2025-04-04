@@ -46,16 +46,16 @@ const NavbarMobile = () => {
                 <div className="navbar-container-open">
                     <div className="links">
                         <Link className="link" to="/about" onClick={toggleBurger}>About</Link>
-                        <Link className="link " to="/2024" onClick={toggleBurger}>2024</Link>
+                        <Link className="link " to="/2025" onClick={toggleBurger}>2024</Link>
                         {currentUser && (<Link className="link" to="/write" onClick={toggleBurger}>Write</Link>)}
                         {currentUser ? (
-                            <Link className="link" to="/" onClick={logoutOnClick}>Logout</Link> 
-                        ) : ( 
-                            <Link className="link" to="/login" onClick={toggleBurger}>Login</Link> 
+                            <Link className="link" to="/" onClick={logoutOnClick}>Logout</Link>
+                        ) : (
+                            <Link className="link" to="/login" onClick={toggleBurger}>Login</Link>
                         )}
                         <div className="insta link">
                             <IconContext.Provider value={{className: "icon"}}>
-                                <a href={"https://www.instagram.com/foureyedbutterfly/?next=%2F"}>
+                                <a href={"https://www.instagram.com/rubymaghoney/"}>
                                     <FaInstagram size={40} style={{fill: "#FA5537"}}/>
                                 </a>
                             </IconContext.Provider>
