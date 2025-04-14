@@ -1,12 +1,12 @@
-default: run
+default: build
 
 build:
 	npm --prefix ./client run build
 	make restart
 
 restart:
-	pm2 restart 0
-	service nginx restart
+	pm2 restart 0 --watch
+	service nginx restart --watch
 
 i:
 	npm --prefix ./client install ./client
@@ -14,12 +14,18 @@ i:
 	npm --prefix ./client install dayjs
 	npm --prefix ./client install react-icons
 
+install:
+	make i
+
 audit:
 	npm --prefix ./client audit fix
 	npm --prefix ./api audit fix
 
 renew:
 	sudo certbot renew --nginx
+
+sql:
+	sudo mysql -u root -p
 
 run:
 	make -j 2 run_client run_api
