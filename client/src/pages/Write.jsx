@@ -190,7 +190,7 @@ const Write = () => {
                 <h1>Publishing new files will completely replace old ones</h1>
               </div>
               <div className="upload-buttons">
-                  <input style={{display: "none"}} type="file" multiple id="file" name="file" onChange={handleFileEvent} />
+                  <input style={{display: "none"}} type="file" multiple id="file" name="file" accept="image/jpeg,image/png" onChange={handleFileEvent} />
                   <label className='brown' htmlFor="file">Select Pictures & Videos</label>
                   {oldFiles && (
                     <label className='brown' id="deleteButton">Delete Post</label>
