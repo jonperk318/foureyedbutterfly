@@ -37,16 +37,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 
-/*
-app.use(
-  "/api/service",
-  createProxyMiddleware({
-    target: `http://127.0.0.1:${process.env.LOAD_BALANCER_PORT}/hello`,
-    ignorePath: true,
-  })
-);
-*/
-
 app.listen(process.env.PROXY_PORT, ()=> {
     console.log("Connected");
 })

@@ -1,4 +1,4 @@
-import {db} from "../db.js";
+import { db } from "../db.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
@@ -6,7 +6,7 @@ import "dotenv/config";
 export const register = (req, res) => {
 
     // Check if user exists
-    
+
     const q = "SELECT * FROM users WHERE email = ? OR username = ?;";
 
     db.query(q, [req.body.email, req.body.username], (err, data) => {

@@ -1,9 +1,27 @@
-import mysql from 'mysql2';
+import sqlite3 from "sqlite3";
 import "dotenv/config";
 
-export const db = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USERNAME,
-    password: process.env.DB_KEY,
-    database: process.env.DB
-})
+const db = new sqlite3.Database(
+    "foureyedbutterfly.db",
+);
+
+try {
+    await execute(
+        db,
+        `CREATE TABLE users (
+            uid INT PRIMARY KEY,
+            username TEXT NOT NULL,
+            password TEXT NOT NULL,
+        );
+        INSERT INTO users (uid, username, password)
+            VALUES (
+                1,
+                ${process.env.USERNAME},
+                ${process.env.PASSWORD},
+            );`
+    );
+} catch (error) {
+    console.log(error);
+};
+
+export default db;
