@@ -2,23 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
-const errorUtils = {
-  getError: (error) => {
-    let e = error;
-    if (error.response) {
-      e = error.response.data;                   // data, status, headers
-      if (error.response.data && error.response.data.error) {
-        e = error.response.data.error;           // my app specific keys override
-      }
-    } else if (error.message) {
-      e = error.message;
-    } else {
-      e = "Unknown error occured";
-    }
-    return e;
-  },
-};
+import { errorUtils } from "../utils/errorUtils";
 
 
 const Register = () => {
@@ -26,7 +10,7 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
-    admin_password: ""
+    admin_password: "",
   });
   const [err, setError] = useState(null);
 
@@ -49,18 +33,47 @@ const Register = () => {
 
   return (
     <div className="auth">
-        <div className="auth-container">
-            <h1>Register</h1>
-            <form>
-                <input required type="text" placeholder="username" name="username" onChange={handleChange} />
-                <input required type="email" placeholder="email" name="email" onChange={handleChange} />
-                <input required type="password" placeholder="password" name="password" onChange={handleChange} />
-                <input required type="password" placeholder="admin password" name="admin_password" onChange={handleChange} />
-                <button onClick={handleSubmit}>Register</button>
-                {err && <p>{JSON.stringify(err)}</p>}
-                <p>Do you have an account? <Link className="hvr-underline-from-left" to="/login">Login</Link></p>
-            </form>
-        </div>
+      <div className="auth-container">
+        <h1>Register</h1>
+        <form>
+          <input
+            required
+            type="text"
+            placeholder="username"
+            name="username"
+            onChange={handleChange}
+          />
+          <input
+            required
+            type="email"
+            placeholder="email"
+            name="email"
+            onChange={handleChange}
+          />
+          <input
+            required
+            type="password"
+            placeholder="password"
+            name="password"
+            onChange={handleChange}
+          />
+          <input
+            required
+            type="password"
+            placeholder="admin password"
+            name="admin_password"
+            onChange={handleChange}
+          />
+          <button onClick={handleSubmit}>Register</button>
+          {err && <p>{JSON.stringify(err)}</p>}
+          <p>
+            Do you have an account?{" "}
+            <Link className="hvr-underline-from-left" to="/login">
+              Login
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

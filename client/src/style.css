@@ -28,7 +28,7 @@
 }
 
 body {
-  background-color: #FAEBDC;
+  background-color: #faebdc;
   background-size: cover;
   margin: 0;
   height: 100vh;
@@ -82,7 +82,7 @@ body {
 .app .container .navbar {
   font-family: "Meno Banner", "Playfair Display", serif;
   color: #863527;
-  background-color: #FAE7E2;
+  background-color: #fae7e2;
   min-width: 100vw;
   height: 110px;
 }
@@ -90,13 +90,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FAE7E2;
+  background-color: #fae7e2;
   height: 80px;
   top: 0;
   width: 100%;
 }
 .app .container .navbar .navbar-container .links {
-  background-color: #FAE7E2;
+  background-color: #fae7e2;
   display: flex;
   align-items: center;
   padding-top: 50px;
@@ -106,7 +106,12 @@ body {
   position: relative;
   color: #863527;
 }
-.app .container .navbar .navbar-container .links .hvr-underline-from-left:after {
+.app
+  .container
+  .navbar
+  .navbar-container
+  .links
+  .hvr-underline-from-left:after {
   content: "";
   position: absolute;
   width: 70%;
@@ -118,16 +123,31 @@ body {
   transform-origin: bottom right;
   transition: transform 200ms ease-out;
 }
-.app .container .navbar .navbar-container .links .hvr-underline-from-left:hover:after {
+.app
+  .container
+  .navbar
+  .navbar-container
+  .links
+  .hvr-underline-from-left:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-.app .container .navbar .navbar-container .links .hvr-underline-from-left-orange {
+.app
+  .container
+  .navbar
+  .navbar-container
+  .links
+  .hvr-underline-from-left-orange {
   display: inline-block;
   position: relative;
-  color: #FA5537;
+  color: #fa5537;
 }
-.app .container .navbar .navbar-container .links .hvr-underline-from-left-orange:after {
+.app
+  .container
+  .navbar
+  .navbar-container
+  .links
+  .hvr-underline-from-left-orange:after {
   content: "";
   position: absolute;
   width: 70%;
@@ -135,18 +155,23 @@ body {
   height: 1.4px;
   bottom: -7px;
   left: 15%;
-  background-color: #FA5537;
+  background-color: #fa5537;
   transform-origin: bottom right;
   transition: transform 200ms ease-out;
 }
-.app .container .navbar .navbar-container .links .hvr-underline-from-left-orange:hover:after {
+.app
+  .container
+  .navbar
+  .navbar-container
+  .links
+  .hvr-underline-from-left-orange:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
 .app .container .navbar .navbar-container .links img {
   width: 35%;
   height: auto;
-  background-color: #FAE7E2;
+  background-color: #fae7e2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,7 +184,7 @@ body {
 }
 .app .container .navbar .navbar-container .links h6 {
   font-size: 18px;
-  color: #FA5537;
+  color: #fa5537;
 }
 .app .container .navbar .navbar-container .links span {
   cursor: pointer;
@@ -173,7 +198,7 @@ body {
 }
 .app .container .navbar .navbar-container .links .link {
   color: #863527;
-  background-color: #FAE7E2;
+  background-color: #fae7e2;
   margin: 0;
   padding: 0;
   width: 120px;
@@ -183,7 +208,7 @@ body {
   justify-content: center;
 }
 .app .container .navbar .navbar-container .links .insta {
-  background-color: #FAE7E2;
+  background-color: #fae7e2;
   margin: 0;
   padding: 0;
 }
@@ -211,7 +236,7 @@ body {
   transform: scale(0);
 }
 .app .container .auth {
-  background-image: linear-gradient(#EDD8C7 5px, 60px, #FAEBDC 120px);
+  background-image: linear-gradient(#edd8c7 5px, 60px, #faebdc 120px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -237,7 +262,8 @@ body {
   align-items: center;
   justify-content: center;
 }
-.app .container .auth .login-container h1, .app .container .auth .login-container form {
+.app .container .auth .login-container h1,
+.app .container .auth .login-container form {
   gap: 20px;
   display: flex;
   flex-direction: column;
@@ -247,15 +273,15 @@ body {
   font-size: 18px;
   padding: 20px;
   margin: 0 20px;
-  border: 5px dotted #FAE7E2;
+  border: 5px dotted #fae7e2;
   border-radius: 20px;
 }
 .app .container .auth .login-container form button {
   font-family: "Meno Banner", "Playfair Display", serif;
   padding: 10px;
   margin: 0 20px;
-  border: 5px solid #FAE7E2;
-  background-color: #FAE7E2;
+  border: 5px solid #fae7e2;
+  background-color: #fae7e2;
   border-radius: 20px;
   color: #863527;
   cursor: pointer;
@@ -269,15 +295,15 @@ body {
 .app .container .auth .login-container form p {
   font-family: "Meno Banner", "Playfair Display", serif;
   font-size: 26px;
-  color: #FA5537;
+  color: #fa5537;
   text-align: center;
   margin-top: -5px;
 }
 .app .container .home {
-  background-image: linear-gradient(#EDD8C7 5px, 60px, #FAEBDC 120px);
+  background-image: linear-gradient(#edd8c7 5px, 60px, #faebdc 120px);
 }
 .app .container .home .title-container {
-  color: #9B2434;
+  color: #9b2434;
   display: table;
   padding: 23% 8%;
   float: left;
@@ -315,10 +341,10 @@ body {
   height: auto;
 }
 .app .container .about {
-  background-image: linear-gradient(#EDD8C7 5px, 60px, #FAEBDC 120px);
+  background-image: linear-gradient(#edd8c7 5px, 60px, #faebdc 120px);
 }
 .app .container .about .half-moon-bay {
-  color: #9B2434;
+  color: #9b2434;
   display: table;
   padding-top: 0;
   padding-bottom: 110px;
@@ -343,7 +369,7 @@ body {
   width: 30%;
 }
 .app .container .posts {
-  background-image: linear-gradient(#EDD8C7 5px, 60px, #FAEBDC 120px);
+  background-image: linear-gradient(#edd8c7 5px, 60px, #faebdc 120px);
   padding: 3% 3%;
   display: flex;
   flex-direction: row;
@@ -387,11 +413,11 @@ body {
 .app .container .posts .post .content p {
   font-family: "Meno Banner", "Playfair Display", serif;
   font-size: 26px;
-  color: #FA5537;
+  color: #fa5537;
   animation: text-load 300ms ease-in;
 }
 .app .container .single {
-  background-image: linear-gradient(#EDD8C7 5px, 60px, #FAEBDC 120px);
+  background-image: linear-gradient(#edd8c7 5px, 60px, #faebdc 120px);
 }
 .app .container .single .post {
   display: flex;
@@ -459,7 +485,7 @@ body {
   transform-origin: bottom left;
 }
 .app .container .write-post {
-  background-image: linear-gradient(#EDD8C7 5px, 60px, #FAEBDC 120px);
+  background-image: linear-gradient(#edd8c7 5px, 60px, #faebdc 120px);
   gap: 20px;
   font-family: "Meno Banner", "Playfair Display", serif;
   color: #863527;
@@ -488,7 +514,7 @@ body {
   flex: 5;
   width: 100%;
   font-size: 18px;
-  border: 5px dotted #FAE7E2;
+  border: 5px dotted #fae7e2;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -514,22 +540,28 @@ body {
 }
 .app .container .write-post .write-container .content input {
   padding: 10px;
-  border: 5px dotted #FAE7E2;
+  border: 5px dotted #fae7e2;
   border-radius: 20px;
 }
 .app .container .write-post .write-container .content .editor-container {
   height: 225px;
   overflow-y: scroll;
-  border: 5px solid #FAE7E2;
+  border: 5px solid #fae7e2;
   border-radius: 20px;
 }
-.app .container .write-post .write-container .content .editor-container .editor {
+.app
+  .container
+  .write-post
+  .write-container
+  .content
+  .editor-container
+  .editor {
   height: 100%;
   border: none;
 }
 .app .container .write-post .write-container .menu {
   font-size: 18px;
-  border: 5px dotted #FAE7E2;
+  border: 5px dotted #fae7e2;
   border-radius: 20px;
   gap: 10px;
   margin-top: 10px;
@@ -564,17 +596,17 @@ body {
 .app .container .write-post .write-container .menu .upload-buttons label {
   padding: 5px;
   margin: 0 20px;
-  border: 5px solid #FAE7E2;
-  background-color: #FAE7E2;
+  border: 5px solid #fae7e2;
+  background-color: #fae7e2;
   border-radius: 20px;
   color: #863527;
   cursor: pointer;
   font-size: 18px;
 }
 .app .container .write-post .write-container .menu .upload-buttons label:hover {
-  background-color: #FA5537;
+  background-color: #fa5537;
   color: white;
-  border-color: #FA5537;
+  border-color: #fa5537;
 }
 .app .container .write-post .write-container .menu .save-buttons {
   display: flex;
@@ -585,8 +617,8 @@ body {
 .app .container .write-post .write-container .menu .save-buttons button {
   padding: 5px;
   margin: 0 20px;
-  border: 5px solid #FAE7E2;
-  background-color: #FAE7E2;
+  border: 5px solid #fae7e2;
+  background-color: #fae7e2;
   border-radius: 20px;
   color: #863527;
   cursor: pointer;
@@ -605,7 +637,7 @@ body {
   .app .container .navbar-mobile {
     font-family: "Meno Banner", "Playfair Display", serif;
     color: #863527;
-    background-color: #FAE7E2;
+    background-color: #fae7e2;
     min-width: 100vw;
     height: 45px;
     display: flex;
@@ -633,8 +665,8 @@ body {
     align-items: center;
     justify-content: center;
     position: absolute;
-    background-color: #FAE7E2;
-    color: #FA5537;
+    background-color: #fae7e2;
+    color: #fa5537;
     height: 120%;
     top: 100px;
     width: 100%;
