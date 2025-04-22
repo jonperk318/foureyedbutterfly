@@ -1,4 +1,4 @@
-import {db} from "../db.js";
+import db from "../db.js";
 import jwt from "jsonwebtoken";
 import {unlink} from 'node:fs';
 
@@ -49,7 +49,7 @@ export const getPrevPost = (req, res) => {
 export const getPost = (req, res) => {
 
     const q = "SELECT * FROM posts WHERE pid = ?";
-  
+
     db.query(q, [req.params.pid], (err, data) => {
       if (err) return res.status(500).json(err);
       return res.status(200).json(data[0]);
@@ -140,7 +140,7 @@ export const deleteFiles = (req, res) => {
 
   jwt.verify(token, "jwtkey", (err, userInfo) => {
       if (err) return res.status(403).json("Token is not valid.");
-      
+
       req.body.oldFiles.split(", ").map(oldFile => ( // Deleting old files
         unlink('../client/src/img/' + oldFile, (err) => {
           if (err) return res.status(500).json(err);
