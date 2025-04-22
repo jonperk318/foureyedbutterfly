@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { errorUtils } from "../utils/errorUtils";
+import { errorUtils } from "@/utils/errorUtils";
 
 
 const Register = () => {
