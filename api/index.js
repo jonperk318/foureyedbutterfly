@@ -37,6 +37,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 
-app.listen(process.env.PROXY_PORT, ()=> {
+app.listen(process.env.API_PORT, ()=> {
     console.log("Connected");
 })

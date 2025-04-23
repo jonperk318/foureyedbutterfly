@@ -8,7 +8,6 @@ import { errorUtils } from "@/utils/errorUtils";
 const Register = () => {
   const [inputs, setInputs] = useState({
     username: "",
-    email: "",
     password: "",
     admin_password: "",
   });
@@ -41,13 +40,6 @@ const Register = () => {
             type="text"
             placeholder="username"
             name="username"
-            onChange={handleChange}
-          />
-          <input
-            required
-            type="email"
-            placeholder="email"
-            name="email"
             onChange={handleChange}
           />
           <input

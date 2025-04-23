@@ -1,28 +1,30 @@
 import sqlite3 from "sqlite3";
 import "dotenv/config";
-
-import { execute } from "./utils.js";
+import bcrypt from "bcryptjs";
 
 
 const db = new sqlite3.Database(process.env.DB);
 
-try {
+db.serialize(function() {
 
-    const q1 = `CREATE TABLE IF NOT EXISTS users (
+    db.exec(`CREATE TABLE IF NOT EXISTS users (
                 uid INTEGER PRIMARY KEY,
                 username TEXT NOT NULL,
                 password TEXT NOT NULL,
                 UNIQUE(username)
                 );`
+    );
 
-    await execute(db, q1);
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(process.env.PASSWORD, salt);
 
-    const q2 = `INSERT OR IGNORE INTO users (username, password)
-                VALUES (?, ?);`
+    db.run(`INSERT OR IGNORE INTO users
+                (username, password)
+                VALUES (?, ?);`,
+        [process.env.USERNAME, hash]
+    );
 
-    await execute(db, q2, [process.env.USERNAME, process.env.PASSWORD]);
-
-    const q3 = `CREATE TABLE IF NOT EXISTS posts (
+    db.exec(`CREATE TABLE IF NOT EXISTS posts (
                 pid INTEGER PRIMARY KEY,
                 title TEXT NOT NULL,
                 date TEXT NOT NULL,
@@ -31,15 +33,8 @@ try {
                 uid INTEGER NOT NULL,
                 FOREIGN KEY (uid) REFERENCES users(uid)
                 );`
-
-    await execute(db, q3);
-
-} catch (err) {
-    console.log(err);
-
-} finally {
-    db.close();
-};
+    );
+});
 
 
 export default db;
