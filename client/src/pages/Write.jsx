@@ -17,6 +17,7 @@ const Write = () => {
   const [oldFiles, setOldFiles] = useState(state?.img || null);
   const [files, setFiles] = useState(null);
   const [fileLimit, setFileLimit] = useState(false);
+    const [publishDisabled, setPublishDisabled] = useState(false);
 
   React.useEffect(() => {
     if (quill) {
@@ -41,7 +42,9 @@ const Write = () => {
   };
 
   const handlePublish = async (e) => {
+
     e.preventDefault();
+      setPublishDisabled(true);
 
     if (files) {
       const imgUrl = await upload();
@@ -80,6 +83,7 @@ const Write = () => {
         console.log(err);
       }
     }
+    setPublishDisabled(false);
   };
 
   const handleUploadFiles = (files) => {
@@ -195,7 +199,9 @@ const Write = () => {
             {oldFiles ? (
               <button onClick={handlePublish}>Update</button>
             ) : (
-              <button onClick={handlePublish}>Publish</button>
+              <button onClick={handlePublish} disabled={publishDisabled}>
+                Publish
+            </button>
             )}
           </div>
         </div>
