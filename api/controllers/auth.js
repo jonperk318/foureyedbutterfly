@@ -9,7 +9,7 @@ export const register = (req, res) => {
 
     // Check if user exists
 
-    const q = "SELECT * FROM users WHERE username = ?;"
+    const q = "SELECT * FROM users WHERE username = ?"
 
     db.all(q, [req.body.username], (err, data) => {
 
@@ -18,9 +18,9 @@ export const register = (req, res) => {
 
         // Check admin password
 
-        const q = "SELECT * FROM users WHERE id = ?;"
+        const q = "SELECT * FROM users WHERE username = ?"
 
-        db.all(q, [1], (err, data) => {
+        db.all(q, [process.env.USERNAME], (err, data) => {
 
             if (err) return res.status(500).json(err);
 
@@ -33,9 +33,9 @@ export const register = (req, res) => {
 
             const salt = bcrypt.genSaltSync(10);
             const hash = bcrypt.hashSync(req.body.password, salt);
-            const q = "INSERT INTO users (username, password) VALUES (?);"
+            const q = "INSERT INTO users (username, password) VALUES (?, ?)"
 
-            db.run(q, [req.body.username, hash], function(err) {
+            db.run(q, [req.body.username, hash], (err) => {
                 if (err) return res.status(500).json(err);
                 return res.status(200).json("User created successfully");
             });
@@ -50,6 +50,7 @@ export const login = (req, res) => {
     const q = "SELECT * FROM users WHERE username = ?"
 
     db.all(q, [req.body.username], (err, data) => {
+
         if (err) return res.status(500).json(err);
         if (data.length === 0) return res.status(404).json("User not found");
 
