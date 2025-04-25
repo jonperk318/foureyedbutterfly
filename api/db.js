@@ -28,10 +28,10 @@ db.serialize(function() {
                 pid INTEGER PRIMARY KEY,
                 title TEXT NOT NULL,
                 date TEXT NOT NULL,
-                img TEXT,
                 content TEXT,
                 uid INTEGER NOT NULL,
-                FOREIGN KEY (uid) REFERENCES users(uid)
+                img TEXT,
+                FOREIGN KEY (uid) REFERENCES users (uid)
                 );`
     );
 });

@@ -21,22 +21,21 @@ export const addPost = (req, res) => { // CREATE
 
       if (err) return res.status(403).json("Token is not valid.");
 
-      const q = "INSERT INTO posts (`title`, `date`, `img`, `content`, `uid`) VALUES (?, ?, ?, ?, ?)";
-
-      console.log(userInfo)
-
       const values = [
         req.body.title,
         req.body.date,
-        req.body.img,
         req.body.content,
         userInfo.id
       ]
 
-      console.log(values)
+      const q = req.body.img ?
+        "INSERT INTO posts (title, date, content, uid, img) VALUES (?, ?, ?, ?, ?);" :
+        "INSERT INTO posts (title, date, content, uid) VALUES (?, ?, ?, ?);";
 
-      db.run(q, [values], (err) => {
-        if (err) return res.status(500).json(err);
+    req.body.img && values.push(req.body.img);
+
+      db.run(q, values, (err) => {
+        if (err) return res.status(500).json("fuck");
         return res.json("Post has been created");
       })
   });

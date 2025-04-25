@@ -38,7 +38,7 @@ const Posts2025 = () => {
                     <source
                       src={
                         new URL(
-                          `../img/${("" + post.img).split(", ")[0]}`,
+                          `../assets/${("" + post.img).split(", ")[0]}`,
                           import.meta.url,
                         ).href
                       }

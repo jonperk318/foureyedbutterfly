@@ -9,6 +9,7 @@ import Quill from "quill";
 import { errorUtils } from "@/utils/errorUtils";
 
 const Write = () => {
+
   const state = useLocation().state;
   const navigate = useNavigate();
   const { quill, quillRef } = useQuill();
@@ -58,9 +59,9 @@ const Write = () => {
             })
           : await axios.post(`/api/posts/`, {
               title,
-              content: content,
-              img: imgUrl,
               date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+              img: imgUrl,
+              content: content,
             });
         navigate("/");
       } catch (err) {
@@ -75,8 +76,8 @@ const Write = () => {
             })
           : await axios.post(`/api/posts/`, {
               title,
-              content: content,
               date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+              content: content,
             });
         navigate("/");
       } catch (err) {
