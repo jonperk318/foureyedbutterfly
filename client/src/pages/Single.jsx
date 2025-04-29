@@ -16,6 +16,8 @@ const Single = () => {
   const location = useLocation();
   const postID = location.pathname.split("/")[2]; // get ID from URL
   const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
+  console.log(post);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -119,7 +121,7 @@ const Single = () => {
                 <h2>{nextPost.title}</h2>
               </Link>
             )}
-            {currentUser && currentUser.id === post.uid && (
+            {currentUser && currentUser.uid === post.uid && (
               <div className="edit">
                 <IconContext.Provider value={{ className: "icon" }}>
                   <Link to={`/write?edit=${post.pid}`} state={post}>

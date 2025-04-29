@@ -83,7 +83,7 @@ export const updatePost = (req, res) => { // UPDATE
       const postID = req.params.pid;
 
       if (req.body.img) {
-        const q = "UPDATE posts SET `title`=?, `img`=?, `content`=? WHERE `pid`=? AND `uid`=?";
+        const q = "UPDATE posts SET title=?, img=?, content=? WHERE pid=? AND uid=?";
 
         const values = [
           req.body.title,
@@ -104,14 +104,14 @@ export const updatePost = (req, res) => { // UPDATE
         ))
 
       } else {
-        const q = "UPDATE posts SET `title`=?, `content`=? WHERE `pid`=? AND `uid`=?";
+        const q = "UPDATE posts SET title=?, content=? WHERE pid=? AND uid=?";
 
         const values = [
           req.body.title,
           req.body.content
         ]
 
-        db.all(q, [...values, postID, userInfo.id], (err) => {
+        db.run(q, [...values, postID, userInfo.id], (err) => {
           if (err) return res.status(500).json(err);
           return res.json("Post has been updated");
         })

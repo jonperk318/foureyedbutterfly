@@ -197,13 +197,9 @@ const Write = () => {
             )}
           </div>
           <div className="save-buttons">
-            {oldFiles ? (
-              <button onClick={handlePublish}>Update</button>
-            ) : (
               <button onClick={handlePublish} disabled={publishDisabled}>
-                Publish
+                {oldFiles ? "Update" : "Publish"}
             </button>
-            )}
           </div>
         </div>
       </div>
