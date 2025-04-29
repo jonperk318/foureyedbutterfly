@@ -6,7 +6,7 @@ const PageNotfound404 = () => {
     <div className="page-not-found">
       <img
         src={
-          "https://res.cloudinary.com/difdjam1a/image/upload/v1744891374/fish_fxm2ym.jpg"
+          "https://res.cloudinary.com/difdjam1a/image/upload/v1744891373/404_aywbm4.jpg"
         }
         alt="Hang in there baby!"
       />
