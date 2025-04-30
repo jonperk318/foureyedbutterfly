@@ -1,5 +1,8 @@
 import React from "react";
 
+import CldImage from "@/components/CldImage";
+
+
 const Home = () => {
   return (
     <div className="home">
@@ -10,12 +13,7 @@ const Home = () => {
         <h2>-ruby m.</h2>
       </div>
       <div className="flowers">
-        <img
-          src={
-            "https://res.cloudinary.com/difdjam1a/image/upload/v1744891374/flowers_gdzzeu.png"
-          }
-          alt="Flowers"
-        />
+        <CldImage publicId={"flowers_gdzzeu"} />
       </div>
     </div>
   );

@@ -1,15 +1,13 @@
 import React from "react";
 
+import CldImage from "@/components/CldImage";
+
 
 const PageNotfound404 = () => {
+
   return (
     <div className="page-not-found">
-      <img
-        src={
-          "https://res.cloudinary.com/difdjam1a/image/upload/v1744891373/404_aywbm4.jpg"
-        }
-        alt="Hang in there baby!"
-      />
+      <CldImage publicId={"404_aywbm4"} />
       <h1>404 page not found</h1>
     </div>
   );

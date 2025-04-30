@@ -1,4 +1,4 @@
-import { accessibility, AdvancedImage, lazyload, placeholder } from "@cloudinary/react";
+import { AdvancedImage, lazyload, placeholder, responsive } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { format, quality } from "@cloudinary/url-gen/actions/delivery";
 
@@ -17,8 +17,7 @@ const CldImage = ({ publicId }) => {
   return (
     <AdvancedImage
       cldImg={myImage}
-      style={{ maxWidth: "100%" }}
-      plugins={[lazyload(), placeholder(), accessibility()]}
+      plugins={[lazyload(), responsive(), placeholder({mode: "blur"})]}
     />
   );
 };

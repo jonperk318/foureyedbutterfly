@@ -53,7 +53,6 @@ const Single = () => {
   const content = ("" + post.content).split("|||");
 
   const segments = [];
-  let count = 0;
   const maxLength = Math.max(images.length, content.length);
 
   for (let i = 0; i < maxLength; i++) {

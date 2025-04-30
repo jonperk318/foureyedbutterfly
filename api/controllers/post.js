@@ -25,17 +25,19 @@ export const addPost = (req, res) => { // CREATE
         req.body.title,
         req.body.date,
         req.body.content,
-        userInfo.id
+        userInfo.id,
+        req.body.draft
       ]
 
-      const q = req.body.img ?
-        "INSERT INTO posts (title, date, content, uid, img) VALUES (?, ?, ?, ?, ?);" :
-        "INSERT INTO posts (title, date, content, uid) VALUES (?, ?, ?, ?);";
+      const img = req.body.img
 
-    req.body.img && values.push(req.body.img);
+      const q = `INSERT INTO posts (title, date, content, uid, draft
+        ${img && ", img"}) VALUES (?, ?, ?, ?${img && ", ?"});`
+
+      img && values.push(img);
 
       db.run(q, values, (err) => {
-        if (err) return res.status(500).json("fuck");
+        if (err) return res.status(500).json(err);
         return res.json("Post has been created");
       })
   });

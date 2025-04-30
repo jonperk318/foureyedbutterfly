@@ -469,9 +469,13 @@ body {
 
         img {
           width: 30%;
-        }
+          animation: wipe $transition-time $transition-type;
+          animation-fill-mode: forwards;
+       }
 
         .quote {
+          animation: wipe $transition-time $transition-type;
+          animation-fill-mode: forwards;
           width: 30%;
           background-color: white;
           padding: 30px;

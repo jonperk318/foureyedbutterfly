@@ -31,6 +31,7 @@ db.serialize(function() {
                 content TEXT,
                 uid INTEGER NOT NULL,
                 img TEXT,
+                draft INTEGER,
                 FOREIGN KEY (uid) REFERENCES users (uid)
                 );`
     );

@@ -15,6 +15,7 @@ const Write = () => {
   const { quill, quillRef } = useQuill();
   const [title, setTitle] = useState(state?.title || "");
   const [content, setContent] = useState(state?.content || "");
+  const [draft, setDraft] = useState(state?.draft || 1)
   const [oldFiles, setOldFiles] = useState(state?.img || null);
   const [files, setFiles] = useState(null);
   const [fileLimit, setFileLimit] = useState(false);
@@ -56,12 +57,14 @@ const Write = () => {
               content: content,
               img: imgUrl,
               oldFiles: oldFiles,
+              draft: draft,
             })
           : await axios.post(`/api/posts/`, {
               title,
               date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-              img: imgUrl,
               content: content,
+              img: imgUrl,
+              draft: draft,
             });
         navigate("/");
       } catch (err) {
@@ -73,11 +76,13 @@ const Write = () => {
           ? await axios.put(`/api/posts/${state.pid}`, {
               title,
               content: content,
+              draft: draft,
             })
           : await axios.post(`/api/posts/`, {
               title,
               date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
               content: content,
+              draft: draft,
             });
         navigate("/");
       } catch (err) {
@@ -197,8 +202,8 @@ const Write = () => {
             )}
           </div>
           <div className="save-buttons">
-              <button onClick={handlePublish} disabled={publishDisabled}>
-                {oldFiles ? "Update" : "Publish"}
+            <button onClick={handlePublish} disabled={publishDisabled}>
+              {oldFiles ? "Update" : "Publish"}
             </button>
           </div>
         </div>
