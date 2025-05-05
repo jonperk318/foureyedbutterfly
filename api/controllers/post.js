@@ -84,41 +84,28 @@ export const updatePost = (req, res) => { // UPDATE
 
       const postID = req.params.pid;
 
-      if (req.body.img) {
-        const q = "UPDATE posts SET title=?, img=?, content=? WHERE pid=? AND uid=?";
+      const values = [
+        req.body.title,
+        req.body.content,
+        req.body.draft
+      ]
 
-        const values = [
-          req.body.title,
-          req.body.img,
-          req.body.content
-        ]
+      const img = req.body.img
+      const q = `UPDATE posts SET title=?, content=?, draft=?,${img && " ,img=?"} WHERE pid=? AND uid=?`;
+      img && values.push(img);
 
-        db.run(q, [...values, postID, userInfo.id], (err) => {
+      db.run(q, [...values, postID, userInfo.id], (err) => {
+        if (err) return res.status(500).json(err);
+        return res.json("Post has been updated");
+      })
+
+      req.body.oldFiles?.split(", ").map(oldFile => ( // Deleting old files
+        unlink('../client/src/assets/' + oldFile, (err) => {
           if (err) return res.status(500).json(err);
-          return res.json("Post has been updated");
+          console.log(oldFile + " deleted successfully");
         })
-
-        req.body.oldFiles.split(", ").map(oldFile => ( // Deleting old files
-          unlink('../client/src/assets/' + oldFile, (err) => {
-            if (err) return res.status(500).json(err);
-            console.log(oldFile + " deleted successfully");
-          })
-        ))
-
-      } else {
-        const q = "UPDATE posts SET title=?, content=? WHERE pid=? AND uid=?";
-
-        const values = [
-          req.body.title,
-          req.body.content
-        ]
-
-        db.run(q, [...values, postID, userInfo.id], (err) => {
-          if (err) return res.status(500).json(err);
-          return res.json("Post has been updated");
-        })
-      }
-  });
+      ))
+    });
 };
 
 export const deletePost = (req, res) => { // DELETE

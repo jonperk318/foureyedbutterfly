@@ -15,7 +15,7 @@ const Write = () => {
   const { quill, quillRef } = useQuill();
   const [title, setTitle] = useState(state?.title || "");
   const [content, setContent] = useState(state?.content || "");
-  const [draft, setDraft] = useState(state?.draft || 1)
+  const [draft, setDraft] = useState(state?.draft || 0)
   const [oldFiles, setOldFiles] = useState(state?.img || null);
   const [files, setFiles] = useState(null);
   const [fileLimit, setFileLimit] = useState(false);
@@ -43,7 +43,7 @@ const Write = () => {
     }
   };
 
-  const handlePublish = async (e) => {
+  const handlePublish = async(e) => {
 
     e.preventDefault();
       setPublishDisabled(true);
@@ -90,6 +90,11 @@ const Write = () => {
       }
     }
     setPublishDisabled(false);
+  };
+
+  const handleDraft = async(e) => {
+    setDraft(1);
+    await handlePublish();
   };
 
   const handleUploadFiles = (files) => {
@@ -202,6 +207,9 @@ const Write = () => {
             )}
           </div>
           <div className="save-buttons">
+            <button onClick={handleDraft} disabled={publishDisabled}>
+              Save Draft
+            </button>
             <button onClick={handlePublish} disabled={publishDisabled}>
               {oldFiles ? "Update" : "Publish"}
             </button>
