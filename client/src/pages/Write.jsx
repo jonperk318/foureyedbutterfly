@@ -46,7 +46,7 @@ const Write = () => {
   const handlePublish = async(e) => {
 
     e.preventDefault();
-      setPublishDisabled(true);
+    setPublishDisabled(true);
 
     if (files) {
       const imgUrl = await upload();
@@ -94,7 +94,7 @@ const Write = () => {
 
   const handleDraft = async(e) => {
     setDraft(1);
-    await handlePublish();
+    await handlePublish(e);
   };
 
   const handleUploadFiles = (files) => {

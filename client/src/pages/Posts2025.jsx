@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
+
+import { AuthContext } from "@/context/authContext.jsx";
 
 
 const Posts2025 = () => {
 
   const [Posts, setPosts] = useState([]);
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,21 +23,15 @@ const Posts2025 = () => {
     fetchData();
   });
 
-  function findFile(post) {
-    const extension = post.img.split(", ")[0].split(".").pop;
-    if (extension === "mov" || extension === "mp4") {
-      return "video";
-    } else return "image";
-  }
-
   return (
     <div className="posts">
-      {Posts &&
-        Posts.toReversed().map((post) => (
+      {Posts && Posts.toReversed().map((post) => (
+        <>
+        {!(Boolean(post.draft) && !currentUser) && (
           <div className="post" key={post.pid}>
             <div className="image">
               <Link className="link" to={`/post/${post.pid}`}>
-                {findFile(post) === "video" ? (
+                {(post.img.split(", ")[0].split(".").pop === ("mov" || "mp4")) ? (
                   <video contols="controls loop" alt="video">
                     <source
                       src={
@@ -61,14 +58,16 @@ const Posts2025 = () => {
             </div>
             <div className="content">
               <Link className="link" to={`/post/${post.pid}`}>
-                <h1>{post.title}</h1>
+                <h1>{post.title + (Boolean(post.draft) ? " (DRAFT)" : "")}</h1>
                 <p>
                   {new Intl.DateTimeFormat("en-US").format(new Date(post.date))}
                 </p>
               </Link>
             </div>
           </div>
-        ))}
+        )}
+        </>
+      ))}
     </div>
   );
 };

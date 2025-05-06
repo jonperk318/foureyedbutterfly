@@ -31,8 +31,7 @@ export const addPost = (req, res) => { // CREATE
 
       const img = req.body.img
 
-      const q = `INSERT INTO posts (title, date, content, uid, draft
-        ${img && ", img"}) VALUES (?, ?, ?, ?${img && ", ?"});`
+      const q = `INSERT INTO posts (title, date, content, uid, draft${img && ", img"}) VALUES (?, ?, ?, ?, ?${img && ", ?"});`
 
       img && values.push(img);
 
@@ -90,9 +89,14 @@ export const updatePost = (req, res) => { // UPDATE
         req.body.draft
       ]
 
+
       const img = req.body.img
-      const q = `UPDATE posts SET title=?, content=?, draft=?,${img && " ,img=?"} WHERE pid=? AND uid=?`;
+    console.log(img)
+      const q = `UPDATE posts SET title=?, content=?, draft=?${img ? " ,img=?" : ""} WHERE pid=? AND uid=?`;
       img && values.push(img);
+
+      console.log(values);
+      console.log(q);
 
       db.run(q, [...values, postID, userInfo.id], (err) => {
         if (err) return res.status(500).json(err);
