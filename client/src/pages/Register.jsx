@@ -4,7 +4,6 @@ import axios from "axios";
 
 import { errorUtils } from "@/utils/errorUtils";
 
-
 const Register = () => {
   const [inputs, setInputs] = useState({
     username: "",

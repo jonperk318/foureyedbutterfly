@@ -2,7 +2,6 @@ import React from "react";
 
 import CldImage from "@/components/CldImage";
 
-
 const Home = () => {
   return (
     <div className="home">

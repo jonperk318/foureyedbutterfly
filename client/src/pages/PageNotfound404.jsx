@@ -2,9 +2,7 @@ import React from "react";
 
 import CldImage from "@/components/CldImage";
 
-
 const PageNotfound404 = () => {
-
   return (
     <div className="page-not-found">
       <CldImage publicId={"404_aywbm4"} />

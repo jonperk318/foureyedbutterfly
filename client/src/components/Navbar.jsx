@@ -5,9 +5,7 @@ import { IconContext } from "react-icons";
 
 import { AuthContext } from "@/context/authContext.jsx";
 
-
 const Navbar = () => {
-
   const { currentUser, logout } = useContext(AuthContext);
 
   return (

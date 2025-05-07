@@ -7,9 +7,7 @@ import DOMPurify from "dompurify";
 
 import { AuthContext } from "@/context/authContext.jsx";
 
-
 const Single = () => {
-
   const [prevPost, setPrevPost] = useState({});
   const [post, setPost] = useState({});
   const [nextPost, setNextPost] = useState({});
@@ -72,13 +70,17 @@ const Single = () => {
             {findFile(images[i + 1]) === "video" ? (
               <video controls="controls autoplay loop" alt="video">
                 <source
-                  src={new URL(`../assets/${images[i + 1]}`, import.meta.url).href}
+                  src={
+                    new URL(`../assets/${images[i + 1]}`, import.meta.url).href
+                  }
                   type="video"
                 />
               </video>
             ) : (
               <img
-                src={new URL(`../assets/${images[i + 1]}`, import.meta.url).href}
+                src={
+                  new URL(`../assets/${images[i + 1]}`, import.meta.url).href
+                }
                 alt="image"
               />
             )}

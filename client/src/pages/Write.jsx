@@ -9,17 +9,16 @@ import Quill from "quill";
 import { errorUtils } from "@/utils/errorUtils";
 
 const Write = () => {
-
   const state = useLocation().state;
   const navigate = useNavigate();
   const { quill, quillRef } = useQuill();
   const [title, setTitle] = useState(state?.title || "");
   const [content, setContent] = useState(state?.content || "");
-  const [draft, setDraft] = useState(state?.draft || 0)
+  const [draft, setDraft] = useState(state?.draft || 0);
   const [oldFiles, setOldFiles] = useState(state?.img || null);
   const [files, setFiles] = useState(null);
   const [fileLimit, setFileLimit] = useState(false);
-    const [publishDisabled, setPublishDisabled] = useState(false);
+  const [publishDisabled, setPublishDisabled] = useState(false);
 
   React.useEffect(() => {
     if (quill) {
@@ -43,8 +42,7 @@ const Write = () => {
     }
   };
 
-  const handlePublish = async(e) => {
-
+  const handlePublish = async (e) => {
     e.preventDefault();
     setPublishDisabled(true);
 
@@ -92,7 +90,7 @@ const Write = () => {
     setPublishDisabled(false);
   };
 
-  const handleDraft = async(e) => {
+  const handleDraft = async (e) => {
     setDraft(1);
     await handlePublish(e);
   };

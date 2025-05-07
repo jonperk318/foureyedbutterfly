@@ -7,9 +7,7 @@ import { Squash as Hamburger } from "hamburger-react";
 
 import { AuthContext } from "@/context/authContext.jsx";
 
-
 const NavbarMobile = () => {
-
   const [isOpen, setOpen] = useState(false);
   const { currentUser, logout } = useContext(AuthContext);
 

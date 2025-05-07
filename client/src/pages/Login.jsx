@@ -5,9 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "@/context/authContext.jsx";
 import { errorUtils } from "@/utils/errorUtils.js";
 
-
 const Login = () => {
-
   const [inputs, setInputs] = useState({
     username: "",
     password: "",

@@ -4,9 +4,7 @@ import DOMPurify from "dompurify";
 
 import CldImage from "@/components/CldImage";
 
-
 const About = () => {
-
   const [post, setPost] = useState({});
   const postID = 1;
 
