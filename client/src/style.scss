@@ -581,6 +581,10 @@ body {
           animation-fill-mode: forwards;
         }
 
+        .draft {
+          filter: brightness(50%);
+        }
+
         .image:hover img,
         video {
           transform: scale(1.07);
@@ -626,11 +630,17 @@ body {
         .post-container {
           margin: 0 10% 10% 10%;
 
-          .title h1 {
+          .title {
             font-family: $title-font;
-            font-size: $font-size1;
-            color: $dark-brown;
             animation: text-load $transition-time $transition-type;
+            h1 {
+              font-size: $font-size1;
+              color: $dark-brown;
+            }
+            h2 {
+              font-size: $font-size2;
+              color: $orange;
+            }
           }
 
           .image img,

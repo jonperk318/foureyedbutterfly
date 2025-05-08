@@ -96,6 +96,7 @@ const Single = () => {
         <div className="post-container">
           <div className="title">
             <h1>{post.title}</h1>
+            {Boolean(post.draft) && <h2>(DRAFT)</h2>}
           </div>
           <div className="image">
             {findFile(images[0]) === "video" ? (

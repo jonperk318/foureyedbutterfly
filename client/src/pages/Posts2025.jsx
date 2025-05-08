@@ -32,7 +32,11 @@ const Posts2025 = () => {
                   <Link className="link" to={`/post/${post.pid}`}>
                     {post.img.split(", ")[0].split(".").pop ===
                     ("mov" || "mp4") ? (
-                      <video contols="controls loop" alt="video">
+                      <video
+                        contols="controls loop"
+                        alt="video"
+                        className={Boolean(post.draft) ? "draft" : ""}
+                      >
                         <source
                           src={
                             new URL(
@@ -45,6 +49,7 @@ const Posts2025 = () => {
                       </video>
                     ) : (
                       <img
+                        className={Boolean(post.draft) ? "draft" : ""}
                         src={
                           new URL(
                             `../assets/${("" + post.img).split(", ")[0]}`,
@@ -59,7 +64,8 @@ const Posts2025 = () => {
                 <div className="content">
                   <Link className="link" to={`/post/${post.pid}`}>
                     <h1>
-                      {post.title + (Boolean(post.draft) ? " (DRAFT)" : "")}
+                      {post.title +
+                        (Boolean(post.draft) ? " ***(DRAFT)***" : "")}
                     </h1>
                     <p>
                       {new Intl.DateTimeFormat("en-US").format(
