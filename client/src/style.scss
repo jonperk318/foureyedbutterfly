@@ -954,11 +954,49 @@ body {
             }
           }
         }
-
         .burger {
+          cursor: pointer;
+          -webkit-tap-highlight-color: transparent;
+          transition: transform 400ms;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
           padding-left: 15px;
         }
-
+        .rotate.active {
+          transform: rotate(45deg);
+        }
+        .line {
+          fill:none;
+          transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+          stroke:#000;
+          stroke-width:5.5;
+          stroke-linecap:round;
+        }
+        .burger .top {
+          stroke-dasharray: 40 160;
+        }
+        .burger .middle {
+          stroke-dasharray: 40 142;
+          transform-origin: 50%;
+          transition: transform 400ms;
+        }
+        .burger .bottom {
+          stroke-dasharray: 40 85;
+          transform-origin: 50%;
+          transition: transform 400ms, stroke-dashoffset 400ms;
+        }
+        .burger.active .top {
+          stroke-dashoffset: -64px;
+        }
+        .burger.active .middle {
+          //stroke-dashoffset: -20px;
+          transform: rotate(90deg);
+        }
+        .burger.active .bottom {
+          stroke-dashoffset: -64px;
+        }
         .navbar-container-open {
           padding: 0 0;
           display: block;
