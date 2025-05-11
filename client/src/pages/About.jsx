@@ -41,7 +41,7 @@ const About = () => {
         {images[i + 1] && (
           <div className="image">
             <img
-              src={new URL(`../img/${images[i + 1]}`, import.meta.url).href}
+              src={new URL(`@/img/${images[i + 1]}`, import.meta.url).href}
               alt="image"
             />
           </div>

@@ -14,8 +14,6 @@ const Single = () => {
   const location = useLocation();
   const postID = location.pathname.split("/")[2]; // get ID from URL
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser);
-  console.log(post);
 
   useEffect(() => {
     const fetchData = async () => {
