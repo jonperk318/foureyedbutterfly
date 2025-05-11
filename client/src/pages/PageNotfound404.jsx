@@ -1,13 +1,14 @@
-import React from 'react';
-import hangInThereBaby from "../img/404.jpg";
+import React from "react";
+
+import CldImage from "@/components/CldImage";
 
 const PageNotfound404 = () => {
   return (
     <div className="page-not-found">
-        <img src={hangInThereBaby} alt="Hang in there baby!"/>
-        <h1>404 page not found</h1>
+      <CldImage publicId={"404_aywbm4"} />
+      <h1>404 page not found</h1>
     </div>
-  )
-}
+  );
+};
 
-export default PageNotfound404
+export default PageNotfound404;

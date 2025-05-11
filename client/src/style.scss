@@ -1,19 +1,19 @@
-$tan : #FAEBDC;
-$dark-tan : #EDD8C7;
-$pink : #FAE7E2;
-$orange : #FA5537;
-$brown : #9B2434;
-$dark-brown : #863527;
-$darker-brown : #622423;
+$tan: #faebdc;
+$dark-tan: #edd8c7;
+$pink: #fae7e2;
+$orange: #fa5537;
+$brown: #9b2434;
+$dark-brown: #863527;
+$darker-brown: #622423;
 
-$background-gradient : linear-gradient($dark-tan 5px, 35px, $tan 120px);
+$background-gradient: linear-gradient($dark-tan 5px, 35px, $tan 120px);
 
-$font-size1 : 80px;
-$font-size2 : 50px;
-$font-size3 : 35px;
-$font-size4 : 26px;
-$font-size5 : 18px;
-$font-size6 : 12px;
+$font-size1: 80px;
+$font-size2: 50px;
+$font-size3: 35px;
+$font-size4: 26px;
+$font-size5: 18px;
+$font-size6: 12px;
 $title-font: "Adorn Copperplate", "Balthazer", serif;
 $paragraph-font: "Meno Banner", "Playfair Display", serif;
 $misc-font: "Libre Franklin", sans-serif;
@@ -46,10 +46,10 @@ $transition-type: ease-in;
 }
 
 .libre-franklin {
-   font-family: "Libre Franklin", sans-serif;
-   font-optical-sizing: auto;
-   font-weight: 400;
-   font-style: normal;
+  font-family: "Libre Franklin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
@@ -83,10 +83,10 @@ body {
     clip-path: polygon(0 0, 0% 0, -200px 100%, 0 100%);
   }
   50% {
-    clip-path: polygon(0 0, calc(100% + 200px) 0, 75% 100%, 0 100%)
+    clip-path: polygon(0 0, calc(100% + 200px) 0, 75% 100%, 0 100%);
   }
   75% {
-    clip-path: polygon(0 0, calc(100% + 200px) 0, 90% 100%, 0 100%)
+    clip-path: polygon(0 0, calc(100% + 200px) 0, 90% 100%, 0 100%);
   }
   100% {
     clip-path: polygon(0 0, calc(100% + 200px) 0, 100% 100%, 0 100%);
@@ -102,12 +102,10 @@ body {
 }
 
 .app {
-
   display: flex;
   justify-content: center;
 
   .container {
-
     .link {
       text-decoration: none;
       color: inherit;
@@ -120,16 +118,14 @@ body {
     }
 
     .navbar {
-
       font-family: $paragraph-font;
       color: $dark-brown;
       background-color: $pink;
       min-width: 100vw;
-      height: 110px;
+      height: 120px;
       //padding-bottom: 2%;
 
       .navbar-container {
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -155,11 +151,11 @@ body {
           }
 
           .hvr-underline-from-left:after {
-            content: '';
+            content: "";
             position: absolute;
             width: 90%;
             transform: scaleX(0);
-            height: 1.4px;
+            height: 2.5px;
             bottom: -7px;
 
             background-color: $dark-brown;
@@ -179,11 +175,11 @@ body {
           }
 
           .hvr-underline-from-left-orange:after {
-            content: '';
+            content: "";
             position: absolute;
             width: 70%;
             transform: scaleX(0);
-            height: 1.4px;
+            height: 2.5px;
             bottom: -7px;
             left: 15%;
             background-color: $orange;
@@ -196,7 +192,8 @@ body {
             transform-origin: bottom left;
           }
 
-          img { // logo
+          img {
+            // logo
             width: 35%;
             height: auto;
             background-color: $pink;
@@ -259,7 +256,8 @@ body {
             animation-fill-mode: both;
             transform: scale(0);
           }
-          .link3 { // logo
+          .link3 {
+            // logo
             animation: text-load $transition-time $transition-type 250ms;
             animation-fill-mode: both;
             transform: scale(0);
@@ -281,7 +279,6 @@ body {
     // LOGIN (and register)
 
     .auth {
-
       //background-image: linear-gradient($dark-tan 100px, 400px, $tan 500px);
       background-image: $background-gradient;
       display: flex;
@@ -289,7 +286,6 @@ body {
       justify-content: center;
 
       .auth-container {
-
         display: flex;
         flex-direction: column;
         font-family: $paragraph-font;
@@ -312,14 +308,14 @@ body {
           justify-content: center;
         }
 
-        h1, form {
+        h1,
+        form {
           gap: 20px;
           display: flex;
           flex-direction: column;
         }
 
         form {
-
           input {
             font-family: $paragraph-font;
             font-size: $font-size5;
@@ -361,9 +357,9 @@ body {
               text-decoration: none;
               margin-left: 15px;
             }
-  
+
             .hvr-underline-from-left:after {
-              content: '';
+              content: "";
               position: absolute;
               width: 100%;
               transform: scaleX(0);
@@ -374,7 +370,7 @@ body {
               transform-origin: bottom right;
               transition: transform 200ms ease-out;
             }
-  
+
             .hvr-underline-from-left:hover:after {
               transform: scaleX(1);
               transform-origin: bottom left;
@@ -383,7 +379,8 @@ body {
         }
       }
 
-      .login-container { // login has different size
+      .login-container {
+        // login has different size
         height: 350px;
 
         form {
@@ -397,14 +394,15 @@ body {
     // HOMEPAGE
 
     .home {
-
       background-image: $background-gradient;
+      display: flex;
+      align-items: center;
+      gap: 100px;
+      justify-content: center;
+      padding: 25px 150px;
 
       .title-container {
-
         color: $brown;
-        display: table;
-        padding: 23% 8%;
         float: left;
         text-align: center;
 
@@ -426,22 +424,19 @@ body {
           vertical-align: middle;
           animation: text-load $transition-time $transition-type;
         }
-
       }
 
       .flowers {
-
         animation: wipe $transition-time $transition-type;
         animation-fill-mode: forwards;
 
         display: flex;
         align-items: center;
         justify-content: right;
-        padding: 6% 8%;
 
         img {
-          width: calc(150px + 90%);
-          height: auto;
+          height: 510px;
+          width: auto;
         }
       }
     }
@@ -449,11 +444,9 @@ body {
     // ABOUT PAGE
 
     .about {
-
       background-image: $background-gradient;
 
       .half-moon-bay {
-
         animation: wipe $transition-time $transition-type;
         animation-fill-mode: forwards;
         color: $brown;
@@ -468,7 +461,6 @@ body {
       }
 
       .about-container {
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -479,10 +471,13 @@ body {
 
         img {
           width: 30%;
+          animation: wipe $transition-time $transition-type;
+          animation-fill-mode: forwards;
         }
 
         .quote {
-
+          animation: wipe $transition-time $transition-type;
+          animation-fill-mode: forwards;
           width: 30%;
           background-color: white;
           padding: 30px;
@@ -503,20 +498,17 @@ body {
       }
 
       .post {
-        
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
         gap: 40px;
-        margin:auto;
+        margin: auto;
         max-width: 1000px;
 
         .post-container {
-
           margin: 0 10% 10% 10%;
-        
 
           .title h1 {
             font-family: $title-font;
@@ -533,7 +525,6 @@ body {
           }
 
           .content {
-            
             p {
               text-align: left;
               font-family: $paragraph-font;
@@ -547,7 +538,6 @@ body {
           }
 
           .bottom {
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -556,19 +546,14 @@ body {
             font-size: $font-size4;
             animation: text-load $transition-time $transition-type;
             margin-bottom: 150px;
-
           }
-
         }
-
       }
-
     }
 
     // POSTS GALLERY
 
     .posts {
-
       background-image: $background-gradient;
 
       padding: 3% 3%;
@@ -577,7 +562,6 @@ body {
       gap: 40px;
 
       .post {
-
         display: flex;
         flex-direction: column;
         gap: 10%;
@@ -587,8 +571,8 @@ body {
           overflow: hidden;
         }
 
-        .image img, video{
-
+        .image img,
+        video {
           width: 100%;
           height: 400px;
           object-fit: cover;
@@ -597,10 +581,14 @@ body {
 
           animation: wipe $transition-time $transition-type;
           animation-fill-mode: forwards;
-
         }
 
-        .image:hover img, video {
+        .draft {
+          filter: brightness(50%);
+        }
+
+        .image:hover img,
+        video {
           transform: scale(1.07);
         }
 
@@ -629,32 +617,36 @@ body {
     // SINGLE POST
 
     .single {
-
       background-image: $background-gradient;
 
       .post {
-
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
         gap: 40px;
-        margin:auto;
+        margin: auto;
         max-width: 1000px;
 
         .post-container {
-
           margin: 0 10% 10% 10%;
 
-          .title h1 {
+          .title {
             font-family: $title-font;
-            font-size: $font-size1;
-            color: $dark-brown;
             animation: text-load $transition-time $transition-type;
+            h1 {
+              font-size: $font-size1;
+              color: $dark-brown;
+            }
+            h2 {
+              font-size: $font-size2;
+              color: $orange;
+            }
           }
 
-          .image img, video {
+          .image img,
+          video {
             width: 100%;
 
             animation: wipe $transition-time $transition-type;
@@ -662,7 +654,6 @@ body {
           }
 
           .content {
-
             text-align: left;
             font-family: $paragraph-font;
             font-size: $font-size4;
@@ -672,11 +663,9 @@ body {
             line-height: 1.4;
             animation: text-load $transition-time $transition-type;
             padding-bottom: 40px;
-          
           }
 
           .bottom {
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -685,7 +674,6 @@ body {
             font-size: $font-size4;
             animation: text-load $transition-time $transition-type;
             margin-bottom: 150px;
-
           }
 
           .edit {
@@ -704,7 +692,7 @@ body {
           }
 
           .hvr-underline-from-left:after {
-            content: '';
+            content: "";
             position: absolute;
             width: 100%;
             transform: scaleX(0);
@@ -720,17 +708,13 @@ body {
             transform: scaleX(1);
             transform-origin: bottom left;
           }
-
         }
-
       }
-
     }
 
     // WRITE
 
     .write-post {
-
       background-image: $background-gradient;
       font-family: $paragraph-font;
       color: $dark-brown;
@@ -803,7 +787,8 @@ body {
             color: $dark-brown;
           }
 
-          .editor-container { // react-quilljs
+          .editor-container {
+            // react-quilljs
             height: 250px;
             overflow-y: scroll;
             border: 5px solid $pink;
@@ -819,7 +804,6 @@ body {
         }
 
         .menu {
-
           font-size: $font-size5;
           border: 5px dotted $pink;
           border-radius: 20px;
@@ -831,7 +815,6 @@ body {
           justify-content: space-between;
 
           .instructions {
-
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -840,7 +823,6 @@ body {
             h1 {
               font-size: $font-size6;
             }
-            
           }
 
           label {
@@ -914,11 +896,9 @@ body {
           }
         }
       }
-
     }
 
     .page-not-found {
-
       background-image: $background-gradient;
       gap: 10px;
       font-family: $paragraph-font;
@@ -938,59 +918,94 @@ body {
         font-family: $paragraph-font;
         font-size: $font-size3;
       }
-
     }
-
   }
 
   //////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////
 
-  @media (max-width: 786px) { // for mobile devices and tablets
+  @media (max-width: 786px) {
+    // for mobile devices and tablets
 
     .container {
-
       .navbar {
         display: none;
       }
 
       .navbar-mobile {
-
-        font-family: $paragraph-font;
-        color: $dark-brown;
-        background-color: $pink;
-        min-width: 100vw;
-        height: 45px;
-        display: flex;
-        padding: 45px 10px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 60px;
+          font-family: $paragraph-font;
+          color: $dark-brown;
+          background-color: $pink;
+          min-width: 100vw;
+          height: 120px;
 
         .navbar-container {
 
-          position: absolute;
-
           .logo {
-
-    
             animation: text-load $transition-time $transition-type;
-            position: relative;
-            display: flex;
-            padding-left: 95px;
-
 
             img {
-              font-size: 0;
               width: 300px;
             }
-
           }
         }
 
-        .burger {
-          padding-left: 15px;
+        .menu {
+
+          .burger {
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 400ms;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+          .burger.active {
+            transform: rotate(45deg);
+          }
+          .line {
+            fill: none;
+            transition:
+              stroke-dasharray 400ms,
+              stroke-dashoffset 400ms;
+            stroke: $brown;
+            stroke-width: 5.5;
+            stroke-linecap: round;
+          }
+          .burger .top {
+            stroke-dasharray: 40 160;
+          }
+          .burger .middle {
+            stroke-dasharray: 40 142;
+            transform-origin: 50%;
+            transition: transform 400ms;
+          }
+          .burger .bottom {
+            stroke-dasharray: 40 85;
+            transform-origin: 50%;
+            transition:
+              transform 400ms,
+              stroke-dashoffset 400ms;
+          }
+          .burger.active .top {
+            stroke-dashoffset: -64px;
+          }
+          .burger.active .middle {
+            //stroke-dashoffset: -20px;
+            transform: rotate(90deg);
+          }
+          .burger.active .bottom {
+            stroke-dashoffset: -64px;
+          }
         }
 
         .navbar-container-open {
-
           padding: 0 0;
           display: block;
           align-items: center;
@@ -998,16 +1013,15 @@ body {
           position: absolute;
           background-color: $pink;
           color: $orange;
-          height: 100vh;
+          height: 200%;
           top: 100px;
-          width: 1000px;
+          padding-top: 40px;
+          min-width: 100%;
           z-index: 1;
-          margin-left: -300px;
+          overflow: hidden;
 
           .links {
-
             .link {
-
               font-size: $font-size2;
               display: flex;
               align-items: center;
@@ -1018,9 +1032,7 @@ body {
               animation: text-load $transition-time $transition-type;
             }
           }
-
         }
-
       }
 
       .auth {
@@ -1030,9 +1042,9 @@ body {
       }
 
       .home {
+        flex-direction: column;
 
         .title-container {
-          width: 100%;
           padding: 0 0;
 
           h1 {
@@ -1045,7 +1057,6 @@ body {
         }
 
         .flowers {
-
           img {
             width: 100%;
           }
@@ -1053,12 +1064,10 @@ body {
       }
 
       .about {
-
         .half-moon-bay {
           padding-bottom: 45px;
         }
         .about-container {
-
           flex-direction: column;
 
           img {
@@ -1079,7 +1088,7 @@ body {
           }
         }
         .post {
-          .post-container  {
+          .post-container {
             .title {
               h1 {
                 font-size: $font-size2;
@@ -1100,9 +1109,7 @@ body {
         flex-direction: column;
 
         .post {
-
           .content {
-
             h1 {
               font-size: $font-size3;
             }
@@ -1116,7 +1123,7 @@ body {
 
       .single {
         .post {
-          .post-container{
+          .post-container {
             .title {
               h1 {
                 font-size: $font-size2;
@@ -1136,9 +1143,8 @@ body {
           }
         }
       }
-      
-      .write-post {
 
+      .write-post {
         flex-direction: column;
 
         .upload-container {
@@ -1149,7 +1155,6 @@ body {
         }
 
         .write-container {
-
           width: 360px;
           padding: 0;
           margin: 0;
@@ -1166,7 +1171,6 @@ body {
             }
 
             .upload-buttons {
-
               label {
                 font-size: $font-size6;
                 width: 228px;
@@ -1174,7 +1178,6 @@ body {
             }
 
             .save-buttons {
-
               button {
                 font-size: $font-size6;
                 width: 250px;
@@ -1182,11 +1185,9 @@ body {
             }
           }
         }
-
       }
 
       .page-not-found {
-
         img {
           width: 500px;
         }
