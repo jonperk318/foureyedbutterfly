@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "pm2 start index.js --watch",
-    "restart": "pm2 restart index.js --watch"
+    "start": "pm2 start ecosystem.config.cjs --watch",
+    "restart": "pm2 restart ecosystem.config.cjs --watch"
   },
   "keywords": [],
   "author": "",

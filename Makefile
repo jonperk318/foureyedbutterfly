@@ -9,7 +9,13 @@ restart:
 	service nginx restart --watch
 
 start:
+	make start_frontend
+	make start_backend
+
+start_frontend:
 	npm --prefix ./client run build
+
+start_backend:
 	npm --prefix ./api run start
 	service nginx restart --watch
 
