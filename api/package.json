@@ -4,7 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "pm2 start index.js --watch",
+    "restart": "pm2 restart index.js --watch"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,7 @@
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.4",
+    "pm2": "^6.0.5",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {

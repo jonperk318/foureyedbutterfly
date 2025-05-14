@@ -5,7 +5,12 @@ build:
 	make restart
 
 restart:
-	pm2 restart 0 --watch
+	npm --prefix ./api run restart
+	service nginx restart --watch
+
+start:
+	npm --prefix ./client run build
+	npm --prefix ./api run start
 	service nginx restart --watch
 
 i:
@@ -27,11 +32,11 @@ renew:
 sql:
 	sudo mysql -u root -p
 
-run:
-	make -j 2 run_client run_api
+dev:
+	make -j 2 dev_client dev_api
 
-run_client:
+dev_client:
 	npm --prefix ./client run dev
 
-run_api:
-	npm --prefix ./api start
+dev_api:
+	npm --prefix ./api run dev
