@@ -123,7 +123,6 @@ body {
       background-color: $pink;
       min-width: 100vw;
       height: 120px;
-      //padding-bottom: 2%;
 
       .navbar-container {
         display: flex;
@@ -132,15 +131,13 @@ body {
         background-color: $pink;
         height: 80px;
 
-        top: 0;
-        width: 100%;
-
         .links {
-          background-color: $pink;
           display: flex;
           gap: 20px;
           align-items: center;
+          justify-content: space-between;
           padding-top: 50px;
+          font-size: $font-size5;
 
           // Underline from left
 
@@ -192,44 +189,16 @@ body {
             transform-origin: bottom left;
           }
 
-          img {
-            // logo
-            width: 35%;
+          img { // logo
+            width: 325px;
             height: auto;
-            background-color: $pink;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 38%;
-            font-size: 0;
-          }
-
-          h5 {
-            font-size: $font-size4;
-            color: $dark-brown;
-          }
-
-          h6 {
-            font-size: $font-size5;
-            color: $orange;
-          }
-
-          span {
-            cursor: pointer;
-          }
-
-          .admin {
-            width: 7%;
-            height: 5%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 0 50px;
           }
 
           .link {
-            color: $dark-brown;
-            background-color: $pink;
-            margin: 0;
             padding: 0;
             width: 120px;
             height: 20px;
@@ -238,14 +207,27 @@ body {
             justify-content: center;
           }
 
+          .links-left {
+            display: flex;
+            color: $dark-brown;
+            max-width: 350px;
+          }
+
+          .links-right {
+            display: flex;
+            color: $orange;
+            max-width: 350px;
+
           .insta {
-            background-color: $pink;
             margin: 0;
             padding: 0;
 
             .icon:hover {
               transform: scale(1.2);
             }
+          }
+
+
           }
 
           .link1 {
@@ -256,8 +238,7 @@ body {
             animation-fill-mode: both;
             transform: scale(0);
           }
-          .link3 {
-            // logo
+          .logo { // logo
             animation: text-load $transition-time $transition-type 250ms;
             animation-fill-mode: both;
             transform: scale(0);
@@ -435,8 +416,8 @@ body {
         justify-content: right;
 
         img {
-          height: 510px;
-          width: auto;
+          width: 350px;
+          height: auto;
         }
       }
     }
@@ -924,8 +905,16 @@ body {
   //////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////
 
+  @media (max-width: 1175px) {
+    // for smaller windows
+
+  }
+
+  //////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////
+
   @media (max-width: 786px) {
-    // for mobile devices and tablets
+    // for tablets
 
     .container {
       .navbar {
@@ -941,7 +930,7 @@ body {
           font-family: $paragraph-font;
           color: $dark-brown;
           background-color: $pink;
-          min-width: 100vw;
+          min-width: 120vw;
           height: 120px;
 
         .navbar-container {
@@ -1053,12 +1042,6 @@ body {
 
           h2 {
             font-size: $font-size4;
-          }
-        }
-
-        .flowers {
-          img {
-            width: 100%;
           }
         }
       }
@@ -1190,6 +1173,30 @@ body {
       .page-not-found {
         img {
           width: 500px;
+        }
+      }
+    }
+  }
+
+  //////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////
+
+  @media (max-width: 470px) {
+    //for mobile devices
+
+    .container {
+
+      .navbar-mobile {
+        gap: 0;
+      }
+
+      .home {
+
+        .title-container {
+
+          h1 {
+            font-size: 3em;
+          }
         }
       }
     }

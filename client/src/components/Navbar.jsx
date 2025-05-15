@@ -12,13 +12,15 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar-container">
         <div className="links">
-          <Link className="link hvr-underline-from-left link1" to="/about">
-            <h5>About</h5>
-          </Link>
-          <Link className="link hvr-underline-from-left link2" to="/2025">
-            <h5>2025</h5>
-          </Link>
-          <div className="logo link3">
+          <div className="links-left">
+            <Link className="link hvr-underline-from-left link1" to="/about">
+              <h2>About</h2>
+            </Link>
+            <Link className="link hvr-underline-from-left link2" to="/2025">
+              <h2>2025</h2>
+            </Link>
+          </div>
+          <div className="logo">
             <Link to="/">
               <img
                 src={
@@ -28,36 +30,36 @@ const Navbar = () => {
               />
             </Link>
           </div>
-          <span className="admin">
+          <div className="links-right">
             {currentUser && (
               <Link
-                className="link hvr-underline-from-left-orange link5"
+                className="link hvr-underline-from-left-orange link4"
                 to="/write"
               >
-                <h6>Write</h6>
+                <h2>Write</h2>
               </Link>
             )}
-          </span>
-          <span className="admin">
-            <Link className="link hvr-underline-from-left-orange link4" to="/">
-              {currentUser ? (
-                <h6 onClick={logout}>Logout</h6>
-              ) : (
-                <Link
-                  className="link hvr-underline-from-left-orange link4"
-                  to="/login"
-                >
-                  <h6>Login</h6>
-                </Link>
-              )}
-            </Link>
-          </span>
-          <div className="insta link">
-            <IconContext.Provider value={{ className: "icon" }}>
-              <a href={"https://www.instagram.com/rubymaghoney/"}>
-                <FaInstagram size={40} style={{ fill: "#863527" }} />
-              </a>
-            </IconContext.Provider>
+            {currentUser ? (
+              <Link className="link hvr-underline-from-left-orange link5"
+                    to="/"
+              >
+                <h2 onClick={logout}>Logout</h2>
+              </Link>
+            ) : (
+              <Link
+                className="link hvr-underline-from-left-orange link5"
+                to="/login"
+              >
+                <h2>Login</h2>
+              </Link>
+            )}
+            <div className="insta link">
+              <IconContext.Provider value={{ className: "icon" }}>
+                <a href={"https://www.instagram.com/rubymaghoney/"}>
+                  <FaInstagram size={40} style={{ fill: "#863527" }} />
+                </a>
+              </IconContext.Provider>
+            </div>
           </div>
         </div>
       </div>
