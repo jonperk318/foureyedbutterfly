@@ -516,11 +516,13 @@ body {
       padding: 35px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
+      gap: 30px;
 
       .post {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 10px;
 
         .image {
@@ -551,7 +553,7 @@ body {
         .content {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          text-align: center;
 
           h1 {
             font-family: $title-font;
@@ -948,7 +950,7 @@ body {
           font-family: $paragraph-font;
           color: $dark-brown;
           background-color: $pink;
-          min-width: 120vw;
+          min-width: 100vw;
           height: 120px;
 
         .navbar-container {
