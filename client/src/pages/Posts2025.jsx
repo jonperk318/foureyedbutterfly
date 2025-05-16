@@ -19,7 +19,7 @@ const Posts2025 = () => {
       }
     };
     fetchData();
-  });
+  }, []);
 
   return (
     <div className="posts">
@@ -65,7 +65,7 @@ const Posts2025 = () => {
                   <Link className="link" to={`/post/${post.pid}`}>
                     <h1>
                       {post.title +
-                        (Boolean(post.draft) ? " ***(DRAFT)***" : "")}
+                        (Boolean(post.draft) ? " ***DRAFT***" : "")}
                     </h1>
                     <p>
                       {new Intl.DateTimeFormat("en-US").format(

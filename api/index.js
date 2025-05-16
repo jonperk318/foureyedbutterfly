@@ -13,14 +13,14 @@ app.use(express.json());
 app.use(cookieParser());
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "../client/src/assets");
-  },
+  destination: "../client/src/assets/",
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
   },
 });
+
 const upload = multer({ storage });
+
 app.post("/api/upload", upload.any("files"), function (req, res) {
   const files = req.files;
   let fileNames = [];

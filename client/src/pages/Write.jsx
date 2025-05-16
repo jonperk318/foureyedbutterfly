@@ -14,11 +14,12 @@ const Write = () => {
   const { quill, quillRef } = useQuill();
   const [title, setTitle] = useState(state?.title || "");
   const [content, setContent] = useState(state?.content || "");
-  const [draft, setDraft] = useState(state?.draft || 0);
   const [oldFiles, setOldFiles] = useState(state?.img || null);
   const [files, setFiles] = useState(null);
   const [fileLimit, setFileLimit] = useState(false);
   const [publishDisabled, setPublishDisabled] = useState(false);
+
+  let draft = 0;
 
   React.useEffect(() => {
     if (quill) {
@@ -91,7 +92,7 @@ const Write = () => {
   };
 
   const handleDraft = async (e) => {
-    setDraft(1);
+    draft = 1;
     await handlePublish(e);
   };
 
@@ -181,9 +182,9 @@ const Write = () => {
         </div>
         <div className="menu">
           <div className="instructions">
-            <h1>Separate text field submissions by 3 pipes |||</h1>
-            <h1>The layout alternates between images and text entries</h1>
-            <h1>Publishing new files will completely replace old ones</h1>
+            <p>Separate text field submissions by 3 pipes |||</p>
+            <p>The layout alternates between images and text entries</p>
+            <p>Publishing new files will completely replace old ones</p>
           </div>
           <div className="upload-buttons">
             <input
@@ -209,7 +210,7 @@ const Write = () => {
               Save Draft
             </button>
             <button onClick={handlePublish} disabled={publishDisabled}>
-              {oldFiles ? "Update" : "Publish"}
+              Publish
             </button>
           </div>
         </div>

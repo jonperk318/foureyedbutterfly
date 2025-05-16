@@ -41,8 +41,14 @@ sql:
 dev:
 	make -j 2 dev_client dev_api
 
+dev_pm2:
+	make -j 2 dev_client dev_api_pm2
+
 dev_client:
 	npm --prefix ./client run dev
 
 dev_api:
 	npm --prefix ./api run dev
+
+dev_api_pm2:
+	npm --prefix ./api run start

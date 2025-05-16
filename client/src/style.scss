@@ -13,7 +13,8 @@ $font-size2: 50px;
 $font-size3: 35px;
 $font-size4: 26px;
 $font-size5: 18px;
-$font-size6: 12px;
+$font-size6: 15px;
+$font-size7: 12px;
 $title-font: "Adorn Copperplate", "Balthazer", serif;
 $paragraph-font: "Meno Banner", "Playfair Display", serif;
 $misc-font: "Libre Franklin", sans-serif;
@@ -121,7 +122,7 @@ body {
       font-family: $paragraph-font;
       color: $dark-brown;
       background-color: $pink;
-      min-width: 100vw;
+      width: 100vw;
       height: 120px;
 
       .navbar-container {
@@ -133,75 +134,61 @@ body {
 
         .links {
           display: flex;
-          gap: 20px;
           align-items: center;
-          justify-content: space-between;
+          justify-content: space-around;
           padding-top: 50px;
           font-size: $font-size5;
+          width: 100%;
 
           // Underline from left
 
-          .hvr-underline-from-left {
+          .underline {
             display: inline-block;
             position: relative;
-            color: $dark-brown;
           }
 
-          .hvr-underline-from-left:after {
+          .underline:after {
             content: "";
             position: absolute;
             width: 90%;
             transform: scaleX(0);
             height: 2.5px;
             bottom: -7px;
-
-            background-color: $dark-brown;
             transform-origin: bottom right;
             transition: transform 200ms ease-out;
           }
 
-          .hvr-underline-from-left:hover:after {
+          .underline:hover:after {
             transform: scaleX(1);
             transform-origin: bottom left;
           }
 
-          .hvr-underline-from-left-orange {
-            display: inline-block;
-            position: relative;
+          .underline-orange {
             color: $orange;
           }
 
-          .hvr-underline-from-left-orange:after {
-            content: "";
-            position: absolute;
-            width: 70%;
-            transform: scaleX(0);
-            height: 2.5px;
-            bottom: -7px;
-            left: 15%;
+          .underline-orange:after {
             background-color: $orange;
-            transform-origin: bottom right;
-            transition: transform 200ms ease-out;
           }
 
-          .hvr-underline-from-left-orange:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+          .underline-brown {
+            color: $dark-brown;
+          }
+
+          .underline-brown:after {
+            background-color: $dark-brown;
           }
 
           img { // logo
             width: 325px;
-            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 50px;
           }
 
           .link {
-            padding: 0;
             width: 120px;
-            height: 20px;
+            height: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -218,16 +205,11 @@ body {
             color: $orange;
             max-width: 350px;
 
-          .insta {
-            margin: 0;
-            padding: 0;
-
-            .icon:hover {
-              transform: scale(1.2);
+            .insta {
+              .icon:hover {
+                transform: scale(1.2);
+              }
             }
-          }
-
-
           }
 
           .link1 {
@@ -235,21 +217,18 @@ body {
           }
           .link2 {
             animation: text-load $transition-time $transition-type 50ms;
-            animation-fill-mode: both;
-            transform: scale(0);
           }
           .logo { // logo
             animation: text-load $transition-time $transition-type 250ms;
-            animation-fill-mode: both;
-            transform: scale(0);
           }
           .link4 {
             animation: text-load $transition-time $transition-type 400ms;
-            animation-fill-mode: both;
-            transform: scale(0);
           }
           .link5 {
             animation: text-load $transition-time $transition-type 450ms;
+          }
+
+          .link2 .logo .link4 .link4 {
             animation-fill-mode: both;
             transform: scale(0);
           }
@@ -380,7 +359,7 @@ body {
       align-items: center;
       gap: 100px;
       justify-content: center;
-      padding: 25px 150px;
+      padding: 25px 0;
 
       .title-container {
         color: $brown;
@@ -389,7 +368,7 @@ body {
 
         h1 {
           font-family: $title-font;
-          font-size: 5.5vw;
+          font-size: $font-size1;
           margin-bottom: 0;
           animation: text-load $transition-time $transition-type;
 
@@ -400,7 +379,7 @@ body {
 
         h2 {
           font-family: $paragraph-font;
-          font-size: 2.5vw;
+          font-size: $font-size3;
           margin-top: 0;
           vertical-align: middle;
           animation: text-load $transition-time $transition-type;
@@ -422,8 +401,7 @@ body {
       }
     }
 
-    // ABOUT PAGE
-
+    // ABOUT
     .about {
       background-image: $background-gradient;
 
@@ -433,7 +411,7 @@ body {
         color: $brown;
         display: table;
         padding-top: 0;
-        padding-bottom: 110px;
+        padding-bottom: 100px;
         text-align: center;
 
         img {
@@ -533,11 +511,9 @@ body {
     }
 
     // POSTS GALLERY
-
     .posts {
       background-image: $background-gradient;
-
-      padding: 3% 3%;
+      padding: 35px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 40px;
@@ -545,16 +521,15 @@ body {
       .post {
         display: flex;
         flex-direction: column;
-        gap: 10%;
+        gap: 10px;
 
         .image {
           display: inline-block;
           overflow: hidden;
         }
 
-        .image img,
-        video {
-          width: 100%;
+        .image img, video {
+          width: 500px;
           height: 400px;
           object-fit: cover;
           display: block;
@@ -606,7 +581,7 @@ body {
         align-items: center;
         justify-content: center;
         text-align: center;
-        gap: 40px;
+        gap: 25px;
         margin: auto;
         max-width: 1000px;
 
@@ -790,7 +765,7 @@ body {
           border-radius: 20px;
           gap: 10px;
           margin-top: 10px;
-          padding: 10px;
+          padding: 5px 10px;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
@@ -801,8 +776,8 @@ body {
             justify-content: center;
             width: 250px;
 
-            h1 {
-              font-size: $font-size6;
+            p {
+              font-size: $font-size7;
             }
           }
 
@@ -905,15 +880,58 @@ body {
   //////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////
 
-  @media (max-width: 1175px) {
+  @media (max-width: 1025px) {
     // for smaller windows
+    .container {
+      .navbar {
+        .navbar-container {
+          .links {
 
+            .link {
+              width: 90px;
+              font-size: $font-size6;
+            }
+
+            img {
+              width: 300px;
+            }
+
+            .links-left {
+              max-width: 280px;
+            }
+            .links-right {
+              max-width: 280px;
+            }
+          }
+        }
+      }
+
+      // HOMEPAGE
+      .home {
+        gap: 80px;
+        .title-container {
+          h1 {
+            font-size: $font-size2;
+          }
+          h2 {
+            font-size: $font-size4;
+          }
+        }
+      }
+
+      // POSTS GALLERY
+      .posts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   }
 
   //////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////
 
-  @media (max-width: 786px) {
+  @media (max-width: 769px) {
     // for tablets
 
     .container {
@@ -986,7 +1004,6 @@ body {
             stroke-dashoffset: -64px;
           }
           .burger.active .middle {
-            //stroke-dashoffset: -20px;
             transform: rotate(90deg);
           }
           .burger.active .bottom {
@@ -1030,22 +1047,13 @@ body {
         }
       }
 
+      // HOMEPAGE
       .home {
         flex-direction: column;
-
-        .title-container {
-          padding: 0 0;
-
-          h1 {
-            font-size: 4em;
-          }
-
-          h2 {
-            font-size: $font-size4;
-          }
-        }
+        gap: 30px;
       }
 
+      // ABOUT
       .about {
         .half-moon-bay {
           padding-bottom: 45px;
@@ -1087,14 +1095,17 @@ body {
         }
       }
 
+      // POSTS GALLERY
       .posts {
-        display: flex;
-        flex-direction: column;
 
         .post {
+          .image img, video {
+            width: 400px;
+            height: 320px;
+          }
           .content {
             h1 {
-              font-size: $font-size3;
+              font-size: $font-size4;
             }
 
             p {
@@ -1181,7 +1192,7 @@ body {
   //////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////
 
-  @media (max-width: 470px) {
+  @media (max-width: 481px) {
     //for mobile devices
 
     .container {
@@ -1189,13 +1200,53 @@ body {
       .navbar-mobile {
         gap: 0;
       }
+    }
+  }
 
+  @media (max-width: 400px) {
+    //some iPhones
+
+    .container {
+      .navbar-mobile {
+        .navbar-container{
+          .logo {
+            img {
+              width: 250px;
+            }
+          }
+        }
+      }
+
+      // HOMEPAGE
       .home {
-
         .title-container {
-
           h1 {
-            font-size: 3em;
+            font-size: $font-size3;
+          }
+        }
+        .flowers {
+          img {
+            width: 300px;
+          }
+        }
+      }
+
+      // POSTS GALLERY
+      .posts {
+
+        .post {
+          .image img, video {
+            width: 320px;
+            height: 256px;
+          }
+          .content {
+            h1 {
+              font-size: $font-size4;
+            }
+
+            p {
+              font-size: $font-size5;
+            }
           }
         }
       }

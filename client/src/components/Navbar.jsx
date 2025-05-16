@@ -13,10 +13,10 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="links">
           <div className="links-left">
-            <Link className="link hvr-underline-from-left link1" to="/about">
+            <Link className="link link1 underline underline-brown" to="/about">
               <h2>About</h2>
             </Link>
-            <Link className="link hvr-underline-from-left link2" to="/2025">
+            <Link className="link link2 underline underline-brown" to="/2025">
               <h2>2025</h2>
             </Link>
           </div>
@@ -33,21 +33,21 @@ const Navbar = () => {
           <div className="links-right">
             {currentUser && (
               <Link
-                className="link hvr-underline-from-left-orange link4"
+                className="link link4 underline underline-orange"
                 to="/write"
               >
                 <h2>Write</h2>
               </Link>
             )}
             {currentUser ? (
-              <Link className="link hvr-underline-from-left-orange link5"
+              <Link className="link link5 underline underline-orange"
                     to="/"
               >
                 <h2 onClick={logout}>Logout</h2>
               </Link>
             ) : (
               <Link
-                className="link hvr-underline-from-left-orange link5"
+                className="link link5 underline underline-orange"
                 to="/login"
               >
                 <h2>Login</h2>
