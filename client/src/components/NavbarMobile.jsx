@@ -29,18 +29,6 @@ const NavbarMobile = () => {
 
   return (
     <div className="navbar-mobile ">
-      <div className="navbar-container">
-        <div className="logo link3">
-          <Link to="/" onClick={toggleBurgerLogo}>
-            <img
-              src={
-                "https://res.cloudinary.com/difdjam1a/image/upload/v1744979141/logo_l87jlz.svg"
-              }
-              alt="logo"
-            />
-          </Link>
-        </div>
-      </div>
       <div className="menu">
         <svg
           className={"burger " + (isOpen && " active")}
@@ -61,6 +49,18 @@ const NavbarMobile = () => {
             />
           </a>
         </svg>
+      </div>
+      <div className="navbar-container">
+        <div className="logo link3">
+          <Link to="/" onClick={toggleBurgerLogo}>
+            <img
+              src={
+                "https://res.cloudinary.com/difdjam1a/image/upload/v1744979141/logo_l87jlz.svg"
+              }
+              alt="logo"
+            />
+          </Link>
+        </div>
       </div>
       {isOpen && (
         <div className="navbar-container-open">

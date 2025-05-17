@@ -115,27 +115,25 @@ const Single = () => {
           <div className="bottom">
             {nextPost && ( // check if next post exists
               <Link
-                className="hvr-underline-from-left"
                 to={`/post/${nextPost.pid}`}
               >
-                <h2>{nextPost.title}</h2>
+                <h2 className="underline">{nextPost.title}</h2>
               </Link>
             )}
             {currentUser && currentUser.uid === post.uid && (
               <div className="edit">
                 <IconContext.Provider value={{ className: "icon" }}>
                   <Link to={`/write?edit=${post.pid}`} state={post}>
-                    <FaRegEdit style={{ color: "white", fontSize: "40px" }} />
+                    <FaRegEdit style={{ color: "#fa5537", fontSize: "40px" }} />
                   </Link>
                 </IconContext.Provider>
               </div>
             )}
             {prevPost && ( // check if previous post exists
               <Link
-                className="hvr-underline-from-left"
                 to={`/post/${prevPost.pid}`}
               >
-                <h2>{prevPost.title}</h2>
+                <h2 className="underline">{prevPost.title}</h2>
               </Link>
             )}
           </div>
