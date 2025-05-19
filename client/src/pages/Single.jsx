@@ -116,6 +116,7 @@ const Single = () => {
             {nextPost && ( // check if next post exists
               <Link
                 to={`/post/${nextPost.pid}`}
+                onClick="window.scroll(0, 0);"
               >
                 <h2 className="underline">{nextPost.title}</h2>
               </Link>
@@ -132,6 +133,7 @@ const Single = () => {
             {prevPost && ( // check if previous post exists
               <Link
                 to={`/post/${prevPost.pid}`}
+                onClick="window.scroll(0, 0);"
               >
                 <h2 className="underline">{prevPost.title}</h2>
               </Link>

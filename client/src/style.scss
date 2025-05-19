@@ -123,7 +123,6 @@ body {
       background-color: $pink;
       width: 100vw;
       height: 120px;
-      border-bottom: 5px solid $dark-tan;
 
       .navbar-container {
         display: flex;
@@ -981,7 +980,7 @@ body {
               stroke-dasharray 400ms,
               stroke-dashoffset 400ms;
             stroke: $dark-brown;
-            stroke-width: 5.5;
+            stroke-width: 5;
             stroke-linecap: round;
           }
           .burger .top {
