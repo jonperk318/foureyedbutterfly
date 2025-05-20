@@ -3,8 +3,9 @@ package-lock.json
 ecosystem.config.js
 dist/
 .env
-.DS_Store
+**/.DS_Store
 
+*.swp
 *.db
 *.jpg
 *.JPG

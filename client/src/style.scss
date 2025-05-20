@@ -57,6 +57,7 @@ body {
   background-size: cover;
   margin: 0;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 @keyframes text-load {
@@ -93,12 +94,12 @@ body {
   }
 }
 
-body {
-  overflow-x: hidden;
-}
-
 *:focus {
   outline: none;
+}
+
+:root {
+  color-scheme: only light;
 }
 
 .app {
