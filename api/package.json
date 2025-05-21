@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "pm2 start ecosystem.config.cjs --watch",
-    "restart": "pm2 restart ecosystem.config.cjs --watch"
+    "restart": "pm2 restart ecosystem.config.cjs --watch",
+    "stop": "pm2 kill"
   },
   "keywords": [],
   "author": "",

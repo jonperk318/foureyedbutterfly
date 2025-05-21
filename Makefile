@@ -1,23 +1,29 @@
-default: build
+default: restart
 
 build:
 	npm --prefix ./client run build
-	make restart
+
+watch:
+	npm --prefix ./client run watch
 
 restart:
 	npm --prefix ./api run restart
-	service nginx restart --watch
+	service nginx reload --watch
 
 start:
-	make start_frontend
 	make start_backend
-
-start_frontend:
-	npm --prefix ./client run build
+	make start_frontend
 
 start_backend:
 	npm --prefix ./api run start
-	service nginx restart --watch
+	service nginx start --watch
+	
+start_frontend:
+	npm --prefix ./client run watch
+
+stop:
+	npm --prefix ./api run stop
+	service nginx stop
 
 i:
 	npm --prefix ./client install ./client
@@ -34,9 +40,6 @@ audit:
 
 renew:
 	sudo certbot renew --nginx
-
-sql:
-	sudo mysql -u root -p
 
 dev:
 	make -j 2 dev_client dev_api

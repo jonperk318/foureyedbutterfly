@@ -38,7 +38,7 @@ const Posts2025 = () => {
                   <source
                     src={
                       new URL(
-                        `../assets/${("" + post.img).split(", ")[0]}`,
+                        `../../../api/assets/${("" + post.img).split(", ")[0]}`,
                         import.meta.url,
                       ).href
                     }
@@ -50,7 +50,7 @@ const Posts2025 = () => {
                   className={Boolean(post.draft) ? "draft" : ""}
                   src={
                     new URL(
-                      `../assets/${("" + post.img).split(", ")[0]}`,
+                      `../../../api/assets/${("" + post.img).split(", ")[0]}`,
                       import.meta.url,
                     ).href
                   }

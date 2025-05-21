@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.js";
-import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
 import cookieParser from "cookie-parser";
 import multer from "multer";
@@ -13,7 +12,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 const storage = multer.diskStorage({
-  destination: "../client/src/assets/",
+  destination: "./assets",
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
   },
@@ -33,7 +32,6 @@ app.post("/api/upload", upload.any("files"), function (req, res) {
 
 //app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 
 app.listen(process.env.API_PORT, () => {

@@ -69,7 +69,7 @@ const Single = () => {
               <video controls="controls autoplay loop" alt="video">
                 <source
                   src={
-                    new URL(`../assets/${images[i + 1]}`, import.meta.url).href
+                    new URL(`../../../api/assets/${images[i + 1]}`, import.meta.url).href
                   }
                   type="video"
                 />
@@ -77,7 +77,7 @@ const Single = () => {
             ) : (
               <img
                 src={
-                  new URL(`../assets/${images[i + 1]}`, import.meta.url).href
+                  new URL(`../../../api/assets/${images[i + 1]}`, import.meta.url).href
                 }
                 alt="image"
               />
@@ -100,13 +100,13 @@ const Single = () => {
             {findFile(images[0]) === "video" ? (
               <video controls="autoplay" alt="video">
                 <source
-                  src={new URL(`../assets/${images[0]}`, import.meta.url).href}
+                  src={new URL(`../../../api/assets/${images[0]}`, import.meta.url).href}
                   type="video"
                 />
               </video>
             ) : (
               <img
-                src={new URL(`../assets/${images[0]}`, import.meta.url).href}
+                src={new URL(`../../../api/assets/${images[0]}`, import.meta.url).href}
                 alt="image"
               />
             )}

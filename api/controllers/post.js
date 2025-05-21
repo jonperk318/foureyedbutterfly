@@ -79,19 +79,13 @@ export const updatePost = (req, res) => {
   jwt.verify(token, process.env.JWT_SECRET, (err, userInfo) => {
     if (err) return res.status(403).json("Token is not valid.");
 
-    const postID = req.params.pid;
-
     const values = [req.body.title, req.body.content, req.body.draft];
 
     const img = req.body.img;
-    console.log(img);
-    const q = `UPDATE posts SET title=?, content=?, draft=?${img ? " ,img=?" : ""} WHERE pid=? AND uid=?`;
+    const q = `UPDATE posts SET title=?, content=?, draft=?${img ? ", img=?" : ""} WHERE pid=? AND uid=?`;
     img && values.push(img);
 
-    console.log(values);
-    console.log(q);
-
-    db.run(q, [...values, postID, userInfo.id], (err) => {
+    db.run(q, [...values, req.params.pid, userInfo.id], (err) => {
       if (err) return res.status(500).json(err);
       return res.json("Post has been updated");
     });
@@ -100,7 +94,7 @@ export const updatePost = (req, res) => {
       (
         oldFile, // Deleting old files
       ) =>
-        unlink("../client/src/assets/" + oldFile, (err) => {
+        unlink("./assets/" + oldFile, (err) => {
           if (err) return res.status(500).json(err);
           console.log(oldFile + " deleted successfully");
         }),
@@ -117,11 +111,9 @@ export const deletePost = (req, res) => {
   jwt.verify(token, process.env.JWT_SECRET, (err, userInfo) => {
     if (err) return res.status(403).json("Token is not valid.");
 
-    const postID = req.params.pid;
-
     const q = "DELETE FROM posts WHERE pid = ? AND uid = ?";
 
-    db.run(q, [postID, userInfo.id], (err) => {
+    db.run(q, [req.params.pid, userInfo.id], (err) => {
       if (err)
         return res.status(403).json("You can only delete your own posts");
       return res.json("Post has been deleted.");
