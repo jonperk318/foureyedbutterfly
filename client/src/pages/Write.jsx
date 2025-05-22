@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useQuill } from "react-quilljs-vite-fix";
 import "quill/dist/quill.snow.css";
@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import Quill from "quill";
 
 import { errorUtils } from "@/utils/errorUtils";
+import { AuthContext } from "@/context/authContext.jsx";
 
 const Write = () => {
   const state = useLocation().state;
@@ -18,6 +19,7 @@ const Write = () => {
   const [files, setFiles] = useState(null);
   const [fileLimit, setFileLimit] = useState(false);
   const [publishDisabled, setPublishDisabled] = useState(false);
+  const { currentUser } = useContext(AuthContext);
 
   let draft = 0;
 
@@ -148,74 +150,84 @@ const Write = () => {
   }
 
   return (
-    <div className="write-post">
-      <div className="upload-container">
-        <h1>Pictures & Videos</h1>
-        <div className="uploads">
-          <ol>
-            {files
-              ? files.map(
-                  (
-                    file, // display names of uploaded files on page
-                  ) => <li key={file.name}>{file.name}</li>,
-                )
-              : oldFiles &&
-                oldFiles
-                  .split(", ")
-                  .map((oldFile) => (
-                    <li key={oldFile}>{oldFile.replace(/\d{13}/, "")}</li>
-                  ))}
-          </ol>
-        </div>
-      </div>
-      <div className="write-container">
-        <div className="content">
-          <input
-            type="text"
-            placeholder="Title"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-          />
-          <div className="editor-container">
-            <div ref={quillRef} className="editor" />
+    <>
+    {currentUser ? (
+      <div className="write-post">
+        <div className="upload-container">
+          <h1>Pictures & Videos</h1>
+          <div className="uploads">
+            <ol>
+              {files
+                ? files.map(
+                    (
+                      file, // display names of uploaded files on page
+                    ) => <li key={file.name}>{file.name}</li>,
+                  )
+                : oldFiles &&
+                  oldFiles
+                    .split(", ")
+                    .map((oldFile) => (
+                      <li key={oldFile}>{oldFile.replace(/\d{13}/, "")}</li>
+                    ))}
+            </ol>
           </div>
         </div>
-        <div className="menu">
-          <div className="instructions">
-            <p>Separate text field submissions by 3 pipes |||</p>
-            <p>The layout alternates between images and text entries</p>
-            <p>Publishing new files will completely replace old ones</p>
-          </div>
-          <div className="upload-buttons">
+        <div className="write-container">
+          <div className="content">
             <input
-              style={{ display: "none" }}
-              type="file"
-              multiple
-              id="file"
-              name="file"
-              accept="image/jpeg,image/png"
-              onChange={handleFileEvent}
+              type="text"
+              placeholder="Title"
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
             />
-            <label className="brown" htmlFor="file">
-              Select Pictures & Videos
-            </label>
-            {oldFiles && (
-              <label className="brown" id="deleteButton">
-                Delete Post
-              </label>
-            )}
+            <div className="editor-container">
+              <div ref={quillRef} className="editor" />
+            </div>
           </div>
-          <div className="save-buttons">
-            <button onClick={handleDraft} disabled={publishDisabled}>
-              Save Draft
-            </button>
-            <button onClick={handlePublish} disabled={publishDisabled}>
-              Publish
-            </button>
+          <div className="menu">
+            <div className="instructions">
+              <p>Separate text field submissions by 3 pipes |||</p>
+              <p>The layout alternates between images and text entries</p>
+              <p>Publishing new files will completely replace old ones</p>
+            </div>
+            <div className="upload-buttons">
+              <input
+                style={{ display: "none" }}
+                type="file"
+                multiple
+                id="file"
+                name="file"
+                accept="image/jpeg,image/png"
+                onChange={handleFileEvent}
+              />
+              <label className="brown" htmlFor="file">
+                Select Pictures & Videos
+              </label>
+              {oldFiles && (
+                <label className="brown" id="deleteButton">
+                  Delete Post
+                </label>
+              )}
+            </div>
+            <div className="save-buttons">
+              <button onClick={handleDraft} disabled={publishDisabled}>
+                Save Draft
+              </button>
+              <button onClick={handlePublish} disabled={publishDisabled}>
+                Publish
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    ) : (
+      <div className="unauthorized">
+        <div className="unathorized-message">
+          <h1>You must log in first!</h1>
+        </div>
+      </div>
+    )}
+    </>
   );
 };
 

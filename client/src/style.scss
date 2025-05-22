@@ -852,6 +852,26 @@ body {
         }
       }
     }
+    .unauthorized {
+      background-image: $background-gradient;
+      font-family: $paragraph-font;
+      color: $dark-brown;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      .unathorized-message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border: 5px dotted $pink;
+        border-radius: 20px;
+        width: 300px;
+        height: 100px;
+      }
+    }
 
     .page-not-found {
       background-image: $background-gradient;

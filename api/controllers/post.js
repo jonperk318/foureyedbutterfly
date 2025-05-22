@@ -84,6 +84,8 @@ export const updatePost = (req, res) => {
     const img = req.body.img;
     const q = `UPDATE posts SET title=?, content=?, draft=?${img ? ", img=?" : ""} WHERE pid=? AND uid=?`;
     img && values.push(img);
+    console.log(values);
+    console.log(q);
 
     db.run(q, [...values, req.params.pid, userInfo.id], (err) => {
       if (err) return res.status(500).json(err);

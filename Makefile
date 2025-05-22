@@ -12,15 +12,12 @@ restart:
 
 start:
 	make start_backend
-	make start_frontend
+	make watch
 
 start_backend:
 	npm --prefix ./api run start
 	service nginx start --watch
 	
-start_frontend:
-	npm --prefix ./client run watch
-
 stop:
 	npm --prefix ./api run stop
 	service nginx stop
