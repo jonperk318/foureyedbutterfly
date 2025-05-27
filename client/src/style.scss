@@ -1031,14 +1031,13 @@ body {
         }
 
         .navbar-container-open {
-          padding: 0 0;
           display: block;
           align-items: center;
           justify-content: center;
           position: absolute;
           background-color: $pink;
           color: $orange;
-          height: 200%;
+          height: 100%;
           top: 100px;
           padding-top: 40px;
           min-width: 100%;

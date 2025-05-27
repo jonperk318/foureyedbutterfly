@@ -12,14 +12,12 @@ const NavbarMobile = () => {
 
   function toggleBurger() {
     setOpen(!isOpen);
+    document.body.style.overflow = !isOpen ? "hidden" : "auto";
   }
 
   function toggleBurgerLogo() {
-    if (isOpen) {
-      setOpen(false);
-    } else {
-      return;
-    }
+    isOpen && setOpen(false);
+    document.body.style.overflow = !isOpen ? "hidden" : "auto";
   }
 
   function logoutOnClick() {
