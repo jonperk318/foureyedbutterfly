@@ -208,6 +208,9 @@ body {
             width: 350px;
 
             .insta {
+              opacity: 0;
+              animation: text-load $transition-time $transition-type 500ms;
+              animation-fill-mode: forwards;
               .icon:hover {
                 transform: scale(1.2);
               }
@@ -218,21 +221,24 @@ body {
             animation: text-load $transition-time $transition-type;
           }
           .link2 {
-            animation: text-load $transition-time $transition-type 50ms;
+            opacity: 0;
+            animation: text-load $transition-time $transition-type 100ms;
+            animation-fill-mode: forwards;
           }
-          .logo { // logo
-            animation: text-load $transition-time $transition-type 250ms;
+          .logo {
+            opacity: 0;
+            animation: text-load $transition-time $transition-type 200ms;
+            animation-fill-mode: forwards;
           }
           .link4 {
-            animation: text-load $transition-time $transition-type 400ms;
+            opacity: 0;
+            animation: text-load $transition-time $transition-type 300ms;
+            animation-fill-mode: forwards;
           }
           .link5 {
-            animation: text-load $transition-time $transition-type 450ms;
-          }
-
-          .link2 .logo .link4 .link4 {
-            animation-fill-mode: both;
-            transform: scale(0);
+            opacity: 0;
+            animation: text-load $transition-time $transition-type 400ms;
+            animation-fill-mode: forwards;
           }
         }
       }
@@ -1045,15 +1051,39 @@ body {
           overflow: hidden;
 
           .links {
+
             .link {
               font-size: $font-size2;
               display: flex;
               align-items: center;
               justify-content: center;
-              padding: 0 0;
-              margin-top: 5%;
+              margin-top: 25px;
+            }
 
-              animation: text-load $transition-time $transition-type;
+            .link1 {
+              opacity: 0;
+              animation: text-load $transition-time $transition-type 100ms;
+              animation-fill-mode: forwards;
+            }
+            .link2 {
+              opacity: 0;
+              animation: text-load $transition-time $transition-type 200ms;
+              animation-fill-mode: forwards;
+            }
+            .link3 {
+              opacity: 0;
+              animation: text-load $transition-time $transition-type 300ms;
+              animation-fill-mode: forwards;
+            }
+            .link4 {
+              opacity: 0;
+              animation: text-load $transition-time $transition-type 400ms;
+              animation-fill-mode: forwards;
+            }
+            .insta {
+              opacity: 0;
+              animation: text-load $transition-time $transition-type 500ms;
+              animation-fill-mode: forwards;
             }
           }
         }

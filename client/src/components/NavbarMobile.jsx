@@ -63,23 +63,23 @@ const NavbarMobile = () => {
       {isOpen && (
         <div className="navbar-container-open">
           <div className="links">
-            <Link className="link" to="/about" onClick={toggleBurger}>
+            <Link className="link link1" to="/about" onClick={toggleBurger}>
               About
             </Link>
-            <Link className="link " to="/2025" onClick={toggleBurger}>
+            <Link className="link link2" to="/2025" onClick={toggleBurger}>
               2025
             </Link>
             {currentUser && (
-              <Link className="link" to="/write" onClick={toggleBurger}>
+              <Link className="link link3" to="/write" onClick={toggleBurger}>
                 Write
               </Link>
             )}
             {currentUser ? (
-              <Link className="link" to="/" onClick={logoutOnClick}>
+              <Link className="link link4" to="/" onClick={logoutOnClick}>
                 Logout
               </Link>
             ) : (
-              <Link className="link" to="/login" onClick={toggleBurger}>
+              <Link className="link link3" to="/login" onClick={toggleBurger}>
                 Login
               </Link>
             )}
