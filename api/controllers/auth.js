@@ -4,6 +4,7 @@ import "dotenv/config";
 
 import db from "../db.js";
 
+
 export const register = (req, res) => {
   // Check if user exists
 

@@ -140,8 +140,6 @@ body {
           font-size: $font-size5;
           width: 100%;
 
-          // Underline from left
-
           .underline {
             display: inline-block;
             position: relative;
@@ -197,15 +195,13 @@ body {
           .links-left {
             display: flex;
             color: $dark-brown;
-            max-width: 350px;
-            width: 350px;
+            max-width: 375px;
           }
 
           .links-right {
             display: flex;
             color: $orange;
-            max-width: 350px;
-            width: 350px;
+            max-width: 375px;
 
             .insta {
               opacity: 0;
@@ -244,10 +240,9 @@ body {
       }
     }
 
-    // LOGIN (and register)
+    // LOGIN AND REGISTER
 
     .auth {
-      //background-image: linear-gradient($dark-tan 100px, 400px, $tan 500px);
       background-image: $background-gradient;
       display: flex;
       align-items: center;
@@ -1248,6 +1243,13 @@ body {
       .navbar-mobile {
         gap: 0;
       }
+
+      // LOGIN AND REGISTER
+      .auth {
+        .auth-container {
+          width: 340px;
+        }
+      }
     }
   }
 
@@ -1276,6 +1278,13 @@ body {
           img {
             width: 300px;
           }
+        }
+      }
+
+      // LOGIN AND REGISTER
+      .auth {
+        .auth-container {
+          width: 300px;
         }
       }
 

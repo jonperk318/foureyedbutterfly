@@ -5,6 +5,7 @@ import postRoutes from "./routes/posts.js";
 import cookieParser from "cookie-parser";
 import multer from "multer";
 import "dotenv/config";
+import { rateLimit } from "express-rate-limit";
 
 const app = express();
 
@@ -30,6 +31,12 @@ app.post("/api/upload", upload.any("files"), function (req, res) {
   res.status(200).json(fileNamesString);
 });
 
+const generalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 1000,
+});
+
+app.use(generalLimiter);
 //app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
