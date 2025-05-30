@@ -9,6 +9,7 @@ import {
   getNextPost,
 } from "../controllers/post.js";
 
+
 const router = express.Router();
 
 router.get("/", getPosts); // read all posts

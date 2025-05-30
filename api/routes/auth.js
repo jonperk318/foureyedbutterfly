@@ -5,7 +5,6 @@ import { rateLimit } from "express-rate-limit";
 
 const router = express.Router();
 
-
 const registerLimiter = rateLimit({
   windowMs: 7 * 24 * 60 * 60 * 1000,
   limit: 1,

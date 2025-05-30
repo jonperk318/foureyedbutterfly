@@ -2,34 +2,16 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.js";
 import postRoutes from "./routes/posts.js";
+import uploadRoutes from "./routes/upload.js";
 import cookieParser from "cookie-parser";
-import multer from "multer";
 import "dotenv/config";
 import { rateLimit } from "express-rate-limit";
 
+const API_PORT = process.env.API_PORT
+const CLIENT_URL = process.env.CLIENT_URL
+
+
 const app = express();
-
-app.use(express.json());
-app.use(cookieParser());
-
-const storage = multer.diskStorage({
-  destination: "./assets",
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + file.originalname);
-  },
-});
-
-const upload = multer({ storage });
-
-app.post("/api/upload", upload.any("files"), function (req, res) {
-  const files = req.files;
-  let fileNames = [];
-  files.forEach((file) => {
-    fileNames.push(file.filename);
-  });
-  const fileNamesString = fileNames.join(", ");
-  res.status(200).json(fileNamesString);
-});
 
 const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -37,10 +19,13 @@ const generalLimiter = rateLimit({
 });
 
 app.use(generalLimiter);
-//app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(cors({ origin: CLIENT_URL, credentials: true }));
+app.use(express.json());
+app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
+app.use("/api/upload", uploadRoutes);
 
-app.listen(process.env.API_PORT, () => {
-  console.log("Connected");
+app.listen(API_PORT, () => {
+  console.log("Connected on port " + API_PORT);
 });
