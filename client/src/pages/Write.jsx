@@ -94,7 +94,7 @@ const Write = () => {
   };
 
   const handleDraft = async (e) => {
-    draft = 1;
+    draft = (state.pid !== 1) && 1;
     await handlePublish(e);
   };
 
@@ -124,7 +124,11 @@ const Write = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/api/posts/${state.pid}`);
+      await axios.delete(`/api/posts/${state.pid}`, {
+        data: {
+          oldFiles: oldFiles
+        }
+      });
       navigate("/");
     } catch (err) {
       console.log(errorUtils.getError(err));

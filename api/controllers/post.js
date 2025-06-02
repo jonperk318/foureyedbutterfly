@@ -111,13 +111,21 @@ export const deletePost = (req, res) => {
   if (!token) return res.status(401).json("User not authenticated");
 
   jwt.verify(token, process.env.JWT_SECRET, (err, userInfo) => {
-    if (err) return res.status(403).json("Token is not valid.");
 
+    if (err) return res.status(403).json("Token is not valid.");
     const q = "DELETE FROM posts WHERE pid = ? AND uid = ?";
 
     db.run(q, [req.params.pid, userInfo.id], (err) => {
-      if (err)
-        return res.status(403).json("You can only delete your own posts");
+
+      if (err) return res.status(403).json("You can only delete your own posts");
+
+      req.body.oldFiles?.split(", ").map(oldFile => ( // Deleting old files
+        unlink('./assets/' + oldFile, (err) => {
+          if (err) console.log(err);
+          console.log(oldFile + " deleted successfully");
+        })
+      ))
+
       return res.json("Post has been deleted.");
     });
   });

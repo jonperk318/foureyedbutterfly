@@ -410,11 +410,7 @@ body {
 
       .half-moon-bay {
         animation: wipe $transition-time $transition-type;
-        animation-fill-mode: forwards;
         color: $dark-brown;
-        display: table;
-        padding-top: 0;
-        padding-bottom: 100px;
         text-align: center;
 
         img {
@@ -426,20 +422,18 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 2%;
-        margin-bottom: 30px;
+        gap: 20px;
+        padding-top: 30px;
         font-family: $paragraph-font;
         color: $dark-brown;
 
         img {
           width: 30%;
           animation: wipe $transition-time $transition-type;
-          animation-fill-mode: forwards;
         }
 
         .quote {
           animation: wipe $transition-time $transition-type;
-          animation-fill-mode: forwards;
           width: 30%;
           background-color: white;
           padding: 30px;
@@ -481,9 +475,7 @@ body {
 
           .image img {
             width: 100%;
-
             animation: wipe 1s $transition-type;
-            animation-fill-mode: forwards;
           }
 
           .content {
