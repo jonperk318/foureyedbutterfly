@@ -41,32 +41,16 @@ export const addPost = (req, res) => {
   });
 };
 
-export const getPrevPost = (req, res) => {
-  const q =
-    "SELECT * FROM posts WHERE pid = (SELECT MAX(pid) FROM posts WHERE pid < ?)";
-
-  db.all(q, [req.params.pid], (err, data) => {
-    if (err) return res.status(500).json(err);
-    return res.status(200).json(data[0]);
-  });
-};
-
 export const getPost = (req, res) => {
-  const q = "SELECT * FROM posts WHERE pid = ?";
 
-  db.all(q, [req.params.pid], (err, data) => {
+  const q = `SELECT * FROM posts WHERE
+    pid=(SELECT MAX(pid) FROM posts WHERE pid<?)
+    OR pid=?
+    OR pid=(SELECT MIN(pid) FROM posts WHERE pid>?);`;
+
+  db.all(q, Array(3).fill(req.params.pid), (err, data) => {
     if (err) return res.status(500).json(err);
-    return res.status(200).json(data[0]);
-  });
-};
-
-export const getNextPost = (req, res) => {
-  const q =
-    "SELECT * FROM posts WHERE pid = (SELECT MIN(pid) FROM posts WHERE pid > ?)";
-
-  db.all(q, [req.params.pid], (err, data) => {
-    if (err) return res.status(500).json(err);
-    return res.status(200).json(data[0]);
+    return res.status(200).json(data);
   });
 };
 

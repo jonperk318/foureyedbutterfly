@@ -18,23 +18,22 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        axios
-          .all([
-            axios.get(`/api/posts/prev/${postID}`),
-            axios.get(`/api/posts/${postID}`),
-            axios.get(`/api/posts/next/${postID}`),
-          ])
-          .then(
-            axios.spread((prevRes, res, nextRes) => {
-              setPrevPost(prevRes.data);
-              setPost(res.data);
-              setNextPost(nextRes.data);
-            }),
-          );
-      } catch (err) {
-        console.log(err);
-      }
-    };
+        axios.get(`/api/posts/${postID}`)
+        .then(res => {
+          res.data.forEach((post => {
+            post.pid === (Number(postID) - 1)
+              ? setPrevPost(post)
+            : post.pid === Number(postID)
+              ? setPost(post)
+            : post.pid === (Number(postID) + 1)
+              ? setNextPost(post)
+            : None;
+          }))
+        })
+      } catch(err) {
+          console.log(err);
+        };
+      };
     fetchData();
   }, [postID]);
 
@@ -113,12 +112,12 @@ const Single = () => {
           </div>
           <div>{segments}</div>
           <div className="bottom">
-            {nextPost && ( // check if next post exists
+            {prevPost && ( // check if previous post exists
               <Link
-                to={`/post/${nextPost.pid}`}
+                to={`/post/${prevPost.pid}`}
                 onClick="window.scroll(0, 0);"
               >
-                <h2 className="underline">{nextPost.title}</h2>
+                <h2 className="underline">{prevPost.title}</h2>
               </Link>
             )}
             {currentUser && currentUser.uid === post.uid && (
@@ -130,12 +129,12 @@ const Single = () => {
                 </IconContext.Provider>
               </div>
             )}
-            {prevPost && ( // check if previous post exists
+            {nextPost && ( // check if next post exists
               <Link
-                to={`/post/${prevPost.pid}`}
+                to={`/post/${nextPost.pid}`}
                 onClick="window.scroll(0, 0);"
               >
-                <h2 className="underline">{prevPost.title}</h2>
+                <h2 className="underline">{nextPost.title}</h2>
               </Link>
             )}
           </div>
