@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import axios from "axios";
@@ -12,6 +12,7 @@ const Single = () => {
   const [post, setPost] = useState({});
   const [nextPost, setNextPost] = useState({});
   const location = useLocation();
+  const navigate = useNavigate();
   const postID = location.pathname.split("/")[2]; // get ID from URL
   const { currentUser } = useContext(AuthContext);
 
@@ -21,15 +22,19 @@ const Single = () => {
         axios.get(`/api/posts/${postID}`)
         .then(res => {
           res.data.forEach((post => {
-            post.pid === (Number(postID) - 1)
+
+            post.pid < Number(postID)
               ? setPrevPost(post)
             : post.pid === Number(postID)
               ? setPost(post)
-            : post.pid === (Number(postID) + 1)
+            : post.pid > Number(postID)
               ? setNextPost(post)
             : None;
-          }))
-        })
+
+            post.draft === 1 && navigate("/2025");
+
+          }));
+        });
       } catch(err) {
           console.log(err);
         };
@@ -112,12 +117,12 @@ const Single = () => {
           </div>
           <div>{segments}</div>
           <div className="bottom">
-            {prevPost && ( // check if previous post exists
+            {nextPost && ( // check if next post exists
               <Link
-                to={`/post/${prevPost.pid}`}
+                to={`/post/${nextPost.pid}`}
                 onClick="window.scroll(0, 0);"
               >
-                <h2 className="underline">{prevPost.title}</h2>
+                <h2 className="underline">{nextPost.title}</h2>
               </Link>
             )}
             {currentUser && currentUser.uid === post.uid && (
@@ -129,12 +134,12 @@ const Single = () => {
                 </IconContext.Provider>
               </div>
             )}
-            {nextPost && ( // check if next post exists
+            {prevPost && ( // check if previous post exists
               <Link
-                to={`/post/${nextPost.pid}`}
+                to={`/post/${prevPost.pid}`}
                 onClick="window.scroll(0, 0);"
               >
-                <h2 className="underline">{nextPost.title}</h2>
+                <h2 className="underline">{prevPost.title}</h2>
               </Link>
             )}
           </div>
