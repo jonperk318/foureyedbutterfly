@@ -7,7 +7,9 @@ import DOMPurify from "dompurify";
 
 import { AuthContext } from "@/context/authContext.jsx";
 
+
 const Single = () => {
+
   const [prevPost, setPrevPost] = useState({});
   const [post, setPost] = useState({});
   const [nextPost, setNextPost] = useState({});
@@ -15,8 +17,10 @@ const Single = () => {
   const navigate = useNavigate();
   const postID = location.pathname.split("/")[2]; // get ID from URL
   const { currentUser } = useContext(AuthContext);
+  let postExists = false
 
   useEffect(() => {
+
     const fetchData = async () => {
       try {
         axios.get(`/api/posts/${postID}`)
@@ -26,7 +30,7 @@ const Single = () => {
             post.pid < Number(postID)
               ? setPrevPost(post)
             : post.pid === Number(postID)
-              ? setPost(post)
+              ? (setPost(post), postExists = true)
             : post.pid > Number(postID)
               ? setNextPost(post)
             : None;
@@ -34,11 +38,12 @@ const Single = () => {
             post.draft === 1 && navigate("/2025");
 
           }));
+          !postExists && navigate("/2025");
         });
       } catch(err) {
           console.log(err);
-        };
       };
+    };
     fetchData();
   }, [postID]);
 
