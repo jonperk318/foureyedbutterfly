@@ -35,7 +35,7 @@ const Single = () => {
               ? setNextPost(post)
             : None;
 
-            post.draft === 1 && navigate("/2025");
+            !currentUser && post.draft === 1 && navigate("/2025");
 
           }));
           !postExists && navigate("/2025");

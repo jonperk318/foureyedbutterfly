@@ -42,11 +42,14 @@ export const addPost = (req, res) => {
 };
 
 export const getPost = (req, res) => {
+  // READ
 
+  const token = req.cookies.access_token;
   const q = `SELECT * FROM posts WHERE
-    pid=(SELECT MAX(pid) FROM posts WHERE pid<? AND draft=0)
+    pid=(SELECT MAX(pid) FROM posts WHERE pid<?${token ? "" : " AND draft=0"})
     OR pid=?
-    OR pid=(SELECT MIN(pid) FROM posts WHERE pid>? AND draft=0);`;
+    OR pid=(SELECT MIN(pid) FROM posts WHERE pid>?${token ? "" : " AND draft=0"});`;
+  console.log(q)
 
   db.all(q, Array(3).fill(req.params.pid), (err, data) => {
     if (err) return res.status(500).json(err);
