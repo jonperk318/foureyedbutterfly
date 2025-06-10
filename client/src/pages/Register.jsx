@@ -59,7 +59,7 @@ const Register = () => {
           {err && <p>{JSON.stringify(err)}</p>}
           <p>
             Do you have an account?{" "}
-            <Link className="hvr-underline-from-left" to="/login">
+            <Link className="underline" to="/login">
               Login
             </Link>
           </p>

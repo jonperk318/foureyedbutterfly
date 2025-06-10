@@ -33,21 +33,21 @@ const Navbar = () => {
           <div className="links-right">
             {currentUser && (
               <Link
-                className="link link4 underline underline-orange"
+                className="link link4 underline"
                 to="/write"
               >
                 <h2>Write</h2>
               </Link>
             )}
             {currentUser ? (
-              <Link className="link link5 underline underline-orange"
+              <Link className="link link5 underline"
                     to="/"
               >
                 <h2 onClick={logout}>Logout</h2>
               </Link>
             ) : (
               <Link
-                className="link link5 underline underline-orange"
+                className="link link5 underline"
                 to="/login"
               >
                 <h2>Login</h2>

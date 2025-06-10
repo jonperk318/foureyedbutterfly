@@ -94,6 +94,29 @@ body {
   }
 }
 
+@mixin underline {
+  display: inline-block;
+  position: relative;
+  color: $orange;
+}
+
+@mixin underline-after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  transform: scaleX(0);
+  height: 2.5px;
+  bottom: -7px;
+  transform-origin: bottom right;
+  transition: transform 200ms ease-out;
+  background-color: $orange;
+}
+
+@mixin underline-hover-after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 *:focus {
   outline: none;
 }
@@ -141,32 +164,15 @@ body {
           width: 100%;
 
           .underline {
-            display: inline-block;
-            position: relative;
+            @include underline;
           }
 
           .underline:after {
-            content: "";
-            position: absolute;
-            width: 90%;
-            transform: scaleX(0);
-            height: 2.5px;
-            bottom: -7px;
-            transform-origin: bottom right;
-            transition: transform 200ms ease-out;
+            @include underline-after;
           }
 
           .underline:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-          }
-
-          .underline-orange {
-            color: $orange;
-          }
-
-          .underline-orange:after {
-            background-color: $orange;
+            @include underline-hover-after;
           }
 
           .underline-brown {
@@ -313,39 +319,28 @@ body {
             text-align: center;
             margin: 0 -5px;
 
-            .hvr-underline-from-left {
-              display: inline-block;
-              position: relative;
+            .underline {
+              @include underline;
               color: $dark-brown;
               text-decoration: none;
-              margin-left: 15px;
             }
 
-            .hvr-underline-from-left:after {
-              content: "";
-              position: absolute;
-              width: 100%;
-              transform: scaleX(0);
-              height: 1.4px;
-              bottom: -7px;
-              left: 0;
+            .underline:after {
+              @include underline-after;
               background-color: $dark-brown;
-              transform-origin: bottom right;
-              transition: transform 200ms ease-out;
+              width: 100%;
+              left: 0;
             }
 
-            .hvr-underline-from-left:hover:after {
-              transform: scaleX(1);
-              transform-origin: bottom left;
+            .underline:hover:after {
+              @include underline-hover-after;
             }
           }
         }
       }
 
       .login-container {
-        // login has different size
         height: 350px;
-
         form {
           p {
             margin-top: -30px;
@@ -597,10 +592,8 @@ body {
             }
           }
 
-          .image img,
-          video {
+          .image img, video {
             width: 100%;
-
             animation: wipe $transition-time $transition-type;
             animation-fill-mode: forwards;
           }
@@ -635,27 +628,17 @@ body {
           }
 
           .underline {
-            display: inline-block;
-            position: relative;
-            color: $orange;
+            @include underline;
           }
 
           .underline:after {
-            content: "";
-            position: absolute;
+            @include underline-after;
             width: 100%;
-            transform: scaleX(0);
-            height: 2.5px;
-            bottom: -7px;
             right: 3px;
-            background-color: $orange;
-            transform-origin: bottom right;
-            transition: transform 200ms ease-out;
           }
 
           .underline:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+            @include underline-hover-after;
           }
         }
       }
