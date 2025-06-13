@@ -5,19 +5,18 @@ import DOMPurify from "dompurify";
 
 const About = () => {
   const [post, setPost] = useState({});
-  const postID = 1;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/api/posts/${postID}`);
+        const res = await axios.get(`/api/posts/first`);
         setPost(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-  }, [postID]);
+  }, []);
 
   const images = ("" + post.img).split(", ");
   const content = ("" + post.content).split("|||");

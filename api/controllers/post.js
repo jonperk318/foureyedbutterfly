@@ -2,6 +2,16 @@ import db from "../db.js";
 import jwt from "jsonwebtoken";
 import { unlink } from "node:fs";
 
+
+export const getFirstPost = (req, res) => {
+  const q = "SELECT * FROM posts WHERE pid=1";
+
+  db.all(q, (err, data) => {
+    if (err) return res.status(500).send(err);
+    return res.status(200).json(data[0]);
+  });
+};
+
 export const getPosts = (req, res) => {
   const q = "SELECT * FROM posts";
 
@@ -49,7 +59,6 @@ export const getPost = (req, res) => {
     pid=(SELECT MAX(pid) FROM posts WHERE pid<?${token ? "" : " AND draft=0"})
     OR pid=?
     OR pid=(SELECT MIN(pid) FROM posts WHERE pid>?${token ? "" : " AND draft=0"});`;
-  console.log(q)
 
   db.all(q, Array(3).fill(req.params.pid), (err, data) => {
     if (err) return res.status(500).json(err);
@@ -71,8 +80,6 @@ export const updatePost = (req, res) => {
     const img = req.body.img;
     const q = `UPDATE posts SET title=?, content=?, draft=?${img ? ", img=?" : ""} WHERE pid=? AND uid=?`;
     img && values.push(img);
-    console.log(values);
-    console.log(q);
 
     db.run(q, [...values, req.params.pid, userInfo.id], (err) => {
       if (err) return res.status(500).json(err);
@@ -117,24 +124,3 @@ export const deletePost = (req, res) => {
     });
   });
 };
-
-/*
-
-export const deleteFiles = (req, res) => {
-
-  const token = req.cookies.access_token;
-  if (!token) return res.status(401).json("User not authenticated");
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, userInfo) => {
-      if (err) return res.status(403).json("Token is not valid.");
-
-      req.body.oldFiles.split(", ").map(oldFile => ( // Deleting old files
-        unlink('../client/src/assets/' + oldFile, (err) => {
-          if (err) return res.status(500).json(err);
-          console.log(oldFile + " deleted successfully");
-        })
-      ))
-  });
-};
-
-*/
