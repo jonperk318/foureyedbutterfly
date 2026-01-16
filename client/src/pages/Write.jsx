@@ -9,6 +9,8 @@ import Quill from "quill";
 import { errorUtils } from "@/utils/errorUtils";
 import { AuthContext } from "@/context/authContext.jsx";
 
+const MAX_COUNT = 100
+
 const Write = () => {
   const state = useLocation().state;
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ const Write = () => {
       files.forEach((file) => {
         formData.append("files", file);
       });
-      const res = await axios.post("/api/upload", formData);
+      const res = await axios.post("/api/upload/", formData);
       return res.data;
     } catch (err) {
       console.log(errorUtils.getError(err));
@@ -52,39 +54,42 @@ const Write = () => {
     if (files) {
       const imgUrl = await upload();
       try {
-        state
-          ? await axios.put(`/api/posts/${state.pid}`, {
+        if (state) { await axios.put(`/api/posts/${state.pid}/`, {
               title,
               content: content,
               img: imgUrl,
               oldFiles: oldFiles,
               draft: draft,
             })
-          : await axios.post(`/api/posts/`, {
+        } else {
+          await axios.post(`/api/posts/`, {
               title,
               date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
               content: content,
               img: imgUrl,
               draft: draft,
             });
+          };
         navigate("/");
       } catch (err) {
         console.log(err);
       }
     } else {
       try {
-        state
-          ? await axios.put(`/api/posts/${state.pid}`, {
+        if (state) {
+          await axios.put(`/api/posts/${state.pid}/`, {
               title,
               content: content,
               draft: draft,
             })
-          : await axios.post(`/api/posts/`, {
+        } else {
+          await axios.post(`/api/posts/`, {
               title,
               date: dayjs(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
               content: content,
               draft: draft,
             });
+          };
         navigate("/");
       } catch (err) {
         console.log(err);
@@ -94,7 +99,7 @@ const Write = () => {
   };
 
   const handleDraft = async (e) => {
-    draft = (state.pid !== 1) && 1;
+    draft = (state?.pid !== 1) && 1;
     await handlePublish(e);
   };
 
@@ -124,7 +129,7 @@ const Write = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/api/posts/${state.pid}`, {
+      await axios.delete(`/api/posts/${state.pid}/`, {
         data: {
           oldFiles: oldFiles
         }

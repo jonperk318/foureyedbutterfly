@@ -69,6 +69,9 @@ const NavbarMobile = () => {
             <Link className="link link2" to="/2025" onClick={toggleBurger}>
               2025
             </Link>
+            <Link className="link link2" to="/2026" onClick={toggleBurger}>
+              2026
+            </Link>
             {currentUser && (
               <Link className="link link3" to="/write" onClick={toggleBurger}>
                 Write

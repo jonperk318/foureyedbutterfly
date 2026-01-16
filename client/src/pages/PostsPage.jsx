@@ -5,33 +5,34 @@ import axios from "axios";
 
 import { AuthContext } from "@/context/authContext.jsx";
 
-const Posts2025 = () => {
-  const [Posts, setPosts] = useState([]);
+
+const PostsPage = ({ year }) => {
+  const [posts, setPosts] = useState([]);
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("/api/posts");
+        const res = await axios.get(`/api/posts/all/${year}/`);
         setPosts(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-  }, []);
+  }, [year]);
 
   return (
     <div className="posts">
-      {Posts && Posts.filter((post) => !(Boolean(post.draft) && !currentUser))
+      {posts && posts.filter((post) => !(Boolean(post.draft) && !currentUser))
       .toReversed().map((post) => (
         <div className="post" key={post.pid}>
           <div className="image">
             <Link className="link" to={`/post/${post.pid}`}>
-              {post.img.split(", ")[0].split(".").pop ===
-              ("mov" || "mp4") ? (
+              {post.img.split(", ")[0].split(".").pop in
+              ["mov", "mp4"] ? (
                 <video
-                  contols="controls loop"
+                  controls="controls loop"
                   alt="video"
                   className={Boolean(post.draft) ? "draft" : ""}
                 >
@@ -60,7 +61,7 @@ const Posts2025 = () => {
             </Link>
           </div>
           <div className="content">
-            <Link className="link" to={`/post/${post.pid}`}>
+            <Link className="link" to={`/post/${post.pid}/`}>
               <h1>
                 {post.title +
                   (Boolean(post.draft) ? " ***DRAFT***" : "")}
@@ -78,4 +79,4 @@ const Posts2025 = () => {
   );
 };
 
-export default Posts2025;
+export default PostsPage;

@@ -23,22 +23,24 @@ const Single = () => {
 
     const fetchData = async () => {
       try {
-        axios.get(`/api/posts/${postID}`)
+        axios.get(`/api/posts/${postID}/`)
         .then(res => {
           res.data.forEach((post => {
+            if (post.pid < Number(postID)) {
+              setPrevPost(post)
+            } else if (post.pid === Number(postID)) {
+              setPost(post)
+              postExists = true
+            } else if (post.pid > Number(postID)) {
+              setNextPost(post)
+            } else {
+              console.log("Error with post ID")
+            }
 
-            post.pid < Number(postID)
-              ? setPrevPost(post)
-            : post.pid === Number(postID)
-              ? (setPost(post), postExists = true)
-            : post.pid > Number(postID)
-              ? setNextPost(post)
-            : None;
-
-            !currentUser && post.draft === 1 && navigate("/2025");
+            if (!currentUser && post.draft === 1) navigate("/2026");
 
           }));
-          !postExists && navigate("/2025");
+          if (!postExists) navigate("/2026");
         });
       } catch(err) {
           console.log(err);

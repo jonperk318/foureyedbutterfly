@@ -1,7 +1,8 @@
+import React from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
-import Posts2025 from "./pages/Posts2025.jsx";
+import PostsPage from "./pages/PostsPage"
 import Register from "./pages/Register.jsx";
 import Login from "./pages/Login.jsx";
 import Write from "./pages/Write.jsx";
@@ -44,7 +45,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/2025",
-        element: <Posts2025 />,
+        element: <PostsPage year={"2025"} />,
+      },
+      {
+        path: "/2026",
+        element: <PostsPage year={"2026"} />,
       },
       {
         path: "/post/:id",

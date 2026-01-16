@@ -9,7 +9,7 @@ const About = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/api/posts/first`);
+        const res = await axios.get(`/api/posts/first/`);
         setPost(res.data);
       } catch (err) {
         console.log(err);
@@ -39,7 +39,7 @@ const About = () => {
         {images[i + 1] && (
           <div className="image">
             <img
-              src={new URL(`../../../api/assets/${images[i + 1]}`, import.meta.url).href}
+              src={new URL(`../../../api/assets/${images[i + 1]}/`, import.meta.url).href}
               alt="image"
             />
           </div>
@@ -57,10 +57,10 @@ const About = () => {
         <img src="https://res.cloudinary.com/difdjam1a/image/upload/v1744891374/fish_fxm2ym.jpg" alt="Fish" />
         <div className="quote">
           <h1>
-            "I remembered that the real world was wide, and that a varied field
+            &quot;I remembered that the real world was wide, and that a varied field
             of hopes and fears, of sensations and excitements, awaited those who
             had the courage to go fourth into its expanse, to seek real
-            knowledge of life amidst its perils."
+            knowledge of life amidst its perils.&quot;
           </h1>
           <p>&#8212; Jane Eyre</p>
         </div>

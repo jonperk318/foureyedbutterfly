@@ -13,7 +13,7 @@ export const getFirstPost = (req, res) => {
 };
 
 export const getPosts = (req, res) => {
-  const q = "SELECT * FROM posts";
+  const q = `SELECT * FROM posts WHERE date LIKE "${req.params.year}%"`;
 
   db.all(q, (err, data) => {
     if (err) return res.status(500).send(err);

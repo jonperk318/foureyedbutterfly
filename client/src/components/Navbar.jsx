@@ -19,6 +19,9 @@ const Navbar = () => {
             <Link className="link link2 underline underline-brown" to="/2025">
               <h2>2025</h2>
             </Link>
+            <Link className="link link2 underline underline-brown" to="/2026">
+              <h2>2026</h2>
+            </Link>
           </div>
           <div className="logo">
             <Link to="/">
