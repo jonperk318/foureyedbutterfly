@@ -37,24 +37,14 @@ const PostsPage = ({ year }) => {
                   className={Boolean(post.draft) ? "draft" : ""}
                 >
                   <source
-                    src={
-                      new URL(
-                        `../../../api/assets/${("" + post.img).split(", ")[0]}`,
-                        import.meta.url,
-                      ).href
-                    }
+                    src={`/posts/${("" + post.img).split(", ")[0]}`}
                     type="video"
                   />
                 </video>
               ) : (
                 <img
                   className={Boolean(post.draft) ? "draft" : ""}
-                  src={
-                    new URL(
-                      `../../../api/assets/${("" + post.img).split(", ")[0]}`,
-                      import.meta.url,
-                    ).href
-                  }
+                  src={`/posts/${("" + post.img).split(", ")[0]}`}
                   alt="image"
                 />
               )}

@@ -90,7 +90,7 @@ export const updatePost = (req, res) => {
       (
         oldFile, // Deleting old files
       ) =>
-        unlink("./assets/" + oldFile, (err) => {
+        unlink("../client/public/posts/" + oldFile, (err) => {
           if (err) return res.status(500).json(err);
           console.log(oldFile + " deleted successfully");
         }),
@@ -114,7 +114,7 @@ export const deletePost = (req, res) => {
       if (err) return res.status(403).json("You can only delete your own posts");
 
       req.body.oldFiles?.split(", ").map(oldFile => ( // Deleting old files
-        unlink('./assets/' + oldFile, (err) => {
+        unlink('../client/public/posts/' + oldFile, (err) => {
           if (err) console.log(err);
           console.log(oldFile + " deleted successfully");
         })
